@@ -1,0 +1,21 @@
+---
+title: Action Types in Stit Semantics
+coauthor: 
+  - John F. Horty
+journal: Review of Symbolic Logic
+year: 2017
+type: journal
+citation: Review of Symbolic Logic, 10(4), pp. 617 - 637
+volume: 10
+number: 4
+pages: 617 - 637
+bookname:
+file: kstit-root.pdf
+publisherlink: https://doi.org/10.1017/S1755020317000016
+tags: 
+  - lori
+  - logic
+blurb: 
+abstract: Stit semantics grows out of a modal tradition in the logic of action that concentrates on an operator representing the agency of an individual in seeing to it that some state of affairs holds, rather than on the actions the individual performs in doing so. The purpose of this paper is to enrich stit semantics, and especially epistemic stit semantics, by supplementing the overall framework with an explicit treatment of action types. We show how the introduction of these new action types allows us to define a modal operator capturing an epistemic sense of agency, and how this operator can be used to express an epistemic sense of ability.
+---
+    

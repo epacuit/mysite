@@ -1,0 +1,79 @@
+// Importing variables
+@import './variables.scss';
+
+// Importing Bulma from node_modules
+@import '~bulma/bulma.sass';
+
+ body {
+   font-size:1.25rem;
+ }
+ .notification a:not(.button):not(.dropdown-item) {
+  color:#3273dc;
+  text-decoration: none;
+ }
+
+ .notification a:not(.button):not(.dropdown-item):hover {
+  color:#2356a8;
+  border-bottom: 1px solid currentColor;
+}
+
+.notification a:not(.button):not(.dropdown-item):active {
+  color:#3273dc;
+}
+
+.notification a:not(.button):not(.dropdown-item):visited{
+  color:#3273dc;
+}
+
+.front-page-tile {
+  padding-top: 0px !important;
+}
+
+.pub-item {
+  padding-left: 20px;
+  margin-bottom:30px;
+}
+
+.pub-item-last {
+  padding-left: 20px;
+  margin-bottom:0px;
+
+}
+
+.pub-blurb {
+  margin-top:5px;
+  font-size:90%;
+}
+.abstract-button {
+  margin-left:10px;
+  margin-top:2px;
+}
+.abstract {
+
+  border-left: 4px solid rgb(224,224,224);
+  margin-top: 10px;
+  padding-left: 20px;
+}
+.gradientBg {
+	display: flex;
+	background: linear-gradient(to right, $primary-color, $secondary-color);
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer {
+	display: flex;
+	padding: 1.5rem 1.5rem;
+	line-height: 1.5rem;
+	a {
+		border-bottom: 1px solid;
+		color: black;
+	}
+	a:hover {
+		color: $secondary-color;
+	}
+}

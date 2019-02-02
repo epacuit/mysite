@@ -1,0 +1,26 @@
+#List of tutorial links
+
+- text:  "Voting methods tutorial"
+  link: http://pacuit.org/tutorials/voting-methods
+  icon: link
+
+- text:  "Truth for modal formulas on relational structures"
+  link: http://pacuit.org/modal/tutorial/
+  icon: link
+
+- text:  "Relational semantics for modal logic"
+  link: http://docs.pacuit.org/tutorials/ml-notes.pdf
+  icon: pdf
+
+- text:  "Preferences, choices and utilities"
+  link: http://docs.pacuit.org/tutorials/pref-choice-util.pdf
+  icon: pdf
+
+- text:  "Sets, functions and relations"
+  link: http://docs.pacuit.org/tutorials/discretemath.pdf
+  icon: pdf
+
+- text:  "Online lectures"
+  link: https://www.youtube.com/user/Ericpacuit
+  icon: youtube
+

@@ -1,0 +1,24 @@
+
+#This is a test
+- announcement:  "Talk: [Working Group in History and Philosophy of Logic, Mathematics and Science](http://hplms.berkeley.edu/), 
+  Strategic reasoning: From beliefs about mistakes to mistaken beliefs, October 17, 2018"
+  new: true
+  weight: 100
+  hide: false
+  
+- announcement:  "Talk: [Logic, Information, and Topology Workshop](https://www.cmu.edu/dietrich/philosophy/events/workshops-conferences/index.html), 
+  Beliefs, Propositions and Definite Descriptions, Center for Formal Epistemology, 
+  Carnegie Mellon University, October 20th, 2018"
+  new: false
+  weight: 90
+  hide: false
+
+- announcement:  "Short Course: [Neighborhood semantics for modal logic](http://pacuit.org), 
+  Tsinghua University, Beijing, November, 2018."
+  new: true
+  weight: 5
+  hide: false
+
+  
+  
+ 

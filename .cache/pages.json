@@ -1,0 +1,102 @@
+[
+    {
+        "componentChunkName": "component---src-pages-index-js",
+        "jsonName": "index",
+        "path": "/"
+    },
+    {
+        "componentChunkName": "component---src-pages-404-js",
+        "jsonName": "404-html-516",
+        "path": "/404.html"
+    },
+    {
+        "componentChunkName": "component---src-pages-404-js",
+        "jsonName": "404-22d",
+        "path": "/404/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-belief-revision-580",
+        "path": "/courses/belief-revision/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-epistemic-game-theory-a9f",
+        "path": "/courses/epistemic-game-theory/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-epistemic-logic-9cd",
+        "path": "/courses/epistemic-logic/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-incompleteness-undecidability-511",
+        "path": "/courses/incompleteness-undecidability/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-intro-logic-bfd",
+        "path": "/courses/intro-logic/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-methods-ppe-b22",
+        "path": "/courses/methods-ppe/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-modal-logic-7e7",
+        "path": "/courses/modal-logic/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-models-simulations-da4",
+        "path": "/courses/models-simulations/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-rational-choice-57b",
+        "path": "/courses/rational-choice/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-reasoning-46a",
+        "path": "/courses/reasoning/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-symbolic-logic-851",
+        "path": "/courses/symbolic-logic/"
+    },
+    {
+        "componentChunkName": "component---src-templates-course-page-js",
+        "jsonName": "courses-ug-modal-logic-a24",
+        "path": "/courses/ug-modal-logic/"
+    },
+    {
+        "componentChunkName": "component---src-pages-manuscripts-js",
+        "jsonName": "manuscripts-953",
+        "path": "/manuscripts/"
+    },
+    {
+        "componentChunkName": "component---node-modules-gatsby-plugin-offline-app-shell-js",
+        "jsonName": "offline-plugin-app-shell-fallback-a30",
+        "path": "/offline-plugin-app-shell-fallback/"
+    },
+    {
+        "componentChunkName": "component---src-pages-publications-js",
+        "jsonName": "publications-bd3",
+        "path": "/publications/"
+    },
+    {
+        "componentChunkName": "component---src-pages-teaching-js",
+        "jsonName": "teaching-b63",
+        "path": "/teaching/"
+    },
+    {
+        "componentChunkName": "component---src-pages-tutorials-js",
+        "jsonName": "tutorials-44a",
+        "path": "/tutorials/"
+    }
+]
