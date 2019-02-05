@@ -205,7 +205,7 @@ class PublicationsPage extends React.Component  {
           <h1 className="title" >Publications</h1>
 
           <p className="text " style = {{marginBottom:"-5px"}}>
-          My research can be roughly divided into four main projects: (i) logics of rational interaction, 
+          TESTING My research can be roughly divided into four main projects: (i) logics of rational interaction, 
           (ii) epistemic foundations of game theory, (iii) judgement aggregation and voting, and 
           (iv)  modal logic.  You can filter my papers using these categories by 
           selecting the buttons below.   
