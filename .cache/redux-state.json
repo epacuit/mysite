@@ -2398,12 +2398,12 @@
       },
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2019-02-05T10:09:33.486Z",
+      "buildTime": "2019-02-05T10:28:18.446Z",
       "id": "Site",
       "parent": null,
       "children": [],
       "internal": {
-        "contentDigest": "3789cd4b8077ddabb316c4b8d6b6caf3",
+        "contentDigest": "bf4d0f94f289a0aa58a1228e74643bd0",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -2413,7 +2413,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "8eb3cf7f41b1f3447d5c7de2f1f72563",
+        "contentDigest": "487a96ca23901ed787ac5fdb64845ea7",
         "type": "Directory",
         "description": "Directory \"src/images\"",
         "owner": "gatsby-source-filesystem"
@@ -2425,7 +2425,7 @@
       "size": 128,
       "prettySize": "128 B",
       "modifiedTime": "2019-02-01T16:25:18.601Z",
-      "accessTime": "2019-02-05T10:09:38.389Z",
+      "accessTime": "2019-02-05T10:28:21.090Z",
       "changeTime": "2019-02-02T14:33:18.684Z",
       "birthTime": "2019-02-01T00:46:53.527Z",
       "root": "/",
@@ -2443,11 +2443,11 @@
       "blksize": 4194304,
       "ino": 50983118,
       "blocks": 0,
-      "atimeMs": 1549361378388.5598,
+      "atimeMs": 1549362501090.4014,
       "mtimeMs": 1549038318600.754,
       "ctimeMs": 1549117998684.266,
       "birthtimeMs": 1548982013527.3457,
-      "atime": "2019-02-05T10:09:38.389Z",
+      "atime": "2019-02-05T10:28:21.090Z",
       "mtime": "2019-02-01T16:25:18.601Z",
       "ctime": "2019-02-02T14:33:18.684Z",
       "birthtime": "2019-02-01T00:46:53.527Z"
@@ -2514,7 +2514,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "577a6d82551f4cf667517b91bd4c0258",
+        "contentDigest": "0f29484faaa1208b923957a4a4b5ad19",
         "type": "Directory",
         "description": "Directory \"src/data\"",
         "owner": "gatsby-source-filesystem"
@@ -2526,7 +2526,7 @@
       "size": 256,
       "prettySize": "256 B",
       "modifiedTime": "2019-02-01T16:43:49.844Z",
-      "accessTime": "2019-02-05T10:09:38.400Z",
+      "accessTime": "2019-02-05T10:28:21.101Z",
       "changeTime": "2019-02-02T14:33:30.274Z",
       "birthTime": "2019-02-01T16:26:04.462Z",
       "root": "/",
@@ -2544,11 +2544,11 @@
       "blksize": 4194304,
       "ino": 50983133,
       "blocks": 0,
-      "atimeMs": 1549361378399.6765,
+      "atimeMs": 1549362501100.5007,
       "mtimeMs": 1549039429843.888,
       "ctimeMs": 1549118010274.007,
       "birthtimeMs": 1549038364461.6323,
-      "atime": "2019-02-05T10:09:38.400Z",
+      "atime": "2019-02-05T10:28:21.101Z",
       "mtime": "2019-02-01T16:43:49.844Z",
       "ctime": "2019-02-02T14:33:30.274Z",
       "birthtime": "2019-02-01T16:26:04.462Z"
@@ -2558,7 +2558,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "1319854495a04438730774acd0b8abdd",
+        "contentDigest": "c10d054cf682c31d7c14882a272d1e72",
         "type": "Directory",
         "description": "Directory \"src/data/courses\"",
         "owner": "gatsby-source-filesystem"
@@ -2570,7 +2570,7 @@
       "size": 832,
       "prettySize": "832 B",
       "modifiedTime": "2019-02-01T18:36:00.032Z",
-      "accessTime": "2019-02-05T10:09:38.759Z",
+      "accessTime": "2019-02-05T10:28:21.286Z",
       "changeTime": "2019-02-02T14:33:30.339Z",
       "birthTime": "2019-02-01T16:26:11.292Z",
       "root": "/",
@@ -2588,11 +2588,11 @@
       "blksize": 4194304,
       "ino": 50983247,
       "blocks": 0,
-      "atimeMs": 1549361378758.6636,
+      "atimeMs": 1549362501286.1445,
       "mtimeMs": 1549046160031.672,
       "ctimeMs": 1549118010338.9832,
       "birthtimeMs": 1549038371291.6907,
-      "atime": "2019-02-05T10:09:38.759Z",
+      "atime": "2019-02-05T10:28:21.286Z",
       "mtime": "2019-02-01T18:36:00.032Z",
       "ctime": "2019-02-02T14:33:30.339Z",
       "birthtime": "2019-02-01T16:26:11.292Z"
@@ -2602,7 +2602,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "3c3bdd7a7bc859d60393c711891b99cd",
+        "contentDigest": "a1e2e83b4731a0ce24d4c51e6a3f0edb",
         "type": "Directory",
         "description": "Directory \"src/data/manuscripts\"",
         "owner": "gatsby-source-filesystem"
@@ -2614,7 +2614,7 @@
       "size": 288,
       "prettySize": "288 B",
       "modifiedTime": "2019-02-01T18:19:20.898Z",
-      "accessTime": "2019-02-05T10:09:38.959Z",
+      "accessTime": "2019-02-05T10:28:21.533Z",
       "changeTime": "2019-02-02T14:33:30.380Z",
       "birthTime": "2019-02-01T16:28:10.838Z",
       "root": "/",
@@ -2632,11 +2632,11 @@
       "blksize": 4194304,
       "ino": 50983134,
       "blocks": 0,
-      "atimeMs": 1549361378958.9,
+      "atimeMs": 1549362501533.0938,
       "mtimeMs": 1549045160897.788,
       "ctimeMs": 1549118010379.7163,
       "birthtimeMs": 1549038490837.9697,
-      "atime": "2019-02-05T10:09:38.959Z",
+      "atime": "2019-02-05T10:28:21.533Z",
       "mtime": "2019-02-01T18:19:20.898Z",
       "ctime": "2019-02-02T14:33:30.380Z",
       "birthtime": "2019-02-01T16:28:10.838Z"
@@ -2646,7 +2646,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "ec2982ce460a741fa033372dcbd67432",
+        "contentDigest": "1da6844d19ec8fccd7fcc297ba338b0d",
         "type": "Directory",
         "description": "Directory \"src/data/publications\"",
         "owner": "gatsby-source-filesystem"
@@ -2658,7 +2658,7 @@
       "size": 480,
       "prettySize": "480 B",
       "modifiedTime": "2019-02-02T12:52:45.283Z",
-      "accessTime": "2019-02-05T10:09:38.774Z",
+      "accessTime": "2019-02-05T10:28:21.304Z",
       "changeTime": "2019-02-02T14:33:30.390Z",
       "birthTime": "2019-02-01T16:26:20.215Z",
       "root": "/",
@@ -2676,11 +2676,11 @@
       "blksize": 4194304,
       "ino": 50983143,
       "blocks": 0,
-      "atimeMs": 1549361378773.7642,
+      "atimeMs": 1549362501304.0532,
       "mtimeMs": 1549111965283.153,
       "ctimeMs": 1549118010390.3477,
       "birthtimeMs": 1549038380214.74,
-      "atime": "2019-02-05T10:09:38.774Z",
+      "atime": "2019-02-05T10:28:21.304Z",
       "mtime": "2019-02-02T12:52:45.283Z",
       "ctime": "2019-02-02T14:33:30.390Z",
       "birthtime": "2019-02-01T16:26:20.215Z"
@@ -2690,7 +2690,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "5f8eb0494f671028f9abdddb08bc9908",
+        "contentDigest": "4c771a35b6b5fb614e7f4f37672a2f01",
         "type": "Directory",
         "description": "Directory \"src/data/publications/chapter\"",
         "owner": "gatsby-source-filesystem"
@@ -2702,7 +2702,7 @@
       "size": 832,
       "prettySize": "832 B",
       "modifiedTime": "2019-02-02T13:13:48.931Z",
-      "accessTime": "2019-02-05T10:09:38.908Z",
+      "accessTime": "2019-02-05T10:28:21.489Z",
       "changeTime": "2019-02-02T14:33:30.629Z",
       "birthTime": "2019-02-01T16:26:44.715Z",
       "root": "/",
@@ -2720,11 +2720,11 @@
       "blksize": 4194304,
       "ino": 50983218,
       "blocks": 0,
-      "atimeMs": 1549361378908.3274,
+      "atimeMs": 1549362501488.5361,
       "mtimeMs": 1549113228930.646,
       "ctimeMs": 1549118010628.8403,
       "birthtimeMs": 1549038404715.158,
-      "atime": "2019-02-05T10:09:38.908Z",
+      "atime": "2019-02-05T10:28:21.489Z",
       "mtime": "2019-02-02T13:13:48.931Z",
       "ctime": "2019-02-02T14:33:30.629Z",
       "birthtime": "2019-02-01T16:26:44.715Z"
@@ -2734,7 +2734,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "e15382b3b5e287baaccab34f43c54ba7",
+        "contentDigest": "9c6f45f0d7fcb81608d11a21ec9450f3",
         "type": "Directory",
         "description": "Directory \"src/data/publications/journal\"",
         "owner": "gatsby-source-filesystem"
@@ -2746,7 +2746,7 @@
       "size": 1376,
       "prettySize": "1.38 kB",
       "modifiedTime": "2019-02-02T12:59:49.565Z",
-      "accessTime": "2019-02-05T10:09:38.867Z",
+      "accessTime": "2019-02-05T10:28:21.443Z",
       "changeTime": "2019-02-02T14:33:30.650Z",
       "birthTime": "2019-02-01T16:26:31.012Z",
       "root": "/",
@@ -2764,11 +2764,11 @@
       "blksize": 4194304,
       "ino": 50983144,
       "blocks": 0,
-      "atimeMs": 1549361378866.8782,
+      "atimeMs": 1549362501443.2056,
       "mtimeMs": 1549112389565.034,
       "ctimeMs": 1549118010650.1821,
       "birthtimeMs": 1549038391012.4683,
-      "atime": "2019-02-05T10:09:38.867Z",
+      "atime": "2019-02-05T10:28:21.443Z",
       "mtime": "2019-02-02T12:59:49.565Z",
       "ctime": "2019-02-02T14:33:30.650Z",
       "birthtime": "2019-02-01T16:26:31.012Z"
@@ -2778,7 +2778,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "61fe284a33cf94d9be81507a652f0c3b",
+        "contentDigest": "787708ab3009df0e1aeafc277c9b0cf5",
         "type": "Directory",
         "description": "Directory \"src/data/publications/proceedings\"",
         "owner": "gatsby-source-filesystem"
@@ -2790,7 +2790,7 @@
       "size": 832,
       "prettySize": "832 B",
       "modifiedTime": "2019-02-02T13:06:02.753Z",
-      "accessTime": "2019-02-05T10:09:38.933Z",
+      "accessTime": "2019-02-05T10:28:21.513Z",
       "changeTime": "2019-02-02T14:33:30.803Z",
       "birthTime": "2019-02-01T16:27:04.110Z",
       "root": "/",
@@ -2808,11 +2808,11 @@
       "blksize": 4194304,
       "ino": 50983190,
       "blocks": 0,
-      "atimeMs": 1549361378932.7336,
+      "atimeMs": 1549362501513.0017,
       "mtimeMs": 1549112762752.536,
       "ctimeMs": 1549118010802.643,
       "birthtimeMs": 1549038424109.6792,
-      "atime": "2019-02-05T10:09:38.933Z",
+      "atime": "2019-02-05T10:28:21.513Z",
       "mtime": "2019-02-02T13:06:02.753Z",
       "ctime": "2019-02-02T14:33:30.803Z",
       "birthtime": "2019-02-01T16:27:04.110Z"
@@ -13064,7 +13064,8 @@
         "/courses/symbolic-logic/",
         "/courses/ug-modal-logic/",
         "/publications/",
-        "/teaching/"
+        "/teaching/",
+        null
       ],
       "PastCoursesCsv": [
         "sq--src-components-previous-course-list-js"
@@ -13099,7 +13100,8 @@
     "teaching-b63": "338/path---teaching-b-63-db2-kNt3c9pmYH52pa0HTsVQ3OghE",
     "404-22d": "44/path---404-22-d-bce-NZuapzHg3X9TaN1iIixfv1W23E",
     "index": "173/path---index-6a9-NZuapzHg3X9TaN1iIixfv1W23E",
-    "404-html-516": "164/path---404-html-516-62a-NZuapzHg3X9TaN1iIixfv1W23E"
+    "404-html-516": "164/path---404-html-516-62a-NZuapzHg3X9TaN1iIixfv1W23E",
+    "dev-404-page-5f9": "920/path---dev-404-page-5-f-9-fab-NZuapzHg3X9TaN1iIixfv1W23E"
   },
   "components": {
     "/Users/epacuit/Dropbox/mysite/src/templates/course-page.js": {

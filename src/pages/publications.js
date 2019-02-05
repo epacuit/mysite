@@ -32,6 +32,7 @@ class Pub extends React.Component {
   }
 
   handleToggleAbstract() {
+    console.log("TOGGLE ABSTRACT....")
     this.setState({showAbstract:!this.state.showAbstract})
   }
   render() {
@@ -42,8 +43,8 @@ class Pub extends React.Component {
       <div className={this.props.isLast ? "pub-item-last": "pub-item"}>
         <p className="text">
           <span className="pub-title">
-            {this.props.file == null ? this.props.title: <a href={"http://docs.pacuit.org" + this.props.file.publicURL}
->{this.props.title}</a>}
+            {this.props.file == null ?   this.props.title: <a href={"http://tmp.pacuit.org" + this.props.file.publicURL}
+ target="_blank">{this.props.title}</a>}
           </span> ({this.props.year}){genAuthorString(this.props.coauthor)},&nbsp; 
           <span dangerouslySetInnerHTML={{ __html: md.render(this.props.citation).replace('<p>', '<span>').replace('</p>','</span>') }}></span>
           <div style={{marginTop:"5px"}}>
