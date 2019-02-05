@@ -80,11 +80,6 @@
         "path": "/manuscripts/"
     },
     {
-        "componentChunkName": "component---node-modules-gatsby-plugin-offline-app-shell-js",
-        "jsonName": "offline-plugin-app-shell-fallback-a30",
-        "path": "/offline-plugin-app-shell-fallback/"
-    },
-    {
         "componentChunkName": "component---src-pages-publications-js",
         "jsonName": "publications-bd3",
         "path": "/publications/"

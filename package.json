@@ -32,7 +32,8 @@
 		"react-icons": "^3.2.2",
 		"react-jss": "^8.6.1",
 		"react-markdown": "^4.0.3",
-		"styled-jss": "^2.2.3"
+		"styled-jss": "^2.2.3",
+		"terser": "3.14.1"
 	},
 	"keywords": [
 		"gatsby",

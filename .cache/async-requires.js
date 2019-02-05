@@ -2,7 +2,6 @@
 const preferDefault = m => m && m.default || m
 
 exports.components = {
-  "component---node-modules-gatsby-plugin-offline-app-shell-js": () => import("/Users/epacuit/Dropbox/mysite/node_modules/gatsby-plugin-offline/app-shell.js" /* webpackChunkName: "component---node-modules-gatsby-plugin-offline-app-shell-js" */),
   "component---src-templates-course-page-js": () => import("/Users/epacuit/Dropbox/mysite/src/templates/course-page.js" /* webpackChunkName: "component---src-templates-course-page-js" */),
   "component---src-pages-404-js": () => import("/Users/epacuit/Dropbox/mysite/src/pages/404.js" /* webpackChunkName: "component---src-pages-404-js" */),
   "component---src-pages-index-js": () => import("/Users/epacuit/Dropbox/mysite/src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),

@@ -10,9 +10,6 @@ var plugins = [{
     },{
       plugin: require('/Users/epacuit/Dropbox/mysite/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
       options: {"plugins":[],"trackingId":"UA-XXXXXXXX-X","anonymize":true},
-    },{
-      plugin: require('/Users/epacuit/Dropbox/mysite/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
-      options: {"plugins":[]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [

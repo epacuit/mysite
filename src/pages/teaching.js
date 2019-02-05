@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Layout from '../components/layout'
 import PreviousCourses from '../components/previousCourseList'
-import { graphql,navigate } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 
 import '../components/style.scss'
 import {

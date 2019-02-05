@@ -94,10 +94,10 @@ module.exports = {
 		'gatsby-transformer-yaml',
 		'gatsby-transformer-csv',
 		'gatsby-transformer-remark',		  
-		`gatsby-plugin-sitemap`,
+		//`gatsby-plugin-sitemap`,
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
-		'gatsby-plugin-offline',
+		//'gatsby-plugin-offline',
 	]
 };
 
