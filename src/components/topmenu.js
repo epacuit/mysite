@@ -93,8 +93,8 @@ class TopMenu extends Component {
               </Link>
 
               <div className="navbar-dropdown">
-                <Link
-                  to="/short_courses"
+                <a
+                  href = "http://app.pacuit.org/esslli"
                   className={
                     this.props.activeItem === 'shortcourses'
                       ? 'navbar-item is-active'
@@ -102,7 +102,7 @@ class TopMenu extends Component {
                   }
                 >
                   Short Courses
-                </Link>
+                </a>
                 <Link
                   to="/tutorials"
                   className={

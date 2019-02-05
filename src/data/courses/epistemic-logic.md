@@ -2,7 +2,6 @@
 title: "Philosophical Logic: Reasoning about Knowledge and Beliefs"
 short_name: "Reasoning about Knowledge and Beliefs"
 course_number: PHIL 478P
-front_page: false
 level: Undergraduate
 current_semester: Fall 2013
 website:

@@ -2,7 +2,6 @@
 title: "Topics in Contemporary Philosophy: Rational Choice"
 short_name: "Rational Choice"
 course_number: PHIL 408R
-front_page: false
 level: Undergraduate
 current_semester: Spring 2013
 website:

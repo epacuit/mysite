@@ -16,6 +16,8 @@ tags:
   - nbhd
   - del
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: This paper adds evidence structure to standard models of belief, in the form of families of sets of worlds. We show how these more fine-grained models support natural actions of 'evidence management', ranging from update with external new information to  internal rearrangement. We show how this perspective leads to new richer languages for existing neighborhood semantics for modal logic. Our main results are relative completeness theorems for the resulting dynamic logic of evidence.
 ---

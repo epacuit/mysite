@@ -2,7 +2,6 @@
 title: "Philosophical Logic: Modal Logic"
 short_name: "Philosophical Logic: Modal Logic"
 course_number: PHIL 478M
-front_page: false
 level: Undergraduate
 current_semester: Fall 2015
 website:

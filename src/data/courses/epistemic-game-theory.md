@@ -2,7 +2,6 @@
 title: Epistemic Game Theory
 short_name: Epistemic Game Theory
 course_number: PHIL 858E
-front_page: false
 level: Graduate
 current_semester: Spring 2014
 website:

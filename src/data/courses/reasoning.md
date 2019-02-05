@@ -2,7 +2,6 @@
 title: "Reasoning for Humans: Clear Thinking in an Uncertain World"
 short_name: "Reasoning for Humans: Clear Thinking in an Uncertain World"
 course_number: PHIL 218A
-front_page: false
 level: Undergraduate
 current_semester: Spring 2018
 website:

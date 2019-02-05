@@ -18,6 +18,8 @@ tags:
   - 'epgth'
   - 'logic'
   - 'ppe'
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: Epistemic game theory has shown the importance of informational contexts to understand strategic interaction. We propose a general framework to analyze how such contexts may arise. The idea is to view informational contexts as the fixed points of iterated, rational responses to incoming information about the agents' possible choices. We discuss conditions under which such fixed points may exist. In the process, we generalize existing rules for information updates used in the dynamic epistemic logic literature. We then apply this framework to weak dominance. Our analysis provides a new perspective on a well known problem with the epistemic characterization of iterated removal of weakly dominated strategies.
 ---

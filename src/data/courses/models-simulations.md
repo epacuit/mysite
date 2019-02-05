@@ -2,7 +2,6 @@
 title: Models and Simulations in Philosophy
 short_name: Models and Simulations in Philosophy
 course_number: PHIL 418A
-front_page: false
 level: Undergraduate
 current_semester: Fall 2017
 website:

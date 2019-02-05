@@ -38,12 +38,12 @@ const SideMenu = ({ activeItem }) => (
           </Link>
           <ul>
             <li>
-              <Link
-                to="/short_courses"
+              <a 
+                href="http://app.pacuit.org/esslli"
                 className={activeItem === 'short' ? 'is-active' : ''}
               >
                 Short Courses
-              </Link>
+              </a>
             </li>
             <li>
               <Link

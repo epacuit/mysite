@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import me4 from '../images/me4.jpg' // Tell Webpack this JS file uses this image
 import Announcements from '../components/announcements'
+import RecentPublications from '../components/recentpublications'
 import '../components/style.scss'
 
 const IndexPage = () => (
@@ -89,11 +90,7 @@ const IndexPage = () => (
           <article className="tile is-child notification is-white front-page-tile">
             <h2 className="title">Recent Publications</h2>
 
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-              ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas
-              non massa sem. Etiam finibus odio quis feugiat facilisis.
-            </p>
+            <RecentPublications />
           </article>
         </div>
         <article className="tile is-child notification  is-white front-page-tile">

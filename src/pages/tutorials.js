@@ -13,7 +13,7 @@ import {
   
 const TutorialsPage = ({data}) => (
   <Layout activePage="tutorials">
-    <section style={{ minHeight: '250px', marginBottom:"100px" }}>
+    <section style={{ minHeight: '250px', marginBottom:"170px" }}>
       <div
         className="tile is-vertical is-ancestor"
         style={{ marginTop: '20px' }}

@@ -14,6 +14,8 @@ publisherlink: http://www.illc.uva.nl/Research/Publications/Reports/PP-2006-29.t
 tags: 
   - lori
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: "Sergei Artemov introduced the Logic of Proofs (LP) as a logic of explicit proofs. There is also an epistemic reading in which t is a *justification$ of P. Motivated, in part, by this epistemic reading, Fitting introduced a Kripke style semantics for LP. In this note, we prove soundness and completeness of some axiom systems which are not covered by Fitting."
 ---

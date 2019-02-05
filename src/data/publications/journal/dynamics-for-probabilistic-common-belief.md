@@ -14,6 +14,8 @@ publisherlink: http://studiesinlogic.sysu.edu.cn:8080/ljxyj/EN/abstract/abstract
 tags: 
   - lori
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: "Robert Aumann's agreeing to disagree theorem shows that if two agents have the same prior probability and update their probability of an event E with private information by conditioning, then if the posterior probabilities of E are common knowledge, then the posteriors must be the same. Dov Monderer and Dov Samet prove a generalization of Aumann's result involving a probabilistic variant of common knowledge. In this paper, I use various methods from probabilistic and dynamic-epistemic logics to explore a dynamic characterization of the Monderer and Samet result. The main goal is to develop a model that describes the evolution of the agents' knowledge and (probabilistic) beliefs as they interact with each other and the environment. I will show how the logical frameworks are rich and flexible tools that can be used to study many dynamic processes of interactive social belief change."
 ---

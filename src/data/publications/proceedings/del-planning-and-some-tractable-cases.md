@@ -16,6 +16,8 @@ publisherlink:  http://link.springer.com/chapter/10.1007/978-3-642-24130-7_13
 tags: 
   - lori
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: We describe the planning problem within the framework of dynamic epistemic logic (DEL), considering the tree of sequences of events as the underlying structure. In general, the DEL planning problem is computationally difficult to solve. On the other hand, a great deal of fruitful technical advances have led to deep insights into the way DEL works, and these can be exploited in special cases. We present a few properties that will lead to considerable simplifications of the DEL planning problem and apply them in a toy example.
 ---

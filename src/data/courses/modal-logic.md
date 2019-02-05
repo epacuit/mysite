@@ -2,7 +2,6 @@
 title: Modal Logic
 short_name: Modal Logic
 course_number: PHIL 858A
-front_page: false
 level: Graduate
 current_semester: Spring 2019
 website:

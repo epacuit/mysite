@@ -2,7 +2,6 @@
 title: Introduction to Logic
 short_name: Introduction to Logic
 course_number: PHIL 170
-front_page: false
 level: Undergraduate
 current_semester: Fall 2017
 website:

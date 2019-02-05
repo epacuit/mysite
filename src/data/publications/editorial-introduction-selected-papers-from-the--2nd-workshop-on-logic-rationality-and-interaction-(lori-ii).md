@@ -14,6 +14,8 @@ publisherlink:
 tags: 
   - lori
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: 
 ---

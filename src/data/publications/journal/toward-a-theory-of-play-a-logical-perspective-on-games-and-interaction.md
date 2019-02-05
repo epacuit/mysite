@@ -18,6 +18,8 @@ tags:
   - epgth
   - logic
   - ppe
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: Logic and game theory have had a few decades of contacts by now, with the  lassical results of epistemic game theory as major high-lights. In this paper, we emphasize a recent new perspective toward 'logical dynamics', designing logical systems that focus on the actions that change information, preference, and other driving forces of agency. We show how this dynamic turn works out for games, drawing on some recent advances in the literature. Our key examples are the long-term dynamics of information exchange, as well as the much-discussed issue of extensive game rationality. Our paper also proposes a new broader interpretation of what is happening here. The combination of logic and game theory provides a fine-grained perspective on information and interaction dynamics, and we are witnessing the birth of something new which is not just logic, nor just game theory, but rather a <em>Theory of Play</em>.
 ---

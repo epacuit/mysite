@@ -15,6 +15,8 @@ tags:
   - lori
   - del
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: Dynamic epistemic logic, broadly conceived, is the study of logics of  <em>information change</em>. This is the first paper in a two-part series introducing this research area. In this paper, I introduce the basic logical systems for reasoning about the knowledge and beliefs of a group of agents.
 ---

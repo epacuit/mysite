@@ -16,6 +16,8 @@ tags:
   - lori
   - etl
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: We survey a number of decidability and undecidability results concerning epistemic temporal logic. The goal is to provide a general picture which will facilitate the 'sharing of ideas' from a number of different areas concerned with modeling agents in interactive social situations.
 ---

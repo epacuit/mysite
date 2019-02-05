@@ -7,4 +7,6 @@ writings:
     name: "Talk: Dependence and independence in social choice theory"
     comment: Dagstuhl conference on dependence and independence logic, January 2019  
 other:    
+front_page: false 
+frontpage_info: 
 ---

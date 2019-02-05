@@ -17,6 +17,8 @@ tags:
   - lori
   - logknowact
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: "Deontic Logic goes back to Ernst Mally's 1926 work, 
   Grundgesetze des Sollens: Elemente der Logik des Willens [Mally. E.: 1926, 

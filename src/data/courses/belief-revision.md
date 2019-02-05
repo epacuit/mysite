@@ -2,7 +2,6 @@
 title: Logical and Probabilistic Models of Belief Change
 short_name: Logical and Probabilistic Models of Belief Change
 course_number: PHIL 858K
-front_page: false
 level: Graduate
 current_semester: Spring 2016
 website:

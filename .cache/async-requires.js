@@ -3,7 +3,6 @@ const preferDefault = m => m && m.default || m
 
 exports.components = {
   "component---src-templates-course-page-js": () => import("/Users/epacuit/Dropbox/mysite/src/templates/course-page.js" /* webpackChunkName: "component---src-templates-course-page-js" */),
-  "component---cache-dev-404-page-js": () => import("/Users/epacuit/Dropbox/mysite/.cache/dev-404-page.js" /* webpackChunkName: "component---cache-dev-404-page-js" */),
   "component---src-pages-404-js": () => import("/Users/epacuit/Dropbox/mysite/src/pages/404.js" /* webpackChunkName: "component---src-pages-404-js" */),
   "component---src-pages-index-js": () => import("/Users/epacuit/Dropbox/mysite/src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),
   "component---src-pages-manuscripts-js": () => import("/Users/epacuit/Dropbox/mysite/src/pages/manuscripts.js" /* webpackChunkName: "component---src-pages-manuscripts-js" */),

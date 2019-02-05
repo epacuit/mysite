@@ -14,7 +14,8 @@ publisherlink: http://dx.doi.org/10.1007/978-94-007-0080-2_13
 tags: 
   - lori
   - ppe
-blurb: 
+blurb:
+front_page:
 abstract: It is often convenient to view a computational procedure, or a program, as a relation on a set of states, where a state can be thought of as a function that assigns a value to every possible variable and a truth value to all propositions.  In this paper, I show how to extend these ideas to verifying correctness of the Adjusted Winner fair division algorithm.
 ---
     

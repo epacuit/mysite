@@ -16,6 +16,8 @@ publisherlink:  http://link.springer.com/article/10.1007%2Fs11229-009-9558-0
 tags: 
   - lori
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: 
 ---

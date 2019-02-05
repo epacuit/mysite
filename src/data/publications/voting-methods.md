@@ -15,6 +15,8 @@ tags:
   - judgeagg
   - voting
   - ppe
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: "Think back to the last time you needed to make a decision as a member of a group. This may have been when you voted for your favorite political candidate during the last election. On a smaller scale, it may have been when you took part in a committee that needed to choose the best candidate for a job or a student to receive a special award. What method, or procedure, did the group use to make the final decision? Many interesting issues arise when we carefully examine our group decision-making processes. Consider a simple example of a group of friends deciding where to go for dinner. If everyone agrees on which restaurant is best, then it is obvious where to go. But how should the friends decide where to go if they have different opinions about which restaurant is best? Is there always a choice that is 'fair' taking into account everyone's opinions? Or are there situations in which one person must be chosen to act as a 'dictator' by making a unilateral decision? 
 

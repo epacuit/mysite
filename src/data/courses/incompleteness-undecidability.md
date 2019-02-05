@@ -2,7 +2,6 @@
 title: Incompleteness and Undecidability
 short_name: Incompleteness and Undecidability
 course_number: PHIL 470
-front_page: false
 level: Undergraduate
 current_semester: Spring 2019
 website:

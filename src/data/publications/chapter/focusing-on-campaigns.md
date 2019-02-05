@@ -17,6 +17,7 @@ tags:
   - judgeagg
   - voting
   - ppe
+front_page:
 blurb: 
 abstract:  One of the important lessons to take away from Rohit Parikh's 
      impressive body of work is that logicians and computer scientists have 

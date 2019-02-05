@@ -16,6 +16,7 @@ tags:
   - social
   - judgeagg
   - logic
+front_page:
 blurb: 
 abstract:  One of the goals of social choice theory is to study the group decision methods that satisfy two types of desiderata. The first type ensures that the group decision depends in the right way on the voters' opinions. The second type ensures that the voters are free to express any opinion, as long as it is an admissible input to the group decision method. Impossibility theorems, such as Arrow's Theorem, point to an interesting tension between these two desiderata. In this paper, we argue that dependence and independence logic offer an interesting new perspective on this aspect of social choice theory. To that end, we develop a version of independence logic that can express Arrow's properties of preference aggregation functions. We then prove that Arrow's Theorem is derivable in a natural deduction system for the first-order consequences of our logic.
 ---

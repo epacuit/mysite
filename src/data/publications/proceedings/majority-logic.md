@@ -15,6 +15,8 @@ publisherlink: http://www.aaai.org/Papers/KR/2004/KR04-062.file
 tags: 
   - lori
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: We extend graded modal logic (GML) to a logic that captures the concept of majority. We provide an axiomatization for majority logic, MJL, and sketch soundness and completeness proofs. Along the way, we must answer the question what is a majority of an infinite set? Majority spaces are introduced as a solution to this question.
 ---

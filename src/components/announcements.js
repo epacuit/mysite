@@ -27,7 +27,7 @@ const Announcements = ({ activePage, children }) => (
       const announcements = data.allAnnouncementsYaml.edges.map((a, idx) => (
         <Li key={idx}>
           {a.node.new ? (
-            <span className="tag is-dark" style={{ marginRight: '5px' }}>
+            <span className="tag is-dark" style={{ marginRight: '5px', background:"#505050" }}>
               new
             </span>
           ) : (

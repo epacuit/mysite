@@ -2,7 +2,6 @@
 title: Methods in Philosophy, Politics and Economics
 short_name: Methods in Philosophy, Politics and Economics
 course_number: PHIL 309P
-front_page: false
 level: Undergraduate
 current_semester: Spring 2018
 website:

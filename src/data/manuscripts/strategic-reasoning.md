@@ -1,7 +1,7 @@
 ---
 title: Strategic Reasoning
 order: 2
-blurb: 
+blurb:
 writings: 
   - file: fi-bi-skyrms-delib.pdf
     name: "Deliberational dynamics in context"
@@ -12,5 +12,9 @@ writings:
   - file: strategic-reasoning-BERKELEY-10-17-2018.pdf
     name: "Talk: Strategic Reasoning: From beliefs about mistakes to mistaken beliefs"
     comment: 
-other:    
+other: 
+front_page: true 
+frontpage_info: 
+  - file: fi-bi-skyrms-delib.pdf
+    name: "Deliberational dynamics in context"
 ---

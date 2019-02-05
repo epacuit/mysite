@@ -17,6 +17,8 @@ tags:
   - logic
   - lori
   - del
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: Many different approaches to describing the players' knowledge and beliefs can be found in the literature on the epistemic foundations of game theory. We focus here on non-probabilistic approaches. The two most prominent are the so-called Kripke- or Aumann- structures and knowledge structures (non-probabilistic variants of Harsanyi type spaces). Much of the recent work on Kripke structures has focused on dynamic extensions and simple ways of incorporating these. We argue that many of these ideas can be applied to knowledge structures as well. Our main result characterizes precisely when one type can be transformed into another type by a specific type of information update. Our work in this paper suggest that it would be interesting to pursue a theory of "information dynamics" for knowledge structures (and eventually Harsanyi type spaces).
 ---

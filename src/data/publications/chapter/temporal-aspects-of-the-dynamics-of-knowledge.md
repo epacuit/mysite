@@ -16,6 +16,7 @@ tags:
   - etl
   - lori
   - del
+front_page:
 blurb: 
 abstract: "Knowledge and time are fundamental aspects of agency and their interaction is in the focus of a wide spectrum of philosophical and logical studies. This interaction is two-fold: on the one hand, knowledge evolves over time; on the other hand, in the subjective view of the agent, time only passes when her knowledge about the world changes. In this chapter we discuss models and logics reflecting the temporal aspects of the dynamics of knowledge and offer some speculations and ideas on how the interaction of temporality and knowledge can be systematically yeah thoughtreated."
 ---

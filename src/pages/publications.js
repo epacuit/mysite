@@ -32,7 +32,6 @@ class Pub extends React.Component {
   }
 
   handleToggleAbstract() {
-    console.log("TOGGLE ABSTRACT....")
     this.setState({showAbstract:!this.state.showAbstract})
   }
   render() {
@@ -43,7 +42,7 @@ class Pub extends React.Component {
       <div className={this.props.isLast ? "pub-item-last": "pub-item"}>
         <p className="text">
           <span className="pub-title">
-            {this.props.file == null ?   this.props.title: <a href={"http://tmp.pacuit.org" + this.props.file.publicURL}
+            {this.props.file == null ?   this.props.title: <a href={this.props.file.publicURL}
  target="_blank">{this.props.title}</a>}
           </span> ({this.props.year}){genAuthorString(this.props.coauthor)},&nbsp; 
           <span dangerouslySetInnerHTML={{ __html: md.render(this.props.citation).replace('<p>', '<span>').replace('</p>','</span>') }}></span>
@@ -205,7 +204,7 @@ class PublicationsPage extends React.Component  {
           <h1 className="title" >Publications</h1>
 
           <p className="text " style = {{marginBottom:"-5px"}}>
-          TESTING My research can be roughly divided into four main projects: (i) logics of rational interaction, 
+           My research can be roughly divided into four main projects: (i) logics of rational interaction, 
           (ii) epistemic foundations of game theory, (iii) judgement aggregation and voting, and 
           (iv)  modal logic.  You can filter my papers using these categories by 
           selecting the buttons below.   

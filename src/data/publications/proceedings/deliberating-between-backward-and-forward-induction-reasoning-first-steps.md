@@ -15,6 +15,8 @@ publisherlink:
 tags: 
   - epgth
   - ppe
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: Backward and forward induction can be viewed as two styles of reasoning in dynamic games. Since each prescribes taking a different attitude towards the past moves of the other player(s), the strategies  they identify as rational are sometimes  incompatible.  Our goal is to study players who are able to deliberate between backward and forward induction, as well as conditions under which one is superior to the other. This extended abstract is our first step towards this goal.  We present an extension of Stalnaker's game models   in which the players can make "trembling hand" mistakes.  This means that when a player observes an unexpected move, she has to figure out whether it is a result of a deliberate choice or a mistake, thereby committing herself to one of the two styles of reasoning.
 ---

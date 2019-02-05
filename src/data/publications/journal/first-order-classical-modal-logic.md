@@ -15,6 +15,8 @@ publisherlink:  http://link.springer.com/article/10.1007%2Fs11225-006-9010-0
 tags: 
   - nbhd
   - logic
+front_page: false
+frontpage_data:  
 blurb: "This paper superscedes Horacio Arlo-Costa and Eric Pacuit (2005). First-order classical modal logic: Applications in logics of knowledge and probability, in <em>Proceedings of Theoretical Aspects of Rationality and Knowledge (TARK)</em>, pp. 262 - 278."
 abstract: "The paper focuses on extending to the first order case the semantical program for modalities first introduced by Dana Scott and Richard Montague. We focus on the study of neighborhood frames with constant domains and we offer in the first part of the paper a series of new completeness results for salient classical systems of first order modal logic. Among other results we show that it is possible to prove strong completeness results for normal systems without the Barcan Formula (like FOL + K)in terms of neighborhood frames with constant domains. The first order models we present permit the study of many epistemic modalities recently proposed in computer science as well as the development of adequate models for monadic operators of high probability. Models of this type are either difficult of impossible to build in terms of relational Kripkean semantics [40].
 

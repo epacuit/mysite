@@ -16,6 +16,8 @@ publisherlink:  http://www.aaai.org/ocs/index.php/KR/KR2010/paper/download/1297/
 tags: 
   - lori
   - belrev
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: We present a formal semantical model to capture action, belief and intention, based on the 'database perspective' (Shoham 2009). We then provide postulates for belief and intention revision, and state a representation theorem relating our postulates to the formal model.  Our belief postulates are in the spirit of the AGM theory; the intention postulates stand in rough correspondence with the belief postulates.
 ---

@@ -16,6 +16,8 @@ tags:
   - lori
   - logknowact
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: We introduce and study a PDL-style logic for reasoning about protocols, or plans, under imperfect information. Our paper touches on a number of issues surrounding the relationship between an agent's abilities, available choices, and information in an interactive situation. The main question we address is under what circumstances can the agent commit to a protocol or plan, and what can she achieve by doing so?
 ---

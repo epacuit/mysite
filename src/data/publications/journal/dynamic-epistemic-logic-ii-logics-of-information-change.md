@@ -15,6 +15,8 @@ tags:
   - lori
   - del
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: This is the second paper in a two-part series introducing logics for reasoning about the dynamics of knowledge and beliefs. Part I introduced different logical systems that can be used to reason about the knowledge and beliefs of a group of agents. In this second paper, I show how to adapt these logical systems to reason about the knowledge and beliefs of a group of agents during the course of a social interaction or rational inquiry. Inference, communication and observation are typical examples of informative events, which have been subjected to a logical analysis. The main goal of this article is to introduce the key conceptual and technical issues that drive much of the research in this area.
 ---

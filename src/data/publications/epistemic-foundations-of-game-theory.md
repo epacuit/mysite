@@ -15,6 +15,8 @@ publisherlink: http://plato.stanford.edu/archives/spr2015/entries/epistemic-game
 tags: 
   - epgth
   - ppe
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: "Foundational work in game theory aims at making explicit the assumptions that 
     underlie the basic concepts of the discipline. Non-cooperative game theory is the study of individual, rational decision making in situations of strategic interaction. This entry presents the epistemic foundations of non-cooperative game theory (this area of research is called epistemic game theory). <br/><br/> Epistemic game theory views rational decision making in games as something not essentially different from rational decision making under uncertainty. As in Decision Theory (Peterson 2009), to choose rationally in a game is to select the 'best' action in light of one's beliefs or information. In a decision problem, the decision maker's beliefs are about a passive state of nature, the state of which determines the consequences of her actions. 

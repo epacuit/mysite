@@ -16,6 +16,8 @@ tags:
   - epgth
   - eplogic
   - logic
+front_page: false
+frontpage_data:  
 blurb: 
 abstract: In this paper we study substantive assumptions in social interaction. By substantive assumptions we mean contingent assumptions about what the players know and believe about each other's choices and information. We first explain why substantive assumptions are fundamental for the analysis of games and, more generally, social interaction. Then we show that they can be compared formally, and that there exist contexts where no substantive assumptions are being made. Finally we show that the questions raised in this paper are related to a number of issues concerning 'large' structures in epistemic game theory.
 ---
