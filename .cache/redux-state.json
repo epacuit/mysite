@@ -1,13 +1,22 @@
 {
   "nodes": {
     "SitePage /dev-404-page/": {
+      "jsonName": "dev-404-page-5f9",
+      "internalComponentName": "ComponentDev404Page",
       "path": "/dev-404-page/",
+      "component": "/Users/epacuit/Dropbox/mysite/.cache/dev-404-page.js",
+      "componentChunkName": "component---cache-dev-404-page-js",
+      "context": {},
+      "pluginCreator___NODE": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+      "pluginCreatorId": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+      "componentPath": "/Users/epacuit/Dropbox/mysite/.cache/dev-404-page.js",
       "id": "SitePage /dev-404-page/",
       "parent": null,
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "f91d29e10ba680b413138cf9ed86e655",
+        "contentDigest": "4e4b2486fac81938e24200d7bd1e3c2d",
+        "description": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
         "owner": "internal-data-bridge"
       }
     },
@@ -2396,14 +2405,16 @@
         "appSite": "https://app.pacuit.org/",
         "siteUrl": "https://pacuit.org/"
       },
+      "port": "8000",
+      "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2019-02-05T10:28:18.446Z",
+      "buildTime": "2019-02-05T11:10:07.864Z",
       "id": "Site",
       "parent": null,
       "children": [],
       "internal": {
-        "contentDigest": "bf4d0f94f289a0aa58a1228e74643bd0",
+        "contentDigest": "b36296b84bd0969fe2fdbe46282fa864",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -2413,7 +2424,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "487a96ca23901ed787ac5fdb64845ea7",
+        "contentDigest": "050608fc4a54082ae9226d539884df00",
         "type": "Directory",
         "description": "Directory \"src/images\"",
         "owner": "gatsby-source-filesystem"
@@ -2425,7 +2436,7 @@
       "size": 128,
       "prettySize": "128 B",
       "modifiedTime": "2019-02-01T16:25:18.601Z",
-      "accessTime": "2019-02-05T10:28:21.090Z",
+      "accessTime": "2019-02-05T11:10:13.784Z",
       "changeTime": "2019-02-02T14:33:18.684Z",
       "birthTime": "2019-02-01T00:46:53.527Z",
       "root": "/",
@@ -2443,11 +2454,11 @@
       "blksize": 4194304,
       "ino": 50983118,
       "blocks": 0,
-      "atimeMs": 1549362501090.4014,
+      "atimeMs": 1549365013783.5703,
       "mtimeMs": 1549038318600.754,
       "ctimeMs": 1549117998684.266,
       "birthtimeMs": 1548982013527.3457,
-      "atime": "2019-02-05T10:28:21.090Z",
+      "atime": "2019-02-05T11:10:13.784Z",
       "mtime": "2019-02-01T16:25:18.601Z",
       "ctime": "2019-02-02T14:33:18.684Z",
       "birthtime": "2019-02-01T00:46:53.527Z"
@@ -2514,7 +2525,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "0f29484faaa1208b923957a4a4b5ad19",
+        "contentDigest": "f0132531f92b8482f3d719dd5374b7d0",
         "type": "Directory",
         "description": "Directory \"src/data\"",
         "owner": "gatsby-source-filesystem"
@@ -2526,7 +2537,7 @@
       "size": 256,
       "prettySize": "256 B",
       "modifiedTime": "2019-02-01T16:43:49.844Z",
-      "accessTime": "2019-02-05T10:28:21.101Z",
+      "accessTime": "2019-02-05T11:10:13.792Z",
       "changeTime": "2019-02-02T14:33:30.274Z",
       "birthTime": "2019-02-01T16:26:04.462Z",
       "root": "/",
@@ -2544,11 +2555,11 @@
       "blksize": 4194304,
       "ino": 50983133,
       "blocks": 0,
-      "atimeMs": 1549362501100.5007,
+      "atimeMs": 1549365013792.4495,
       "mtimeMs": 1549039429843.888,
       "ctimeMs": 1549118010274.007,
       "birthtimeMs": 1549038364461.6323,
-      "atime": "2019-02-05T10:28:21.101Z",
+      "atime": "2019-02-05T11:10:13.792Z",
       "mtime": "2019-02-01T16:43:49.844Z",
       "ctime": "2019-02-02T14:33:30.274Z",
       "birthtime": "2019-02-01T16:26:04.462Z"
@@ -2558,7 +2569,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "c10d054cf682c31d7c14882a272d1e72",
+        "contentDigest": "e0bd232e3a82569f536948976e310297",
         "type": "Directory",
         "description": "Directory \"src/data/courses\"",
         "owner": "gatsby-source-filesystem"
@@ -2570,7 +2581,7 @@
       "size": 832,
       "prettySize": "832 B",
       "modifiedTime": "2019-02-01T18:36:00.032Z",
-      "accessTime": "2019-02-05T10:28:21.286Z",
+      "accessTime": "2019-02-05T11:10:13.979Z",
       "changeTime": "2019-02-02T14:33:30.339Z",
       "birthTime": "2019-02-01T16:26:11.292Z",
       "root": "/",
@@ -2588,11 +2599,11 @@
       "blksize": 4194304,
       "ino": 50983247,
       "blocks": 0,
-      "atimeMs": 1549362501286.1445,
+      "atimeMs": 1549365013979.0505,
       "mtimeMs": 1549046160031.672,
       "ctimeMs": 1549118010338.9832,
       "birthtimeMs": 1549038371291.6907,
-      "atime": "2019-02-05T10:28:21.286Z",
+      "atime": "2019-02-05T11:10:13.979Z",
       "mtime": "2019-02-01T18:36:00.032Z",
       "ctime": "2019-02-02T14:33:30.339Z",
       "birthtime": "2019-02-01T16:26:11.292Z"
@@ -2602,7 +2613,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "a1e2e83b4731a0ce24d4c51e6a3f0edb",
+        "contentDigest": "1eab54417f488f584b40b76185e8ed17",
         "type": "Directory",
         "description": "Directory \"src/data/manuscripts\"",
         "owner": "gatsby-source-filesystem"
@@ -2614,7 +2625,7 @@
       "size": 288,
       "prettySize": "288 B",
       "modifiedTime": "2019-02-01T18:19:20.898Z",
-      "accessTime": "2019-02-05T10:28:21.533Z",
+      "accessTime": "2019-02-05T11:10:14.245Z",
       "changeTime": "2019-02-02T14:33:30.380Z",
       "birthTime": "2019-02-01T16:28:10.838Z",
       "root": "/",
@@ -2632,11 +2643,11 @@
       "blksize": 4194304,
       "ino": 50983134,
       "blocks": 0,
-      "atimeMs": 1549362501533.0938,
+      "atimeMs": 1549365014244.8604,
       "mtimeMs": 1549045160897.788,
       "ctimeMs": 1549118010379.7163,
       "birthtimeMs": 1549038490837.9697,
-      "atime": "2019-02-05T10:28:21.533Z",
+      "atime": "2019-02-05T11:10:14.245Z",
       "mtime": "2019-02-01T18:19:20.898Z",
       "ctime": "2019-02-02T14:33:30.380Z",
       "birthtime": "2019-02-01T16:28:10.838Z"
@@ -2646,7 +2657,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "1da6844d19ec8fccd7fcc297ba338b0d",
+        "contentDigest": "da2fd265908c1ea59d03256806eb3a85",
         "type": "Directory",
         "description": "Directory \"src/data/publications\"",
         "owner": "gatsby-source-filesystem"
@@ -2658,7 +2669,7 @@
       "size": 480,
       "prettySize": "480 B",
       "modifiedTime": "2019-02-02T12:52:45.283Z",
-      "accessTime": "2019-02-05T10:28:21.304Z",
+      "accessTime": "2019-02-05T11:10:14.000Z",
       "changeTime": "2019-02-02T14:33:30.390Z",
       "birthTime": "2019-02-01T16:26:20.215Z",
       "root": "/",
@@ -2676,11 +2687,11 @@
       "blksize": 4194304,
       "ino": 50983143,
       "blocks": 0,
-      "atimeMs": 1549362501304.0532,
+      "atimeMs": 1549365013999.6453,
       "mtimeMs": 1549111965283.153,
       "ctimeMs": 1549118010390.3477,
       "birthtimeMs": 1549038380214.74,
-      "atime": "2019-02-05T10:28:21.304Z",
+      "atime": "2019-02-05T11:10:14.000Z",
       "mtime": "2019-02-02T12:52:45.283Z",
       "ctime": "2019-02-02T14:33:30.390Z",
       "birthtime": "2019-02-01T16:26:20.215Z"
@@ -2690,7 +2701,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "4c771a35b6b5fb614e7f4f37672a2f01",
+        "contentDigest": "b7ad62150b23baf02e2cebadc96c0195",
         "type": "Directory",
         "description": "Directory \"src/data/publications/chapter\"",
         "owner": "gatsby-source-filesystem"
@@ -2702,7 +2713,7 @@
       "size": 832,
       "prettySize": "832 B",
       "modifiedTime": "2019-02-02T13:13:48.931Z",
-      "accessTime": "2019-02-05T10:28:21.489Z",
+      "accessTime": "2019-02-05T11:10:14.195Z",
       "changeTime": "2019-02-02T14:33:30.629Z",
       "birthTime": "2019-02-01T16:26:44.715Z",
       "root": "/",
@@ -2720,11 +2731,11 @@
       "blksize": 4194304,
       "ino": 50983218,
       "blocks": 0,
-      "atimeMs": 1549362501488.5361,
+      "atimeMs": 1549365014195.069,
       "mtimeMs": 1549113228930.646,
       "ctimeMs": 1549118010628.8403,
       "birthtimeMs": 1549038404715.158,
-      "atime": "2019-02-05T10:28:21.489Z",
+      "atime": "2019-02-05T11:10:14.195Z",
       "mtime": "2019-02-02T13:13:48.931Z",
       "ctime": "2019-02-02T14:33:30.629Z",
       "birthtime": "2019-02-01T16:26:44.715Z"
@@ -2734,7 +2745,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "9c6f45f0d7fcb81608d11a21ec9450f3",
+        "contentDigest": "3865f0537ebcb566371b872f30750fbf",
         "type": "Directory",
         "description": "Directory \"src/data/publications/journal\"",
         "owner": "gatsby-source-filesystem"
@@ -2746,7 +2757,7 @@
       "size": 1376,
       "prettySize": "1.38 kB",
       "modifiedTime": "2019-02-02T12:59:49.565Z",
-      "accessTime": "2019-02-05T10:28:21.443Z",
+      "accessTime": "2019-02-05T11:10:14.138Z",
       "changeTime": "2019-02-02T14:33:30.650Z",
       "birthTime": "2019-02-01T16:26:31.012Z",
       "root": "/",
@@ -2764,11 +2775,11 @@
       "blksize": 4194304,
       "ino": 50983144,
       "blocks": 0,
-      "atimeMs": 1549362501443.2056,
+      "atimeMs": 1549365014138.314,
       "mtimeMs": 1549112389565.034,
       "ctimeMs": 1549118010650.1821,
       "birthtimeMs": 1549038391012.4683,
-      "atime": "2019-02-05T10:28:21.443Z",
+      "atime": "2019-02-05T11:10:14.138Z",
       "mtime": "2019-02-02T12:59:49.565Z",
       "ctime": "2019-02-02T14:33:30.650Z",
       "birthtime": "2019-02-01T16:26:31.012Z"
@@ -2778,7 +2789,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "787708ab3009df0e1aeafc277c9b0cf5",
+        "contentDigest": "f9d902922393fcfa60ded6733f3f860e",
         "type": "Directory",
         "description": "Directory \"src/data/publications/proceedings\"",
         "owner": "gatsby-source-filesystem"
@@ -2790,7 +2801,7 @@
       "size": 832,
       "prettySize": "832 B",
       "modifiedTime": "2019-02-02T13:06:02.753Z",
-      "accessTime": "2019-02-05T10:28:21.513Z",
+      "accessTime": "2019-02-05T11:10:14.221Z",
       "changeTime": "2019-02-02T14:33:30.803Z",
       "birthTime": "2019-02-01T16:27:04.110Z",
       "root": "/",
@@ -2808,11 +2819,11 @@
       "blksize": 4194304,
       "ino": 50983190,
       "blocks": 0,
-      "atimeMs": 1549362501513.0017,
+      "atimeMs": 1549365014221.4082,
       "mtimeMs": 1549112762752.536,
       "ctimeMs": 1549118010802.643,
       "birthtimeMs": 1549038424109.6792,
-      "atime": "2019-02-05T10:28:21.513Z",
+      "atime": "2019-02-05T11:10:14.221Z",
       "mtime": "2019-02-02T13:06:02.753Z",
       "ctime": "2019-02-02T14:33:30.803Z",
       "birthtime": "2019-02-01T16:27:04.110Z"
@@ -13131,6 +13142,10 @@
     "/Users/epacuit/Dropbox/mysite/src/pages/tutorials.js": {
       "query": "query TutorialsPageQuery {\n  allTutorialsYaml {\n    edges {\n      node {\n        text\n        link\n        icon\n      }\n    }\n  }\n}\n",
       "componentPath": "/Users/epacuit/Dropbox/mysite/src/pages/tutorials.js"
+    },
+    "/Users/epacuit/Dropbox/mysite/.cache/dev-404-page.js": {
+      "query": "",
+      "componentPath": "/Users/epacuit/Dropbox/mysite/.cache/dev-404-page.js"
     }
   },
   "staticQueryComponents": {

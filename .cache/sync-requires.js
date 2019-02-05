@@ -6,6 +6,7 @@ const preferDefault = m => m && m.default || m
 
 exports.components = {
   "component---src-templates-course-page-js": hot(preferDefault(require("/Users/epacuit/Dropbox/mysite/src/templates/course-page.js"))),
+  "component---cache-dev-404-page-js": hot(preferDefault(require("/Users/epacuit/Dropbox/mysite/.cache/dev-404-page.js"))),
   "component---src-pages-404-js": hot(preferDefault(require("/Users/epacuit/Dropbox/mysite/src/pages/404.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("/Users/epacuit/Dropbox/mysite/src/pages/index.js"))),
   "component---src-pages-manuscripts-js": hot(preferDefault(require("/Users/epacuit/Dropbox/mysite/src/pages/manuscripts.js"))),

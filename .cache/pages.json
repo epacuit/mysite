@@ -75,6 +75,11 @@
         "path": "/courses/ug-modal-logic/"
     },
     {
+        "componentChunkName": "component---cache-dev-404-page-js",
+        "jsonName": "dev-404-page-5f9",
+        "path": "/dev-404-page/"
+    },
+    {
         "componentChunkName": "component---src-pages-manuscripts-js",
         "jsonName": "manuscripts-953",
         "path": "/manuscripts/"
