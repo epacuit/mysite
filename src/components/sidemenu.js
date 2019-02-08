@@ -39,7 +39,7 @@ const SideMenu = ({ activeItem }) => (
           <ul>
             <li>
               <a 
-                href="http://app.pacuit.org/esslli"
+                href="http://app.pacuit.io/esslli"
                 className={activeItem === 'short' ? 'is-active' : ''}
               >
                 Short Courses
@@ -57,7 +57,7 @@ const SideMenu = ({ activeItem }) => (
         </li>
         <li>
           <a
-            href="http://docs.pacuit.org/pacuit-cv.pdf"
+            href="http://docs.pacuit.io/pacuit-cv.pdf"
             className={activeItem === 'cv' ? 'is-active' : ''}
             target = "_blank"
             rel="noopener noreferrer"

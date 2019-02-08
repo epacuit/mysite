@@ -2403,12 +2403,12 @@
       },
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2019-02-05T20:10:29.410Z",
+      "buildTime": "2019-02-06T20:54:25.265Z",
       "id": "Site",
       "parent": null,
       "children": [],
       "internal": {
-        "contentDigest": "dcc9b07d384a9b50eae58ed3011c1db9",
+        "contentDigest": "10e4d0d039f3c372414de883c1069dcd",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -2418,7 +2418,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "cd30bd6750555a6e27edfed1a4d8dd2f",
+        "contentDigest": "2c6521017df45144765fb3b5e320b652",
         "type": "Directory",
         "description": "Directory \"src/images\"",
         "owner": "gatsby-source-filesystem"
@@ -2430,7 +2430,7 @@
       "size": 128,
       "prettySize": "128 B",
       "modifiedTime": "2019-02-01T16:25:18.601Z",
-      "accessTime": "2019-02-05T20:10:32.373Z",
+      "accessTime": "2019-02-06T20:54:28.533Z",
       "changeTime": "2019-02-02T14:33:18.684Z",
       "birthTime": "2019-02-01T00:46:53.527Z",
       "root": "/",
@@ -2448,11 +2448,11 @@
       "blksize": 4194304,
       "ino": 50983118,
       "blocks": 0,
-      "atimeMs": 1549397432372.5781,
+      "atimeMs": 1549486468532.6548,
       "mtimeMs": 1549038318600.754,
       "ctimeMs": 1549117998684.266,
       "birthtimeMs": 1548982013527.3457,
-      "atime": "2019-02-05T20:10:32.373Z",
+      "atime": "2019-02-06T20:54:28.533Z",
       "mtime": "2019-02-01T16:25:18.601Z",
       "ctime": "2019-02-02T14:33:18.684Z",
       "birthtime": "2019-02-01T00:46:53.527Z"
@@ -2519,7 +2519,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "ca9552107114fbdb3d6b7c7c8fcc893b",
+        "contentDigest": "25c159dcfb65df8dd1c161d577bbb142",
         "type": "Directory",
         "description": "Directory \"src/data\"",
         "owner": "gatsby-source-filesystem"
@@ -2531,7 +2531,7 @@
       "size": 256,
       "prettySize": "256 B",
       "modifiedTime": "2019-02-01T16:43:49.844Z",
-      "accessTime": "2019-02-05T20:10:32.381Z",
+      "accessTime": "2019-02-06T20:54:28.545Z",
       "changeTime": "2019-02-02T14:33:30.274Z",
       "birthTime": "2019-02-01T16:26:04.462Z",
       "root": "/",
@@ -2549,11 +2549,11 @@
       "blksize": 4194304,
       "ino": 50983133,
       "blocks": 0,
-      "atimeMs": 1549397432380.97,
+      "atimeMs": 1549486468545.2854,
       "mtimeMs": 1549039429843.888,
       "ctimeMs": 1549118010274.007,
       "birthtimeMs": 1549038364461.6323,
-      "atime": "2019-02-05T20:10:32.381Z",
+      "atime": "2019-02-06T20:54:28.545Z",
       "mtime": "2019-02-01T16:43:49.844Z",
       "ctime": "2019-02-02T14:33:30.274Z",
       "birthtime": "2019-02-01T16:26:04.462Z"
@@ -2563,7 +2563,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "586232a84b415b4ea9ef757382de45a4",
+        "contentDigest": "a3757e4b37d15df0201c20591cbd4b7f",
         "type": "Directory",
         "description": "Directory \"src/data/courses\"",
         "owner": "gatsby-source-filesystem"
@@ -2575,7 +2575,7 @@
       "size": 832,
       "prettySize": "832 B",
       "modifiedTime": "2019-02-01T18:36:00.032Z",
-      "accessTime": "2019-02-05T20:10:32.568Z",
+      "accessTime": "2019-02-06T20:54:28.725Z",
       "changeTime": "2019-02-02T14:33:30.339Z",
       "birthTime": "2019-02-01T16:26:11.292Z",
       "root": "/",
@@ -2593,11 +2593,11 @@
       "blksize": 4194304,
       "ino": 50983247,
       "blocks": 0,
-      "atimeMs": 1549397432568.0017,
+      "atimeMs": 1549486468725.3103,
       "mtimeMs": 1549046160031.672,
       "ctimeMs": 1549118010338.9832,
       "birthtimeMs": 1549038371291.6907,
-      "atime": "2019-02-05T20:10:32.568Z",
+      "atime": "2019-02-06T20:54:28.725Z",
       "mtime": "2019-02-01T18:36:00.032Z",
       "ctime": "2019-02-02T14:33:30.339Z",
       "birthtime": "2019-02-01T16:26:11.292Z"
@@ -2607,7 +2607,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "77194dddcb146d9a303c0e62e90156c9",
+        "contentDigest": "73722eac0443ff6d6d8f72d9a5174211",
         "type": "Directory",
         "description": "Directory \"src/data/manuscripts\"",
         "owner": "gatsby-source-filesystem"
@@ -2619,7 +2619,7 @@
       "size": 288,
       "prettySize": "288 B",
       "modifiedTime": "2019-02-01T18:19:20.898Z",
-      "accessTime": "2019-02-05T20:10:32.811Z",
+      "accessTime": "2019-02-06T20:54:28.966Z",
       "changeTime": "2019-02-02T14:33:30.380Z",
       "birthTime": "2019-02-01T16:28:10.838Z",
       "root": "/",
@@ -2637,11 +2637,11 @@
       "blksize": 4194304,
       "ino": 50983134,
       "blocks": 0,
-      "atimeMs": 1549397432810.535,
+      "atimeMs": 1549486468965.559,
       "mtimeMs": 1549045160897.788,
       "ctimeMs": 1549118010379.7163,
       "birthtimeMs": 1549038490837.9697,
-      "atime": "2019-02-05T20:10:32.811Z",
+      "atime": "2019-02-06T20:54:28.966Z",
       "mtime": "2019-02-01T18:19:20.898Z",
       "ctime": "2019-02-02T14:33:30.380Z",
       "birthtime": "2019-02-01T16:28:10.838Z"
@@ -2651,7 +2651,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "c1ccf8bb3e136ee8dd99a519630a7bd4",
+        "contentDigest": "cd5be6bbbf1a488754345827b4f3c882",
         "type": "Directory",
         "description": "Directory \"src/data/publications\"",
         "owner": "gatsby-source-filesystem"
@@ -2663,7 +2663,7 @@
       "size": 480,
       "prettySize": "480 B",
       "modifiedTime": "2019-02-02T12:52:45.283Z",
-      "accessTime": "2019-02-05T20:10:32.582Z",
+      "accessTime": "2019-02-06T20:54:28.747Z",
       "changeTime": "2019-02-02T14:33:30.390Z",
       "birthTime": "2019-02-01T16:26:20.215Z",
       "root": "/",
@@ -2681,11 +2681,11 @@
       "blksize": 4194304,
       "ino": 50983143,
       "blocks": 0,
-      "atimeMs": 1549397432582.3696,
+      "atimeMs": 1549486468746.9128,
       "mtimeMs": 1549111965283.153,
       "ctimeMs": 1549118010390.3477,
       "birthtimeMs": 1549038380214.74,
-      "atime": "2019-02-05T20:10:32.582Z",
+      "atime": "2019-02-06T20:54:28.747Z",
       "mtime": "2019-02-02T12:52:45.283Z",
       "ctime": "2019-02-02T14:33:30.390Z",
       "birthtime": "2019-02-01T16:26:20.215Z"
@@ -2695,7 +2695,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "83acfb755bc3e16987c80a2b19c29c0e",
+        "contentDigest": "9d51b0e5cce0b55d4ff7b8754e6240b5",
         "type": "Directory",
         "description": "Directory \"src/data/publications/chapter\"",
         "owner": "gatsby-source-filesystem"
@@ -2707,7 +2707,7 @@
       "size": 832,
       "prettySize": "832 B",
       "modifiedTime": "2019-02-02T13:13:48.931Z",
-      "accessTime": "2019-02-05T20:10:32.764Z",
+      "accessTime": "2019-02-06T20:54:28.923Z",
       "changeTime": "2019-02-02T14:33:30.629Z",
       "birthTime": "2019-02-01T16:26:44.715Z",
       "root": "/",
@@ -2725,11 +2725,11 @@
       "blksize": 4194304,
       "ino": 50983218,
       "blocks": 0,
-      "atimeMs": 1549397432763.8748,
+      "atimeMs": 1549486468923.298,
       "mtimeMs": 1549113228930.646,
       "ctimeMs": 1549118010628.8403,
       "birthtimeMs": 1549038404715.158,
-      "atime": "2019-02-05T20:10:32.764Z",
+      "atime": "2019-02-06T20:54:28.923Z",
       "mtime": "2019-02-02T13:13:48.931Z",
       "ctime": "2019-02-02T14:33:30.629Z",
       "birthtime": "2019-02-01T16:26:44.715Z"
@@ -2739,7 +2739,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "ca780ceac5618d0fe9d335b82fa22671",
+        "contentDigest": "79a21b8d1ba5eeaf2b6de50470ae2667",
         "type": "Directory",
         "description": "Directory \"src/data/publications/journal\"",
         "owner": "gatsby-source-filesystem"
@@ -2751,7 +2751,7 @@
       "size": 1376,
       "prettySize": "1.38 kB",
       "modifiedTime": "2019-02-02T12:59:49.565Z",
-      "accessTime": "2019-02-05T20:10:32.716Z",
+      "accessTime": "2019-02-06T20:54:28.881Z",
       "changeTime": "2019-02-02T14:33:30.650Z",
       "birthTime": "2019-02-01T16:26:31.012Z",
       "root": "/",
@@ -2769,11 +2769,11 @@
       "blksize": 4194304,
       "ino": 50983144,
       "blocks": 0,
-      "atimeMs": 1549397432715.572,
+      "atimeMs": 1549486468880.5837,
       "mtimeMs": 1549112389565.034,
       "ctimeMs": 1549118010650.1821,
       "birthtimeMs": 1549038391012.4683,
-      "atime": "2019-02-05T20:10:32.716Z",
+      "atime": "2019-02-06T20:54:28.881Z",
       "mtime": "2019-02-02T12:59:49.565Z",
       "ctime": "2019-02-02T14:33:30.650Z",
       "birthtime": "2019-02-01T16:26:31.012Z"
@@ -2783,7 +2783,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "c66b66525d76eaf09516544e88f2fa14",
+        "contentDigest": "79db64f4eca236e92888947b633a5286",
         "type": "Directory",
         "description": "Directory \"src/data/publications/proceedings\"",
         "owner": "gatsby-source-filesystem"
@@ -2795,7 +2795,7 @@
       "size": 832,
       "prettySize": "832 B",
       "modifiedTime": "2019-02-02T13:06:02.753Z",
-      "accessTime": "2019-02-05T20:10:32.787Z",
+      "accessTime": "2019-02-06T20:54:28.947Z",
       "changeTime": "2019-02-02T14:33:30.803Z",
       "birthTime": "2019-02-01T16:27:04.110Z",
       "root": "/",
@@ -2813,11 +2813,11 @@
       "blksize": 4194304,
       "ino": 50983190,
       "blocks": 0,
-      "atimeMs": 1549397432787.2874,
+      "atimeMs": 1549486468946.6218,
       "mtimeMs": 1549112762752.536,
       "ctimeMs": 1549118010802.643,
       "birthtimeMs": 1549038424109.6792,
-      "atime": "2019-02-05T20:10:32.787Z",
+      "atime": "2019-02-06T20:54:28.947Z",
       "mtime": "2019-02-02T13:06:02.753Z",
       "ctime": "2019-02-02T14:33:30.803Z",
       "birthtime": "2019-02-01T16:27:04.110Z"
@@ -2876,7 +2876,7 @@
       ],
       "parent": null,
       "internal": {
-        "contentDigest": "f817cba68f39d2ffd15c5bf506c359a5",
+        "contentDigest": "db3baa25a78ca78bb7ef943ffd63e3ba",
         "type": "File",
         "mediaType": "text/yaml",
         "description": "File \"src/data/announcements.yaml\"",
@@ -2886,11 +2886,11 @@
       "absolutePath": "/Users/epacuit/Dropbox/mysite/src/data/announcements.yaml",
       "relativePath": "announcements.yaml",
       "extension": "yaml",
-      "size": 795,
-      "prettySize": "795 B",
-      "modifiedTime": "2019-02-01T16:57:40.000Z",
-      "accessTime": "2019-02-05T19:45:12.742Z",
-      "changeTime": "2019-02-02T14:33:30.574Z",
+      "size": 825,
+      "prettySize": "825 B",
+      "modifiedTime": "2019-02-06T20:53:02.507Z",
+      "accessTime": "2019-02-06T20:53:32.867Z",
+      "changeTime": "2019-02-06T20:53:02.507Z",
       "birthTime": "2019-02-01T16:29:23.093Z",
       "root": "/",
       "dir": "/Users/epacuit/Dropbox/mysite/src/data",
@@ -2907,13 +2907,13 @@
       "blksize": 4194304,
       "ino": 50983272,
       "blocks": 8,
-      "atimeMs": 1549395912741.7134,
-      "mtimeMs": 1549040260000,
-      "ctimeMs": 1549118010574.1045,
+      "atimeMs": 1549486412867.282,
+      "mtimeMs": 1549486382506.6956,
+      "ctimeMs": 1549486382506.6956,
       "birthtimeMs": 1549038563092.613,
-      "atime": "2019-02-05T19:45:12.742Z",
-      "mtime": "2019-02-01T16:57:40.000Z",
-      "ctime": "2019-02-02T14:33:30.574Z",
+      "atime": "2019-02-06T20:53:32.867Z",
+      "mtime": "2019-02-06T20:53:02.507Z",
+      "ctime": "2019-02-06T20:53:02.507Z",
       "birthtime": "2019-02-01T16:29:23.093Z"
     },
     "8db0ac76-1207-5c9c-b487-67c34f28e0f5": {
@@ -2928,7 +2928,7 @@
       ],
       "parent": null,
       "internal": {
-        "contentDigest": "44df0050de150ebc7176104bc2856d30",
+        "contentDigest": "ef671541f56ca0a0b09057c2b63f1446",
         "type": "File",
         "mediaType": "text/yaml",
         "description": "File \"src/data/tutorials.yaml\"",
@@ -2938,11 +2938,11 @@
       "absolutePath": "/Users/epacuit/Dropbox/mysite/src/data/tutorials.yaml",
       "relativePath": "tutorials.yaml",
       "extension": "yaml",
-      "size": 682,
-      "prettySize": "682 B",
-      "modifiedTime": "2019-02-01T16:29:23.000Z",
-      "accessTime": "2019-02-05T19:45:12.747Z",
-      "changeTime": "2019-02-02T14:33:30.463Z",
+      "size": 677,
+      "prettySize": "677 B",
+      "modifiedTime": "2019-02-06T20:52:21.426Z",
+      "accessTime": "2019-02-06T20:52:21.425Z",
+      "changeTime": "2019-02-06T20:52:21.426Z",
       "birthTime": "2019-02-01T16:29:23.000Z",
       "root": "/",
       "dir": "/Users/epacuit/Dropbox/mysite/src/data",
@@ -2959,13 +2959,13 @@
       "blksize": 4194304,
       "ino": 50983142,
       "blocks": 8,
-      "atimeMs": 1549395912746.7637,
-      "mtimeMs": 1549038563000,
-      "ctimeMs": 1549118010463.3335,
+      "atimeMs": 1549486341425.3987,
+      "mtimeMs": 1549486341425.6335,
+      "ctimeMs": 1549486341425.6335,
       "birthtimeMs": 1549038563000,
-      "atime": "2019-02-05T19:45:12.747Z",
-      "mtime": "2019-02-01T16:29:23.000Z",
-      "ctime": "2019-02-02T14:33:30.463Z",
+      "atime": "2019-02-06T20:52:21.425Z",
+      "mtime": "2019-02-06T20:52:21.426Z",
+      "ctime": "2019-02-06T20:52:21.426Z",
       "birthtime": "2019-02-01T16:29:23.000Z"
     },
     "3e396e06-3141-55cb-8dcf-5f10287a977b": {
@@ -2997,7 +2997,7 @@
       ],
       "parent": null,
       "internal": {
-        "contentDigest": "20e2b2bf3e7753a8748183ae1b76fe05",
+        "contentDigest": "e1e141fcfeeefdaf5693d639dc9ffaca",
         "type": "File",
         "mediaType": "text/csv",
         "description": "File \"src/data/past_courses.csv\"",
@@ -3007,11 +3007,11 @@
       "absolutePath": "/Users/epacuit/Dropbox/mysite/src/data/past_courses.csv",
       "relativePath": "past_courses.csv",
       "extension": "csv",
-      "size": 2781,
-      "prettySize": "2.78 kB",
-      "modifiedTime": "2019-02-01T16:29:23.000Z",
-      "accessTime": "2019-02-05T19:45:12.743Z",
-      "changeTime": "2019-02-02T14:33:30.541Z",
+      "size": 2771,
+      "prettySize": "2.77 kB",
+      "modifiedTime": "2019-02-06T20:51:58.488Z",
+      "accessTime": "2019-02-06T20:51:58.488Z",
+      "changeTime": "2019-02-06T20:51:58.488Z",
       "birthTime": "2019-02-01T16:29:23.000Z",
       "root": "/",
       "dir": "/Users/epacuit/Dropbox/mysite/src/data",
@@ -3028,13 +3028,13 @@
       "blksize": 4194304,
       "ino": 50983246,
       "blocks": 8,
-      "atimeMs": 1549395912743.1191,
-      "mtimeMs": 1549038563000,
-      "ctimeMs": 1549118010541.4937,
+      "atimeMs": 1549486318488.0103,
+      "mtimeMs": 1549486318488.2566,
+      "ctimeMs": 1549486318488.2566,
       "birthtimeMs": 1549038563000,
-      "atime": "2019-02-05T19:45:12.743Z",
-      "mtime": "2019-02-01T16:29:23.000Z",
-      "ctime": "2019-02-02T14:33:30.541Z",
+      "atime": "2019-02-06T20:51:58.488Z",
+      "mtime": "2019-02-06T20:51:58.488Z",
+      "ctime": "2019-02-06T20:51:58.488Z",
       "birthtime": "2019-02-01T16:29:23.000Z"
     },
     "d5f792e8-5a11-5ff8-ae45-252c3f69ba93": {
@@ -3514,7 +3514,7 @@
       ],
       "parent": null,
       "internal": {
-        "contentDigest": "4ef901c12876160668648933d87a8e39",
+        "contentDigest": "385843f152362c90d437127c47a7bbb2",
         "type": "File",
         "mediaType": "text/markdown",
         "description": "File \"src/data/courses/modal-logic.md\"",
@@ -3524,11 +3524,11 @@
       "absolutePath": "/Users/epacuit/Dropbox/mysite/src/data/courses/modal-logic.md",
       "relativePath": "courses/modal-logic.md",
       "extension": "md",
-      "size": 1411,
+      "size": 1410,
       "prettySize": "1.41 kB",
-      "modifiedTime": "2019-02-05T16:28:03.202Z",
-      "accessTime": "2019-02-05T19:45:12.742Z",
-      "changeTime": "2019-02-05T16:28:03.202Z",
+      "modifiedTime": "2019-02-06T20:53:26.175Z",
+      "accessTime": "2019-02-06T20:53:32.888Z",
+      "changeTime": "2019-02-06T20:53:26.175Z",
       "birthTime": "2019-02-01T18:35:59.000Z",
       "root": "/",
       "dir": "/Users/epacuit/Dropbox/mysite/src/data/courses",
@@ -3545,13 +3545,13 @@
       "blksize": 4194304,
       "ino": 50983260,
       "blocks": 8,
-      "atimeMs": 1549395912742.0647,
-      "mtimeMs": 1549384083202.386,
-      "ctimeMs": 1549384083202.386,
+      "atimeMs": 1549486412887.8896,
+      "mtimeMs": 1549486406174.823,
+      "ctimeMs": 1549486406174.823,
       "birthtimeMs": 1549046159000,
-      "atime": "2019-02-05T19:45:12.742Z",
-      "mtime": "2019-02-05T16:28:03.202Z",
-      "ctime": "2019-02-05T16:28:03.202Z",
+      "atime": "2019-02-06T20:53:32.888Z",
+      "mtime": "2019-02-06T20:53:26.175Z",
+      "ctime": "2019-02-06T20:53:26.175Z",
       "birthtime": "2019-02-01T18:35:59.000Z"
     },
     "de301984-cdae-5873-b52b-5c8e9d32c161": {
@@ -7892,126 +7892,6 @@
       "ctime": "2019-02-02T14:40:22.736Z",
       "birthtime": "2019-02-02T13:13:48.000Z"
     },
-    "2b40832d-335a-5bda-87d4-372d68c312be": {
-      "announcement": "Talk: [Working Group in History and Philosophy of Logic, Mathematics and Science](http://hplms.berkeley.edu/),  Strategic reasoning: From beliefs about mistakes to mistaken beliefs, October 17, 2018",
-      "new": true,
-      "weight": 100,
-      "hide": false,
-      "id": "2b40832d-335a-5bda-87d4-372d68c312be",
-      "children": [],
-      "parent": "eac2daf1-92d2-5450-828d-d504b9004899",
-      "internal": {
-        "contentDigest": "b5ffcf7185776f986bbab6f8f8c06da3",
-        "type": "AnnouncementsYaml",
-        "owner": "gatsby-transformer-yaml"
-      }
-    },
-    "a6858f5c-46ab-5859-9bd5-59efa8f9cb86": {
-      "announcement": "Talk: [Logic, Information, and Topology Workshop](https://www.cmu.edu/dietrich/philosophy/events/workshops-conferences/index.html),  Beliefs, Propositions and Definite Descriptions, Center for Formal Epistemology,  Carnegie Mellon University, October 20th, 2018",
-      "new": false,
-      "weight": 90,
-      "hide": false,
-      "id": "a6858f5c-46ab-5859-9bd5-59efa8f9cb86",
-      "children": [],
-      "parent": "eac2daf1-92d2-5450-828d-d504b9004899",
-      "internal": {
-        "contentDigest": "a0f7c4826481b3fc6f1d0048442c5ae7",
-        "type": "AnnouncementsYaml",
-        "owner": "gatsby-transformer-yaml"
-      }
-    },
-    "3e104a01-125c-5db1-8aa6-987eabfb7334": {
-      "announcement": "Short Course: [Neighborhood semantics for modal logic](http://pacuit.org),  Tsinghua University, Beijing, November, 2018.",
-      "new": true,
-      "weight": 5,
-      "hide": false,
-      "id": "3e104a01-125c-5db1-8aa6-987eabfb7334",
-      "children": [],
-      "parent": "eac2daf1-92d2-5450-828d-d504b9004899",
-      "internal": {
-        "contentDigest": "dedee1f927609e64fc6def55893955ef",
-        "type": "AnnouncementsYaml",
-        "owner": "gatsby-transformer-yaml"
-      }
-    },
-    "699f36fd-d468-5f7c-857b-dac3b05ada7b": {
-      "text": "Voting methods tutorial",
-      "link": "http://pacuit.org/tutorials/voting-methods",
-      "icon": "link",
-      "id": "699f36fd-d468-5f7c-857b-dac3b05ada7b",
-      "children": [],
-      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
-      "internal": {
-        "contentDigest": "2664d656bc3a81aef4d0d823bcc73fea",
-        "type": "TutorialsYaml",
-        "owner": "gatsby-transformer-yaml"
-      }
-    },
-    "6bd17334-b6bf-5fdb-88e1-dfd78efeba7a": {
-      "text": "Truth for modal formulas on relational structures",
-      "link": "http://pacuit.org/modal/tutorial/",
-      "icon": "link",
-      "id": "6bd17334-b6bf-5fdb-88e1-dfd78efeba7a",
-      "children": [],
-      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
-      "internal": {
-        "contentDigest": "cc35d2b0aabd98ae9f71f99b84d7b646",
-        "type": "TutorialsYaml",
-        "owner": "gatsby-transformer-yaml"
-      }
-    },
-    "e7f5d845-697f-523f-8563-25a6ed89ba28": {
-      "text": "Relational semantics for modal logic",
-      "link": "http://docs.pacuit.org/tutorials/ml-notes.pdf",
-      "icon": "pdf",
-      "id": "e7f5d845-697f-523f-8563-25a6ed89ba28",
-      "children": [],
-      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
-      "internal": {
-        "contentDigest": "894af69e0a1006ba85d1fb0e4da6682b",
-        "type": "TutorialsYaml",
-        "owner": "gatsby-transformer-yaml"
-      }
-    },
-    "6adfa521-2757-51a9-b2c8-83c00e143402": {
-      "text": "Preferences, choices and utilities",
-      "link": "http://docs.pacuit.org/tutorials/pref-choice-util.pdf",
-      "icon": "pdf",
-      "id": "6adfa521-2757-51a9-b2c8-83c00e143402",
-      "children": [],
-      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
-      "internal": {
-        "contentDigest": "a9bf873a704807e5873c0d3d466039c6",
-        "type": "TutorialsYaml",
-        "owner": "gatsby-transformer-yaml"
-      }
-    },
-    "330e159b-9baa-5625-b395-255f3bfc16fd": {
-      "text": "Sets, functions and relations",
-      "link": "http://docs.pacuit.org/tutorials/discretemath.pdf",
-      "icon": "pdf",
-      "id": "330e159b-9baa-5625-b395-255f3bfc16fd",
-      "children": [],
-      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
-      "internal": {
-        "contentDigest": "4294d32b252296e5afe3ed67fde89746",
-        "type": "TutorialsYaml",
-        "owner": "gatsby-transformer-yaml"
-      }
-    },
-    "6c399142-a045-5132-8a25-78ec758701f0": {
-      "text": "Online lectures",
-      "link": "https://www.youtube.com/user/Ericpacuit",
-      "icon": "youtube",
-      "id": "6c399142-a045-5132-8a25-78ec758701f0",
-      "children": [],
-      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
-      "internal": {
-        "contentDigest": "d9adbde02806603de691729c94459da9",
-        "type": "TutorialsYaml",
-        "owner": "gatsby-transformer-yaml"
-      }
-    },
     "2e76cb35-511e-5b6a-8a2f-9c1ec643037b": {
       "id": "2e76cb35-511e-5b6a-8a2f-9c1ec643037b",
       "children": [],
@@ -8236,420 +8116,6 @@
       "mtime": "2019-02-02T13:13:48.000Z",
       "ctime": "2019-02-02T14:34:15.389Z",
       "birthtime": "2019-02-02T13:13:48.000Z"
-    },
-    "6216b847-f836-598f-87be-780fa4ee73f7": {
-      "name": "",
-      "description": "Logic and Artificial Intelligence",
-      "tag": "other",
-      "semester": "Fall 2012",
-      "school": "Carnegie Mellon University",
-      "website": "http://web.pacuit.org/classes/logicai-cmu.html",
-      "syllabus": "",
-      "level": "UG",
-      "id": "6216b847-f836-598f-87be-780fa4ee73f7",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "64e5787718e2f89ea24d8b4d36e90f9e",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "a535edd4-237c-5929-baba-14b39b9020ad": {
-      "name": "",
-      "description": "Rationality, Masters in Philosophy Program",
-      "tag": "other",
-      "semester": "Fall 2010, Spring 2011",
-      "school": "Tilburg University",
-      "website": "http://web.pacuit.org/classes/rationality.html",
-      "syllabus": "",
-      "level": "G",
-      "id": "a535edd4-237c-5929-baba-14b39b9020ad",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "6698aeb188ee7597b569df5b4e3534e0",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "433634ac-2b0a-5a9e-b23a-770b80651840": {
-      "name": "",
-      "description": "Computability and Logic",
-      "tag": "other",
-      "semester": "Spring 2009",
-      "school": "Stanford University",
-      "website": "http://web.pacuit.org/classes/phil152spr09.html",
-      "syllabus": "",
-      "level": "UG",
-      "id": "433634ac-2b0a-5a9e-b23a-770b80651840",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "f50dbc99937056f73f87b0ad1512f21b",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "667f2c0b-6c55-5a4d-8bc8-53d5f2d11163": {
-      "name": "",
-      "description": "Rational Agency and Intelligent Interaction",
-      "tag": "other",
-      "semester": "Spring 2009",
-      "school": "Stanford University",
-      "website": "http://web.stanford.edu/class/cs222/",
-      "syllabus": "",
-      "level": "UG",
-      "id": "667f2c0b-6c55-5a4d-8bc8-53d5f2d11163",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "9176c782a5b152caeb5d3cb04f56e756",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "2eb34e18-a167-53aa-ac5f-e1e29c299c0f": {
-      "name": "",
-      "description": "First Order Logic",
-      "tag": "other",
-      "semester": "Winter 2009",
-      "school": "Stanford University",
-      "website": "http://web.pacuit.org/classes/phil151winter09.html",
-      "syllabus": "",
-      "level": "UG",
-      "id": "2eb34e18-a167-53aa-ac5f-e1e29c299c0f",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "1eb44c54ed8dab78830a24b58108e280",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "b54b2e40-ba5d-5523-9780-46e21f5676b2": {
-      "name": "",
-      "description": "Model Theory",
-      "tag": "other",
-      "semester": "Fall 2008",
-      "school": "Stanford University",
-      "website": "http://web.pacuit.org/classes/modelfall08.html",
-      "syllabus": "",
-      "level": "UG",
-      "id": "b54b2e40-ba5d-5523-9780-46e21f5676b2",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "3e20a24a6c40038d96939723bc66c66a",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "0b5dbc7b-75e1-5108-a488-22bcb9185988": {
-      "name": "",
-      "description": "Can Machines Know? Can Machines Feel? ",
-      "tag": "other",
-      "semester": "Spring 2008, with Yoav Shoham",
-      "school": "Stanford University",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "0b5dbc7b-75e1-5108-a488-22bcb9185988",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "4151767cdaba9a3a3dbf3b923d851d22",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "e73ed97f-08c9-5078-b117-0c93d7c2b974": {
-      "name": "",
-      "description": "Model Theory",
-      "tag": "other",
-      "semester": "Spring 2006",
-      "school": "Institute for Logic, Language and Computation, University of Amsterdam",
-      "website": "http://web.pacuit.org/classes/illc/model-illc.html",
-      "syllabus": "",
-      "level": "G",
-      "id": "e73ed97f-08c9-5078-b117-0c93d7c2b974",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "bcc4d64fb15c2975860badb93b36ab74",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "7f7e2071-d011-5f6a-bbef-5b200ef71480": {
-      "name": "",
-      "description": "CAPUT Logic, Language and Information",
-      "tag": "other",
-      "semester": "Spring 2006",
-      "school": "Institute for Logic, Language and Computation, University of Amsterdam",
-      "website": "http://web.pacuit.org/classes/illc/caputLLI-illc.html",
-      "syllabus": "",
-      "level": "G",
-      "id": "7f7e2071-d011-5f6a-bbef-5b200ef71480",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "cdf710c023b8b230eefc448026fd8dd8",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "d34bb26a-675d-59c8-9afe-0fb2b118ebe5": {
-      "name": "",
-      "description": "Neighborhood Models and Their Applications",
-      "tag": "other",
-      "semester": "Winter 2006",
-      "school": "Institute for Logic, Language and Computation, University of Amsterdam",
-      "website": "http://web.pacuit.org/classes/illc/nbhd.html",
-      "syllabus": "",
-      "level": "G",
-      "id": "d34bb26a-675d-59c8-9afe-0fb2b118ebe5",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "f884feafef611104c9e06ee7a3eb1b76",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "fef1518a-7838-5336-bd54-72ab33442f13": {
-      "name": "",
-      "description": "Introduction to Modal Logic",
-      "tag": "other",
-      "semester": "Fall 2005",
-      "school": "Institute for Logic, Language and Computation, University of Amsterdam",
-      "website": "http://web.pacuit.org/classes/illc/modal-illc.html",
-      "syllabus": "",
-      "level": "G",
-      "id": "fef1518a-7838-5336-bd54-72ab33442f13",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "17334308fdaebe4f0ab4e1403ccf4153",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "6a502a5c-44d3-5dd6-9dc9-366034fbbbdd": {
-      "name": "",
-      "description": "Recursion Theory",
-      "tag": "other",
-      "semester": "Fall 2005",
-      "school": "Institute for Logic, Language and Computation, University of Amsterdam",
-      "website": "http://web.pacuit.org/classes/illc/recth-illc.html",
-      "syllabus": "",
-      "level": "G",
-      "id": "6a502a5c-44d3-5dd6-9dc9-366034fbbbdd",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "6c8465fa157ddeaabf557310adf841fa",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "173688de-b5e7-5c28-a413-ece3a5c0231e": {
-      "name": "",
-      "description": "Introduction to Theoretical Computer Science",
-      "tag": "other",
-      "semester": "",
-      "school": "Brooklyn College",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "173688de-b5e7-5c28-a413-ece3a5c0231e",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "b597acf835c80e7499ccb7c02f518b55",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "c0ca99f3-d858-5f64-91f4-7d7f1af63a38": {
-      "name": "",
-      "description": "Analysis of Algorithms",
-      "tag": "other",
-      "semester": "",
-      "school": "Brooklyn College",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "c0ca99f3-d858-5f64-91f4-7d7f1af63a38",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "56a6abb0fe3b2eb93d57a7855cab3b8d",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "f4e23e6b-68d4-5367-81ae-2968d6be2bc8": {
-      "name": "",
-      "description": "Discrete Mathematics",
-      "tag": "other",
-      "semester": "",
-      "school": "Brooklyn College",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "f4e23e6b-68d4-5367-81ae-2968d6be2bc8",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "e610b9571bdc93430aeafc320006c804",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "a41c2f7e-dbe5-5426-9747-08685907c821": {
-      "name": "",
-      "description": "Advanced C Programming",
-      "tag": "other",
-      "semester": "",
-      "school": "Brooklyn College",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "a41c2f7e-dbe5-5426-9747-08685907c821",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "453d30804774af03659854fc0034f1b7",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "9fb6c7e9-5c3b-534e-83a8-c89106d10186": {
-      "name": "",
-      "description": "Unix Shell Programming (Korn Shell)",
-      "tag": "other",
-      "semester": "",
-      "school": "Brooklyn College",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "9fb6c7e9-5c3b-534e-83a8-c89106d10186",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "8b9d81a2d89e71f95b94166e4e3e81ba",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "1445f2f0-c3a7-5a65-9762-b2655e1ccb54": {
-      "name": "",
-      "description": "Introduction to C Programming",
-      "tag": "other",
-      "semester": "",
-      "school": "Brooklyn College",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "1445f2f0-c3a7-5a65-9762-b2655e1ccb54",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "c8edca879a229cc16d525a2fc0c2488a",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "7f0f0ec5-b67e-56fe-9391-69d7b79b3df4": {
-      "name": "",
-      "description": "Multimedia Programming",
-      "tag": "other",
-      "semester": "",
-      "school": "Brooklyn College",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "7f0f0ec5-b67e-56fe-9391-69d7b79b3df4",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "12d05b195d8b3a67657b27df774c7ad3",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "62c03591-9f77-546c-81da-917f7d42dbad": {
-      "name": "",
-      "description": "Introduction to Computer Science",
-      "tag": "other",
-      "semester": "",
-      "school": "Brooklyn College",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "62c03591-9f77-546c-81da-917f7d42dbad",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "3f0c1d15fb20880dd55a4d7daf943c01",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "3d050b98-6b53-54b7-8f2f-903820acf465": {
-      "name": "",
-      "description": "Introduction to Symbolic Logic",
-      "tag": "other",
-      "semester": "Fall 2003",
-      "school": "New York University",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "3d050b98-6b53-54b7-8f2f-903820acf465",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "76d0d3c3313832d7c8ac108d360c5949",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "b98538dd-4ff2-575d-908a-4f65ba81583c": {
-      "name": "",
-      "description": "Calculus",
-      "tag": "other",
-      "semester": "",
-      "school": "Case Western Reserve University",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "b98538dd-4ff2-575d-908a-4f65ba81583c",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "b3a96f09a62ff36e6525e2c28dc0c1d3",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
-    },
-    "b1998591-ad91-5ae3-b831-eafee8a661ec": {
-      "name": "",
-      "description": "College Algebra",
-      "tag": "other",
-      "semester": "",
-      "school": "Case Western Reserve University",
-      "website": "",
-      "syllabus": "",
-      "level": "UG",
-      "id": "b1998591-ad91-5ae3-b831-eafee8a661ec",
-      "children": [],
-      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
-      "internal": {
-        "contentDigest": "745e6bbfe0f341df82428e9592158ee7",
-        "type": "PastCoursesCsv",
-        "owner": "gatsby-transformer-csv"
-      }
     },
     "2419679d-4400-5964-80e3-4650c8b22673": {
       "id": "2419679d-4400-5964-80e3-4650c8b22673",
@@ -9247,53 +8713,6 @@
       "fileAbsolutePath": "/Users/epacuit/Dropbox/mysite/src/data/courses/methods-ppe.md",
       "fields": {
         "slug": "/courses/methods-ppe/"
-      }
-    },
-    "628055e9-999e-53c1-8043-44e26c0502c6": {
-      "id": "628055e9-999e-53c1-8043-44e26c0502c6",
-      "children": [],
-      "parent": "1d141a2f-c849-5630-b0f8-bc3e7c82c417",
-      "internal": {
-        "content": "",
-        "type": "MarkdownRemark",
-        "contentDigest": "5f90a09dd97d55f90cd4c7504bfc161d",
-        "owner": "gatsby-transformer-remark",
-        "fieldOwners": {
-          "slug": "default-site-plugin"
-        }
-      },
-      "frontmatter": {
-        "title": "Modal Logic",
-        "short_name": "Modal Logic",
-        "course_number": "PHIL 858A",
-        "level": "Graduate",
-        "current_semester": "Spring 2019",
-        "website": [
-          {
-            "sem": "Spring 2019",
-            "www": "https://myelms.umd.edu/courses/1260230"
-          }
-        ],
-        "syllabus": [
-          {
-            "sem": "Spring 2019",
-            "file": "./syl-PHIL858P-modal.pdf"
-          }
-        ],
-        "description": "Modal logic began as the study of different sorts of modalities, or modes of truth: alethic ('it is necessarily true that'), epistemic (`it is known that'), deontic (`it ought to be the case that'), temporal (`it has always been the case that'), among others.  By now, modal logic has become a broad area of research, forming a sort of lingua franca between many disciplines, especially philosophy, computer science, economics, and linguistics.   This course covers core concepts and basic meta-theory of propositional modal logic, including relations to first-order logic; the basics of quantified modal logic; and selected   applications of modal logic.  Topics that may be discussed (the final choice of topics may be adapted to fit students' interests) include (dynamic) epistemic/doxastic logic, conditional logic, non-normal modal logics, logics of action and agency, temporal logics, and applications of modal logic in game theory.",
-        "comment": "This is a graduate seminar.  The meeting times are Mondays, 2:00pm - 4:30pm in Skinner 1116.",
-        "past_semesters": [
-          {
-            "sem": "Spring 2012",
-            "www": "http://web.pacuit.org/classes/modal.html"
-          }
-        ]
-      },
-      "excerpt": "",
-      "rawMarkdownBody": "",
-      "fileAbsolutePath": "/Users/epacuit/Dropbox/mysite/src/data/courses/modal-logic.md",
-      "fields": {
-        "slug": "/courses/modal-logic/"
       }
     },
     "88a381e6-b4cd-5f17-88df-035d1497deac": {
@@ -12407,6 +11826,587 @@
       "ctime": "2019-02-02T14:35:04.591Z",
       "birthtime": "2019-02-01T18:19:20.898Z"
     },
+    "2b40832d-335a-5bda-87d4-372d68c312be": {
+      "announcement": "Talk: [Working Group in History and Philosophy of Logic, Mathematics and Science](http://hplms.berkeley.edu/),  Strategic reasoning: From beliefs about mistakes to mistaken beliefs, October 17, 2018",
+      "new": true,
+      "weight": 100,
+      "hide": false,
+      "id": "2b40832d-335a-5bda-87d4-372d68c312be",
+      "children": [],
+      "parent": "eac2daf1-92d2-5450-828d-d504b9004899",
+      "internal": {
+        "contentDigest": "b5ffcf7185776f986bbab6f8f8c06da3",
+        "type": "AnnouncementsYaml",
+        "owner": "gatsby-transformer-yaml"
+      }
+    },
+    "a6858f5c-46ab-5859-9bd5-59efa8f9cb86": {
+      "announcement": "Talk: [Logic, Information, and Topology Workshop](https://www.cmu.edu/dietrich/philosophy/events/workshops-conferences/index.html),  Beliefs, Propositions and Definite Descriptions, Center for Formal Epistemology,  Carnegie Mellon University, October 20th, 2018",
+      "new": false,
+      "weight": 90,
+      "hide": false,
+      "id": "a6858f5c-46ab-5859-9bd5-59efa8f9cb86",
+      "children": [],
+      "parent": "eac2daf1-92d2-5450-828d-d504b9004899",
+      "internal": {
+        "contentDigest": "a0f7c4826481b3fc6f1d0048442c5ae7",
+        "type": "AnnouncementsYaml",
+        "owner": "gatsby-transformer-yaml"
+      }
+    },
+    "3e104a01-125c-5db1-8aa6-987eabfb7334": {
+      "announcement": "Short Course: [Neighborhood semantics for modal logic](http://app.pacuit.io/teaching/nbhd2018_tsinghua),  Tsinghua University, Beijing, November, 2018.",
+      "new": true,
+      "weight": 5,
+      "hide": false,
+      "id": "3e104a01-125c-5db1-8aa6-987eabfb7334",
+      "children": [],
+      "parent": "eac2daf1-92d2-5450-828d-d504b9004899",
+      "internal": {
+        "contentDigest": "158e32165c0da6f6ee1bc5c53de67b04",
+        "type": "AnnouncementsYaml",
+        "owner": "gatsby-transformer-yaml"
+      }
+    },
+    "699f36fd-d468-5f7c-857b-dac3b05ada7b": {
+      "text": "Voting methods tutorial",
+      "link": "http://pacuit.io/tutorials/voting-methods",
+      "icon": "link",
+      "id": "699f36fd-d468-5f7c-857b-dac3b05ada7b",
+      "children": [],
+      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
+      "internal": {
+        "contentDigest": "3987dcbcccf0ee5a82d04e66c1ce7c49",
+        "type": "TutorialsYaml",
+        "owner": "gatsby-transformer-yaml"
+      }
+    },
+    "6bd17334-b6bf-5fdb-88e1-dfd78efeba7a": {
+      "text": "Truth for modal formulas on relational structures",
+      "link": "http://pacuit.io/modal/tutorial/",
+      "icon": "link",
+      "id": "6bd17334-b6bf-5fdb-88e1-dfd78efeba7a",
+      "children": [],
+      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
+      "internal": {
+        "contentDigest": "8a4a03f292685ffd4fcba84c8fa93700",
+        "type": "TutorialsYaml",
+        "owner": "gatsby-transformer-yaml"
+      }
+    },
+    "e7f5d845-697f-523f-8563-25a6ed89ba28": {
+      "text": "Relational semantics for modal logic",
+      "link": "http://docs.pacuit.io/tutorials/ml-notes.pdf",
+      "icon": "pdf",
+      "id": "e7f5d845-697f-523f-8563-25a6ed89ba28",
+      "children": [],
+      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
+      "internal": {
+        "contentDigest": "8da4e83a501883aa9291f3a55003bbd3",
+        "type": "TutorialsYaml",
+        "owner": "gatsby-transformer-yaml"
+      }
+    },
+    "6adfa521-2757-51a9-b2c8-83c00e143402": {
+      "text": "Preferences, choices and utilities",
+      "link": "http://docs.pacuit.io/tutorials/pref-choice-util.pdf",
+      "icon": "pdf",
+      "id": "6adfa521-2757-51a9-b2c8-83c00e143402",
+      "children": [],
+      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
+      "internal": {
+        "contentDigest": "d7ecac3179ce5fee2d714b3235d4c40f",
+        "type": "TutorialsYaml",
+        "owner": "gatsby-transformer-yaml"
+      }
+    },
+    "330e159b-9baa-5625-b395-255f3bfc16fd": {
+      "text": "Sets, functions and relations",
+      "link": "http://docs.pacuit.io/tutorials/discretemath.pdf",
+      "icon": "pdf",
+      "id": "330e159b-9baa-5625-b395-255f3bfc16fd",
+      "children": [],
+      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
+      "internal": {
+        "contentDigest": "959ca2e73de7963a8067f69dd6c04eb7",
+        "type": "TutorialsYaml",
+        "owner": "gatsby-transformer-yaml"
+      }
+    },
+    "6c399142-a045-5132-8a25-78ec758701f0": {
+      "text": "Online lectures",
+      "link": "https://www.youtube.com/user/Ericpacuit",
+      "icon": "youtube",
+      "id": "6c399142-a045-5132-8a25-78ec758701f0",
+      "children": [],
+      "parent": "8db0ac76-1207-5c9c-b487-67c34f28e0f5",
+      "internal": {
+        "contentDigest": "d9adbde02806603de691729c94459da9",
+        "type": "TutorialsYaml",
+        "owner": "gatsby-transformer-yaml"
+      }
+    },
+    "6216b847-f836-598f-87be-780fa4ee73f7": {
+      "name": "",
+      "description": "Logic and Artificial Intelligence",
+      "tag": "other",
+      "semester": "Fall 2012",
+      "school": "Carnegie Mellon University",
+      "website": "http://web.pacuit.io/classes/logicai-cmu.html",
+      "syllabus": "",
+      "level": "UG",
+      "id": "6216b847-f836-598f-87be-780fa4ee73f7",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "82f6bf5b6eef0e9dff745abdb8e95e7b",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "a535edd4-237c-5929-baba-14b39b9020ad": {
+      "name": "",
+      "description": "Rationality, Masters in Philosophy Program",
+      "tag": "other",
+      "semester": "Fall 2010, Spring 2011",
+      "school": "Tilburg University",
+      "website": "http://web.pacuit.io/classes/rationality.html",
+      "syllabus": "",
+      "level": "G",
+      "id": "a535edd4-237c-5929-baba-14b39b9020ad",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "ccbd2cf273b5fe9a9c264f2fa0a84c1e",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "433634ac-2b0a-5a9e-b23a-770b80651840": {
+      "name": "",
+      "description": "Computability and Logic",
+      "tag": "other",
+      "semester": "Spring 2009",
+      "school": "Stanford University",
+      "website": "http://web.pacuit.io/classes/phil152spr09.html",
+      "syllabus": "",
+      "level": "UG",
+      "id": "433634ac-2b0a-5a9e-b23a-770b80651840",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "217c50d2911e086781de04a85341cb6b",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "667f2c0b-6c55-5a4d-8bc8-53d5f2d11163": {
+      "name": "",
+      "description": "Rational Agency and Intelligent Interaction",
+      "tag": "other",
+      "semester": "Spring 2009",
+      "school": "Stanford University",
+      "website": "http://web.stanford.edu/class/cs222/",
+      "syllabus": "",
+      "level": "UG",
+      "id": "667f2c0b-6c55-5a4d-8bc8-53d5f2d11163",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "9176c782a5b152caeb5d3cb04f56e756",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "2eb34e18-a167-53aa-ac5f-e1e29c299c0f": {
+      "name": "",
+      "description": "First Order Logic",
+      "tag": "other",
+      "semester": "Winter 2009",
+      "school": "Stanford University",
+      "website": "http://web.pacuit.io/classes/phil151winter09.html",
+      "syllabus": "",
+      "level": "UG",
+      "id": "2eb34e18-a167-53aa-ac5f-e1e29c299c0f",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "a1935f2ce71b7fe47e84a94f7fbc0a14",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "b54b2e40-ba5d-5523-9780-46e21f5676b2": {
+      "name": "",
+      "description": "Model Theory",
+      "tag": "other",
+      "semester": "Fall 2008",
+      "school": "Stanford University",
+      "website": "http://web.pacuit.io/classes/modelfall08.html",
+      "syllabus": "",
+      "level": "UG",
+      "id": "b54b2e40-ba5d-5523-9780-46e21f5676b2",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "9d15b4c33d921b29c98704f579eefd60",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "0b5dbc7b-75e1-5108-a488-22bcb9185988": {
+      "name": "",
+      "description": "Can Machines Know? Can Machines Feel? ",
+      "tag": "other",
+      "semester": "Spring 2008, with Yoav Shoham",
+      "school": "Stanford University",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "0b5dbc7b-75e1-5108-a488-22bcb9185988",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "4151767cdaba9a3a3dbf3b923d851d22",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "e73ed97f-08c9-5078-b117-0c93d7c2b974": {
+      "name": "",
+      "description": "Model Theory",
+      "tag": "other",
+      "semester": "Spring 2006",
+      "school": "Institute for Logic, Language and Computation, University of Amsterdam",
+      "website": "http://web.pacuit.io/classes/illc/model-illc.html",
+      "syllabus": "",
+      "level": "G",
+      "id": "e73ed97f-08c9-5078-b117-0c93d7c2b974",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "62bfb0350692423df32737f6ecbf621f",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "7f7e2071-d011-5f6a-bbef-5b200ef71480": {
+      "name": "",
+      "description": "CAPUT Logic, Language and Information",
+      "tag": "other",
+      "semester": "Spring 2006",
+      "school": "Institute for Logic, Language and Computation, University of Amsterdam",
+      "website": "http://web.pacuit.io/classes/illc/caputLLI-illc.html",
+      "syllabus": "",
+      "level": "G",
+      "id": "7f7e2071-d011-5f6a-bbef-5b200ef71480",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "e4b267ec2823b01479a68d8431e950de",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "d34bb26a-675d-59c8-9afe-0fb2b118ebe5": {
+      "name": "",
+      "description": "Neighborhood Models and Their Applications",
+      "tag": "other",
+      "semester": "Winter 2006",
+      "school": "Institute for Logic, Language and Computation, University of Amsterdam",
+      "website": "http://web.pacuit.io/classes/illc/nbhd.html",
+      "syllabus": "",
+      "level": "G",
+      "id": "d34bb26a-675d-59c8-9afe-0fb2b118ebe5",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "f769e2b7ba16e3a6baba3d8e18841c2b",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "fef1518a-7838-5336-bd54-72ab33442f13": {
+      "name": "",
+      "description": "Introduction to Modal Logic",
+      "tag": "other",
+      "semester": "Fall 2005",
+      "school": "Institute for Logic, Language and Computation, University of Amsterdam",
+      "website": "http://web.pacuit.io/classes/illc/modal-illc.html",
+      "syllabus": "",
+      "level": "G",
+      "id": "fef1518a-7838-5336-bd54-72ab33442f13",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "37b6cd8c5112458c67e2928b558ae354",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "6a502a5c-44d3-5dd6-9dc9-366034fbbbdd": {
+      "name": "",
+      "description": "Recursion Theory",
+      "tag": "other",
+      "semester": "Fall 2005",
+      "school": "Institute for Logic, Language and Computation, University of Amsterdam",
+      "website": "http://web.pacuit.io/classes/illc/recth-illc.html",
+      "syllabus": "",
+      "level": "G",
+      "id": "6a502a5c-44d3-5dd6-9dc9-366034fbbbdd",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "3ccfaf71db03e4c56c23b2b41d04317d",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "173688de-b5e7-5c28-a413-ece3a5c0231e": {
+      "name": "",
+      "description": "Introduction to Theoretical Computer Science",
+      "tag": "other",
+      "semester": "",
+      "school": "Brooklyn College",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "173688de-b5e7-5c28-a413-ece3a5c0231e",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "b597acf835c80e7499ccb7c02f518b55",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "c0ca99f3-d858-5f64-91f4-7d7f1af63a38": {
+      "name": "",
+      "description": "Analysis of Algorithms",
+      "tag": "other",
+      "semester": "",
+      "school": "Brooklyn College",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "c0ca99f3-d858-5f64-91f4-7d7f1af63a38",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "56a6abb0fe3b2eb93d57a7855cab3b8d",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "f4e23e6b-68d4-5367-81ae-2968d6be2bc8": {
+      "name": "",
+      "description": "Discrete Mathematics",
+      "tag": "other",
+      "semester": "",
+      "school": "Brooklyn College",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "f4e23e6b-68d4-5367-81ae-2968d6be2bc8",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "e610b9571bdc93430aeafc320006c804",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "a41c2f7e-dbe5-5426-9747-08685907c821": {
+      "name": "",
+      "description": "Advanced C Programming",
+      "tag": "other",
+      "semester": "",
+      "school": "Brooklyn College",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "a41c2f7e-dbe5-5426-9747-08685907c821",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "453d30804774af03659854fc0034f1b7",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "9fb6c7e9-5c3b-534e-83a8-c89106d10186": {
+      "name": "",
+      "description": "Unix Shell Programming (Korn Shell)",
+      "tag": "other",
+      "semester": "",
+      "school": "Brooklyn College",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "9fb6c7e9-5c3b-534e-83a8-c89106d10186",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "8b9d81a2d89e71f95b94166e4e3e81ba",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "1445f2f0-c3a7-5a65-9762-b2655e1ccb54": {
+      "name": "",
+      "description": "Introduction to C Programming",
+      "tag": "other",
+      "semester": "",
+      "school": "Brooklyn College",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "1445f2f0-c3a7-5a65-9762-b2655e1ccb54",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "c8edca879a229cc16d525a2fc0c2488a",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "7f0f0ec5-b67e-56fe-9391-69d7b79b3df4": {
+      "name": "",
+      "description": "Multimedia Programming",
+      "tag": "other",
+      "semester": "",
+      "school": "Brooklyn College",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "7f0f0ec5-b67e-56fe-9391-69d7b79b3df4",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "12d05b195d8b3a67657b27df774c7ad3",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "62c03591-9f77-546c-81da-917f7d42dbad": {
+      "name": "",
+      "description": "Introduction to Computer Science",
+      "tag": "other",
+      "semester": "",
+      "school": "Brooklyn College",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "62c03591-9f77-546c-81da-917f7d42dbad",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "3f0c1d15fb20880dd55a4d7daf943c01",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "3d050b98-6b53-54b7-8f2f-903820acf465": {
+      "name": "",
+      "description": "Introduction to Symbolic Logic",
+      "tag": "other",
+      "semester": "Fall 2003",
+      "school": "New York University",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "3d050b98-6b53-54b7-8f2f-903820acf465",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "76d0d3c3313832d7c8ac108d360c5949",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "b98538dd-4ff2-575d-908a-4f65ba81583c": {
+      "name": "",
+      "description": "Calculus",
+      "tag": "other",
+      "semester": "",
+      "school": "Case Western Reserve University",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "b98538dd-4ff2-575d-908a-4f65ba81583c",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "b3a96f09a62ff36e6525e2c28dc0c1d3",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "b1998591-ad91-5ae3-b831-eafee8a661ec": {
+      "name": "",
+      "description": "College Algebra",
+      "tag": "other",
+      "semester": "",
+      "school": "Case Western Reserve University",
+      "website": "",
+      "syllabus": "",
+      "level": "UG",
+      "id": "b1998591-ad91-5ae3-b831-eafee8a661ec",
+      "children": [],
+      "parent": "3e396e06-3141-55cb-8dcf-5f10287a977b",
+      "internal": {
+        "contentDigest": "745e6bbfe0f341df82428e9592158ee7",
+        "type": "PastCoursesCsv",
+        "owner": "gatsby-transformer-csv"
+      }
+    },
+    "628055e9-999e-53c1-8043-44e26c0502c6": {
+      "id": "628055e9-999e-53c1-8043-44e26c0502c6",
+      "children": [],
+      "parent": "1d141a2f-c849-5630-b0f8-bc3e7c82c417",
+      "internal": {
+        "content": "",
+        "type": "MarkdownRemark",
+        "contentDigest": "6c4eac0d24a5b39f2e3796ef3fd080cf",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "Modal Logic",
+        "short_name": "Modal Logic",
+        "course_number": "PHIL 858A",
+        "level": "Graduate",
+        "current_semester": "Spring 2019",
+        "website": [
+          {
+            "sem": "Spring 2019",
+            "www": "https://myelms.umd.edu/courses/1260230"
+          }
+        ],
+        "syllabus": [
+          {
+            "sem": "Spring 2019",
+            "file": "./syl-PHIL858P-modal.pdf"
+          }
+        ],
+        "description": "Modal logic began as the study of different sorts of modalities, or modes of truth: alethic ('it is necessarily true that'), epistemic (`it is known that'), deontic (`it ought to be the case that'), temporal (`it has always been the case that'), among others.  By now, modal logic has become a broad area of research, forming a sort of lingua franca between many disciplines, especially philosophy, computer science, economics, and linguistics.   This course covers core concepts and basic meta-theory of propositional modal logic, including relations to first-order logic; the basics of quantified modal logic; and selected   applications of modal logic.  Topics that may be discussed (the final choice of topics may be adapted to fit students' interests) include (dynamic) epistemic/doxastic logic, conditional logic, non-normal modal logics, logics of action and agency, temporal logics, and applications of modal logic in game theory.",
+        "comment": "This is a graduate seminar.  The meeting times are Mondays, 2:00pm - 4:30pm in Skinner 1116.",
+        "past_semesters": [
+          {
+            "sem": "Spring 2012",
+            "www": "http://web.pacuit.io/classes/modal.html"
+          }
+        ]
+      },
+      "excerpt": "",
+      "rawMarkdownBody": "",
+      "fileAbsolutePath": "/Users/epacuit/Dropbox/mysite/src/data/courses/modal-logic.md",
+      "fields": {
+        "slug": "/courses/modal-logic/"
+      }
+    },
     "SitePage /courses/belief-revision/": {
       "jsonName": "courses-belief-revision-580",
       "internalComponentName": "ComponentCoursesBeliefRevision",
@@ -12513,28 +12513,6 @@
       "internal": {
         "type": "SitePage",
         "contentDigest": "b8bd19fbaf8643ca8fc1c72fd4a5b819",
-        "description": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
-        "owner": "internal-data-bridge"
-      }
-    },
-    "SitePage /courses/modal-logic/": {
-      "jsonName": "courses-modal-logic-7e7",
-      "internalComponentName": "ComponentCoursesModalLogic",
-      "path": "/courses/modal-logic/",
-      "component": "/Users/epacuit/Dropbox/mysite/src/templates/course-page.js",
-      "componentChunkName": "component---src-templates-course-page-js",
-      "context": {
-        "slug": "/courses/modal-logic/"
-      },
-      "pluginCreator___NODE": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
-      "pluginCreatorId": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
-      "componentPath": "/Users/epacuit/Dropbox/mysite/src/templates/course-page.js",
-      "id": "SitePage /courses/modal-logic/",
-      "parent": null,
-      "children": [],
-      "internal": {
-        "type": "SitePage",
-        "contentDigest": "03bed0819301e2633d34ce22192937a6",
         "description": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
         "owner": "internal-data-bridge"
       }
@@ -12667,6 +12645,28 @@
       "internal": {
         "type": "SitePage",
         "contentDigest": "d5f007d396ea6bc09544d0b3cc27b590",
+        "description": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /courses/modal-logic/": {
+      "jsonName": "courses-modal-logic-7e7",
+      "internalComponentName": "ComponentCoursesModalLogic",
+      "path": "/courses/modal-logic/",
+      "component": "/Users/epacuit/Dropbox/mysite/src/templates/course-page.js",
+      "componentChunkName": "component---src-templates-course-page-js",
+      "context": {
+        "slug": "/courses/modal-logic/"
+      },
+      "pluginCreator___NODE": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
+      "pluginCreatorId": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
+      "componentPath": "/Users/epacuit/Dropbox/mysite/src/templates/course-page.js",
+      "id": "SitePage /courses/modal-logic/",
+      "parent": null,
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "03bed0819301e2633d34ce22192937a6",
         "description": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
         "owner": "internal-data-bridge"
       }
@@ -13198,25 +13198,26 @@
     "sq--src-components-recentpublications-js": 4254404931,
     "sq--src-components-helmet-js": 3303472061,
     "sq--src-components-announcements-js": 565232162,
-    "tutorials-44a": "527/path---tutorials-44-a-53e-S87eky4AYHAB95d2n8fDIxQY",
+    "tutorials-44a": "792/path---tutorials-44-a-53e-Po82sof3nPNratPlCfwKxo9DVb8",
     "manuscripts-953": "484/path---manuscripts-953-dd1-hDpFJIkQXyv8sksIQC5WzNrBG4Y",
-    "courses-belief-revision-580": "919/path---courses-belief-revision-580-06c-qioCH4k4RV1lJSwWkhkstjMH8Qs",
-    "courses-epistemic-game-theory-a9f": "168/path---courses-epistemic-game-theory-a-9-f-aaa-ZhxLlwejwVL42vqIpmOim7oAEZM",
-    "courses-incompleteness-undecidability-511": "275/path---courses-incompleteness-undecidability-511-ace-fh3yC2gzoNdFNdYbINAoR3rNpeo",
-    "courses-epistemic-logic-9cd": "953/path---courses-epistemic-logic-9-cd-51b-41YQ2i5gTjrAg38QKODaaRQpkbA",
-    "courses-methods-ppe-b22": "848/path---courses-methods-ppe-b-22-1df-0jbJGh7yUg7DVx1R5n0xlHrKc",
-    "courses-modal-logic-7e7": "85/path---courses-modal-logic-7-e-7-ee1-834sCZoTQj9y2NzHYLRX1kYPA",
-    "courses-models-simulations-da4": "584/path---courses-models-simulations-da-4-e37-cyovt0KhLBoGb933B06JLoawdY",
-    "courses-intro-logic-bfd": "582/path---courses-intro-logic-bfd-654-p1kFfBJOtfrF6DMkg7NtpA7x26I",
-    "courses-rational-choice-57b": "353/path---courses-rational-choice-57-b-3c2-DBH1vxAFuDvkD5nWY28qM5Lws",
-    "courses-reasoning-46a": "581/path---courses-reasoning-46-a-375-sTudpgalUyFTfVSqhZ34TqHrTqw",
-    "courses-symbolic-logic-851": "36/path---courses-symbolic-logic-851-e85-KDWBqWVz8s70NGf04jpv1O5Ek",
-    "courses-ug-modal-logic-a24": "594/path---courses-ug-modal-logic-a-24-5ec-12juPVv4z0PZiZYiHwBRn2wIjeo",
+    "courses-belief-revision-580": "209/path---courses-belief-revision-580-06c-3YjBQ96dBFlyZvskvCEUDlpI2s",
+    "courses-epistemic-game-theory-a9f": "624/path---courses-epistemic-game-theory-a-9-f-aaa-nXhdLLNa6X8uD0rFKStTfDhN3g",
+    "courses-incompleteness-undecidability-511": "962/path---courses-incompleteness-undecidability-511-ace-n93QptF44dmEDTUZ4E6padEjv0",
+    "courses-epistemic-logic-9cd": "943/path---courses-epistemic-logic-9-cd-51b-zSOnd14r28WLjhbkCdluYFt4Wo",
+    "courses-methods-ppe-b22": "58/path---courses-methods-ppe-b-22-1df-Js2J8u2AEut3X4xyrF0efiHhE",
+    "courses-modal-logic-7e7": "775/path---courses-modal-logic-7-e-7-ee1-Hdq7LE4LYkofU2cAPnsLDqW69pQ",
+    "courses-models-simulations-da4": "524/path---courses-models-simulations-da-4-e37-BeV26cWehi3mba7AtJ3KbyNiaU",
+    "courses-intro-logic-bfd": "50/path---courses-intro-logic-bfd-654-Yl8KEUBeBeWvOoCRscj5FqcqgXc",
+    "courses-rational-choice-57b": "919/path---courses-rational-choice-57-b-3c2-JmB9AsWZXup8wZqwz4Ldckedl1s",
+    "courses-reasoning-46a": "385/path---courses-reasoning-46-a-375-fWSgbkl47Ko2e8EHl43oKqbps",
+    "courses-symbolic-logic-851": "104/path---courses-symbolic-logic-851-e85-EWZTpHtP171MC5fu1SNENHybf0I",
+    "courses-ug-modal-logic-a24": "857/path---courses-ug-modal-logic-a-24-5ec-biR0ki1P6Ny47w4NLhWWgxyOByI",
     "publications-bd3": "896/path---publications-bd-3-a46-2irED0HoagS3pGSDxQ6sVV4A",
-    "teaching-b63": "338/path---teaching-b-63-db2-kNt3c9pmYH52pa0HTsVQ3OghE",
+    "teaching-b63": "316/path---teaching-b-63-db2-XyUlSZiVAKD9Guj96JyOFrVOM0",
     "index": "173/path---index-6a9-NZuapzHg3X9TaN1iIixfv1W23E",
     "404-22d": "44/path---404-22-d-bce-NZuapzHg3X9TaN1iIixfv1W23E",
-    "404-html-516": "164/path---404-html-516-62a-NZuapzHg3X9TaN1iIixfv1W23E"
+    "404-html-516": "164/path---404-html-516-62a-NZuapzHg3X9TaN1iIixfv1W23E",
+    "dev-404-page-5f9": "920/path---dev-404-page-5-f-9-fab-NZuapzHg3X9TaN1iIixfv1W23E"
   },
   "components": {
     "/Users/epacuit/Dropbox/mysite/src/templates/course-page.js": {

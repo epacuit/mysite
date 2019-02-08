@@ -94,7 +94,7 @@ class TopMenu extends Component {
 
               <div className="navbar-dropdown">
                 <a
-                  href = "http://app.pacuit.org/esslli"
+                  href = "http://app.pacuit.io/esslli"
                   className={
                     this.props.activeItem === 'shortcourses'
                       ? 'navbar-item is-active'
@@ -116,7 +116,7 @@ class TopMenu extends Component {
               </div>
             </div>
             <Link
-              to="http://docs.pacuit.org/pacuit-cv.pdf"
+              to="http://docs.pacuit.io/pacuit-cv.pdf"
               className={
                 this.props.activeItem === 'cv'
                   ? 'navbar-item is-active'

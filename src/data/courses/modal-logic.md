@@ -14,6 +14,6 @@ description: "Modal logic began as the study of different sorts of modalities, o
 comment:  This is a graduate seminar.  The meeting times are Mondays, 2:00pm - 4:30pm in Skinner 1116.
 past_semesters:
   - sem: Spring 2012
-    www: http://web.pacuit.org/classes/modal.html
+    www: http://web.pacuit.io/classes/modal.html
 
 ---
