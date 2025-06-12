@@ -1,0 +1,18 @@
+# List of tutorial links
+
+- text: "Online notes on logic and probability"
+  link: https://logic-probability.pacuit.org
+  icon: link
+
+- text: "Introductory notes on rational choice theory"
+  link: https://notes.phpe400.info/
+  icon: link
+
+- text: "A gentle introduction to machine learning"
+  link: https://epacuit.github.io/introduction-machine-learning
+  icon: link
+
+- text: "Online lectures"
+  link: https://www.youtube.com/user/Ericpacuit
+  icon: youtube
+

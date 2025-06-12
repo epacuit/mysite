@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Read all course index.md files from the data directory
+const esslliCourses = await Astro.glob('../../data/esslli/**/index.md');
+const nasslliCourses = await Astro.glob('../../data/nasslli/**/index.md');
+
+// Process all courses
+const courses = [];
+
+// Process ESSLLI courses
+esslliCourses.forEach(course => {
+  const pathMatch = course.file.match(/data\/esslli\/(\d{4})\/([^\/]+)\/index\.md$/);
+  if (pathMatch) {
+    const [, year, courseDir] = pathMatch;
+    courses.push({
+      year,
+      slug: `/esslli${year}/${courseDir}`,
+      title: course.frontmatter.title,
+      school: course.frontmatter.school,
+      school_www: course.frontmatter.school_www,
+      dates: course.frontmatter.dates,
+      venue: course.frontmatter.venue,
+      type: 'esslli'
+    });
+  }
+});
+
+// Process NASSLLI courses
+nasslliCourses.forEach(course => {
+  const pathMatch = course.file.match(/data\/nasslli\/(\d{4})\/([^\/]+)\/index\.md$/);
+  if (pathMatch) {
+    const [, year, courseDir] = pathMatch;
+    courses.push({
+      year,
+      slug: `/nasslli${year}/${courseDir}`,
+      title: course.frontmatter.title,
+      school: course.frontmatter.school,
+      school_www: course.frontmatter.school_www,
+      dates: course.frontmatter.dates,
+      venue: course.frontmatter.venue,
+      type: 'nasslli'
+    });
+  }
+});
+
+// Sort by year descending
+courses.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+
+// Get unique years
+const allYears = [...new Set(courses.map(c => c.year))].sort((a, b) => parseInt(b) - parseInt(a));
+---
+
+<Layout title="Short Courses - Eric Pacuit" activePage="short-courses">
+  <div>
+    <!-- Header Section -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-4">Short Courses</h1>
+      <p class="text-gray-700 text-lg">
+        Below is the list of the short courses that I have taught at summer schools. Consult my
+        <a href="/teaching" class="text-blue-600 hover:underline mx-1">teaching page</a>
+        for information about my University of Maryland courses.
+      </p>
+    </div>
+
+    <!-- Year Filter Buttons -->
+    <div class="mb-8">
+      <div class="flex items-center flex-wrap gap-2">
+        <span class="text-gray-600 mr-2">Year:</span>
+        <button
+          id="all-years-btn"
+          class="year-filter-btn px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 transition-colors active"
+          data-year="all"
+        >
+          All
+        </button>
+        {allYears.map(year => (
+          <button
+            class="year-filter-btn px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+            data-year={year}
+          >
+            {year}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Course Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {courses.map(course => (
+        <div
+          class="course-card block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-200 transform hover:-translate-y-1 cursor-pointer"
+          data-year={course.year}
+          onclick={`window.location.href='${course.slug}'`}
+        >
+          <h3 class="text-xl font-semibold mb-2 text-gray-900">{course.title}</h3>
+          
+          <p class="text-gray-600 mb-1">
+            {course.school_www ? (
+              <span 
+                class="text-blue-600 hover:underline cursor-pointer"
+                onclick={`event.stopPropagation(); window.open('${course.school_www.startsWith('http') ? course.school_www : `https://${course.school_www}`}', '_blank');`}
+              >
+                {course.school}
+              </span>
+            ) : (
+              <span>{course.school}</span>
+            )}
+          </p>
+          
+          <p class="text-sm text-gray-500">{course.dates}</p>
+          <p class="text-sm text-gray-500">{course.venue}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <style>
+    .year-filter-btn.active {
+      background-color: rgb(59 130 246);
+      color: white;
+      border-color: rgb(59 130 246);
+    }
+    
+    .year-filter-btn.active:hover {
+      background-color: rgb(37 99 235);
+    }
+    
+    .course-card {
+      display: block;
+    }
+    
+    .course-card.hidden {
+      display: none;
+    }
+  </style>
+
+  <script>
+    // Year filter functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterButtons = document.querySelectorAll('.year-filter-btn');
+      const courseCards = document.querySelectorAll('.course-card');
+      const allYearsBtn = document.getElementById('all-years-btn');
+      
+      let selectedYears = new Set();
+      
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const year = btn.dataset.year;
+          
+          if (year === 'all') {
+            // Clear all selections and show all
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedYears.clear();
+            courseCards.forEach(card => card.classList.remove('hidden'));
+          } else {
+            // Remove 'all' selection if it exists
+            allYearsBtn?.classList.remove('active');
+            
+            // Toggle this year
+            if (btn.classList.contains('active')) {
+              btn.classList.remove('active');
+              selectedYears.delete(year);
+            } else {
+              btn.classList.add('active');
+              selectedYears.add(year);
+            }
+            
+            // If no years selected, select 'all'
+            if (selectedYears.size === 0) {
+              allYearsBtn?.classList.add('active');
+              courseCards.forEach(card => card.classList.remove('hidden'));
+            } else {
+              // Filter courses
+              courseCards.forEach(card => {
+                const cardYear = card.dataset.year;
+                if (selectedYears.has(cardYear)) {
+                  card.classList.remove('hidden');
+                } else {
+                  card.classList.add('hidden');
+                }
+              });
+            }
+          }
+        });
+      });
+    });
+  </script>
+</Layout>

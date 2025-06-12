@@ -1,0 +1,208 @@
+---
+// src/pages/teaching.astro
+import Layout from '../layouts/Layout.astro';
+import Papa from 'papaparse';
+import fs from 'fs/promises';
+import path from 'path';
+import matter from 'gray-matter';
+
+// Read all course markdown files from data/courses
+const coursesDir = path.join(process.cwd(), 'data', 'courses');
+const courseFileNames = await fs.readdir(coursesDir);
+const courses = [];
+
+for (const fileName of courseFileNames) {
+  if (fileName.endsWith('.md')) {
+    const filePath = path.join(coursesDir, fileName);
+    const fileContent = await fs.readFile(filePath, 'utf8');
+    const { data, content } = matter(fileContent);
+    const slug = fileName.replace('.md', '');
+    
+    courses.push({
+      slug: slug,
+      data: data,
+      content: content
+    });
+  }
+}
+
+// Separate undergraduate and graduate courses
+const undergradCourses = courses.filter(c => c.data.level.includes('Undergraduate'));
+const gradCourses = courses.filter(c => c.data.level.includes('Graduate'));
+
+// Sort courses by course number string (e.g., "PHIL 170", "PHIL 171", "PHIL 271")
+const sortByCourseNumber = (a, b) => {
+  const courseA = a.data.course_number || '';
+  const courseB = b.data.course_number || '';
+  return courseA.localeCompare(courseB, undefined, { numeric: true });
+};
+
+undergradCourses.sort(sortByCourseNumber);
+gradCourses.sort(sortByCourseNumber);
+
+// Get current semester based on date
+const today = new Date();
+const month = today.getMonth() + 1;
+const year = today.getFullYear();
+
+let currentSemesters = [];
+if (month >= 5 && month <= 12) {
+  currentSemesters = [`Fall ${year}`, `Spring ${year + 1}`];
+} else {
+  currentSemesters = [`Spring ${year}`, `Fall ${year - 1}`];
+}
+
+// Read past courses CSV
+const csvPath = path.join(process.cwd(), 'data', 'past_courses.csv');
+const csvContent = await fs.readFile(csvPath, 'utf8');
+const pastCoursesData = Papa.parse(csvContent, { header: true, skipEmptyLines: true });
+const pastCourses = pastCoursesData.data;
+
+// Group past courses by school
+const pastCoursesBySchool = pastCourses.reduce((acc, course) => {
+  const school = course.school || 'Other';
+  if (!acc[school]) acc[school] = [];
+  acc[school].push(course);
+  return acc;
+}, {});
+---
+
+<Layout title="Teaching - Eric Pacuit" activePage="teaching">
+  <div class="max-w-4xl mx-auto">
+    <!-- Current Courses -->
+    <section class="mb-12">
+      <h1 class="text-4xl font-bold mb-8">Current Courses</h1>
+      
+      {currentSemesters.map((sem) => {
+        const semCourses = courses.filter(c => c.data.current_semester === sem);
+        return (
+          <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">{sem}</h2>
+            {semCourses.length > 0 ? (
+              <ul class="space-y-4">
+                {semCourses.map((course) => (
+                  <li>
+                    <h3 class="font-medium text-lg mb-2">{course.data.title}</h3>
+                    <div class="flex flex-wrap gap-3">
+                      {course.data.syllabus?.[0]?.file && (
+                        <a href={`/api/files/courses/${course.data.syllabus[0].file}`} 
+                           class="inline-flex items-center px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm">
+                          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                          </svg>
+                          Syllabus ({course.data.syllabus[0].sem})
+                        </a>
+                      )}
+                      {course.data.website?.[0]?.www && (
+                        <a href={course.data.website[0].www} 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm">
+                          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                          </svg>
+                          Course Website
+                        </a>
+                      )}
+                      <a href={`/courses/${course.slug}`} 
+                         class="inline-flex items-center px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        Course Description
+                      </a>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="text-gray-600 italic">I'll link to my courses for this semester soon!</p>
+            )}
+          </div>
+        );
+      })}
+    </section>
+
+    <!-- UMD Courses -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">University of Maryland Courses</h2>
+      
+      <!-- Undergraduate Courses -->
+      {undergradCourses.length > 0 && (
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-4">Undergraduate</h3>
+          <ul class="space-y-3">
+            {undergradCourses.map((course) => (
+              <li>
+                <div class="flex items-baseline gap-2">
+                  {course.data.course_number && (
+                    <span class="text-gray-600 font-mono text-sm">{course.data.course_number}</span>
+                  )}
+                  <a href={`/courses/${course.slug}`} 
+                     class="text-blue-600 hover:underline">
+                    {course.data.title}
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <!-- Graduate Courses -->
+      {gradCourses.length > 0 && (
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-4">Graduate</h3>
+          <ul class="space-y-3">
+            {gradCourses.map((course) => (
+              <li>
+                <div class="flex items-baseline gap-2">
+                  {course.data.course_number && (
+                    <span class="text-gray-600 font-mono text-sm">{course.data.course_number}</span>
+                  )}
+                  <a href={`/courses/${course.slug}`} 
+                     class="text-blue-600 hover:underline">
+                    {course.data.title}
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
+
+    <!-- Previous Courses -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Previous Courses</h2>
+      {Object.entries(pastCoursesBySchool).map(([school, schoolCourses]) => (
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-4">{school}</h3>
+          <ul class="space-y-3">
+            {schoolCourses.map((course) => (
+              <li>
+                <div class="mb-1">
+                  <div class="font-medium">{course.name}</div>
+                  {course.description && (
+                    <div class="mb-1">{course.description}</div>
+                  )}
+                  {course.website && (
+                    <a href={course.website} 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="text-blue-600 hover:underline">
+                      website
+                    </a>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,166 @@
+---
+// src/pages/modal/neighborhoods.astro
+import Layout from '../../layouts/Layout.astro';
+
+// Read the overview markdown content
+const overviewMd = await Astro.glob('../../../data/overviews/neighborhood-semantics.md');
+const overviewContent = overviewMd[0]?.compiledContent() || '';
+---
+
+<Layout title="Neighborhood Semantics for Modal Logic" activePage="">
+  <!-- KaTeX CSS for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+  
+  <div class="max-w-5xl mx-auto px-4 pb-20">
+    <!-- Header -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold mb-8">Neighborhood Semantics for Modal Logic</h1>
+      
+      <!-- Book info section -->
+      <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <!-- Book cover -->
+        <div class="flex-shrink-0">
+          <img 
+            src="/images/nbhd-book-cover.jpg" 
+            alt="Neighborhood Semantics for Modal Logic book cover" 
+            width="200" 
+            height="300"
+            class="rounded shadow-lg"
+          />
+        </div>
+        
+        <!-- Links -->
+        <div class="flex flex-col gap-3">
+          <a
+            href="http://www.springer.com/us/book/9783319671482"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center text-blue-600 hover:text-blue-800"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+            Publisher's Website
+          </a>
+          
+          <a
+            href="https://www.amazon.com/Neighborhood-Semantics-Modal-Logic-Textbooks/dp/3319671480/ref=sr_1_1?ie=UTF8&qid=1509904795&sr=8-1&keywords=eric+pacuit&dpID=51GgImKBeML&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=srch"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center text-blue-600 hover:text-blue-800"
+          >
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M2.5 7v10h5v-10h-5zm6 0v10h5v-10h-5zm6 0v10h5v-10h-5zm-12 11h17v2h-17v-2z"/>
+            </svg>
+            Purchase on Amazon
+          </a>
+          
+          <a 
+            href="/files/nbhd-v6-PENULTIMATE.pdf"
+            class="flex items-center text-blue-600 hover:text-blue-800"
+          >
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-5L9 2H4z" clip-rule="evenodd"></path>
+            </svg>
+            Preliminary Version
+          </a>
+        </div>
+      </div>
+      
+      <!-- Description -->
+      <p class="text-gray-700 leading-relaxed">
+        Neighborhood models generalize relational models (also known as
+        Kripke models) for modal logic. The original motivation for
+        introducing these more general models was to provide a semantics
+        for weak systems of modal logic (i.e., the non-normal modal
+        logics). Over the past 30 years, inspired, in part, by application
+        of modal logic in philosophy, game theory and AI, interest in
+        neighborhood models has grown well beyond the original motivation.
+        This book will quickly familiarize the reader with the general
+        theory of neighborhood semantics for modal logic. The main
+        takeaway message is that neighborhood models form an interesting
+        and rich class of mathematical structures that can be fruitfully
+        studied using modal logic. The book explains how neighborhood
+        models fit within the large family of semantic frameworks for
+        modal logic, and identifies the pitfalls and potential uses of
+        neighborhood models.
+      </p>
+    </div>
+    
+    <!-- Video section -->
+    <div class="mb-12 bg-white p-8 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-semibold mb-6">From Relational to Neighborhood Models</h2>
+      
+      <div class="mb-4">
+        <div class="relative" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
+          <iframe
+            class="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/BY0Jo0TtGYM"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      
+      <a 
+        href="/slides/nbhd-book-relatonal-to-neighborhoods.pdf"
+        class="inline-flex items-center text-blue-600 hover:text-blue-800"
+      >
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-5L9 2H4z" clip-rule="evenodd"></path>
+        </svg>
+        Slides
+      </a>
+    </div>
+    
+    <!-- Brief Overview section -->
+    <div class="bg-white p-8 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-semibold mb-6">Brief Overview</h2>
+      
+      <div class="prose prose-gray max-w-none" set:html={overviewContent} />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Ensure the prose content looks good */
+  .prose {
+    line-height: 1.7;
+  }
+  
+  .prose p {
+    margin-bottom: 1rem;
+  }
+  
+  .prose ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .prose ol {
+    list-style-type: decimal;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .prose strong {
+    font-weight: 600;
+  }
+  
+  .prose em {
+    font-style: italic;
+  }
+  
+  /* Make KaTeX math smaller */
+  .katex {
+    font-size: 0.95em !important;
+  }
+  
+  /* For display math (centered equations), you might want them slightly bigger */
+  .katex-display .katex {
+    font-size: 1em !important;
+  }
+</style>

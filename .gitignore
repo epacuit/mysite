@@ -1,0 +1,51 @@
+# build output
+dist/
+.netlify/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# environment variables
+.env
+.env.production
+.env.local
+.env.*.local
+
+# macOS-specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# editor/IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# temporary files
+*.tmp
+*.temp
+.cache/
+
+# Netlify
+.netlify/
+netlify/functions/.cache/
+
+# Local data that shouldn't be in repo (if any)
+# /data/private/
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+

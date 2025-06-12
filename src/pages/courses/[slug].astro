@@ -1,0 +1,148 @@
+---
+// src/pages/courses/[slug].astro
+import Layout from '../../layouts/Layout.astro';
+import path from 'path';
+import fs from 'fs/promises';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+
+export async function getStaticPaths() {
+  const coursesDir = path.join(process.cwd(), 'data', 'courses');
+  const fileNames = await fs.readdir(coursesDir);
+  const paths = [];
+
+  for (const fileName of fileNames) {
+    if (fileName.endsWith('.md')) {
+      const slug = fileName.replace('.md', '');
+      paths.push({
+        params: { slug: slug },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { slug } = Astro.params;
+
+// Read the specific course file
+const filePath = path.join(process.cwd(), 'data', 'courses', `${slug}.md`);
+const fileContent = await fs.readFile(filePath, 'utf8');
+const { data, content } = matter(fileContent);
+
+// Configure marked to handle line breaks
+marked.setOptions({
+  breaks: true,  // Convert line breaks to <br>
+  gfm: true      // GitHub Flavored Markdown
+});
+
+// Convert markdown content to HTML if there's any
+const htmlContent = content ? marked(content) : '';
+---
+
+<Layout title={`${data.title} - Eric Pacuit`} activePage="teaching">
+  <div class="max-w-4xl mx-auto">
+    <!-- Back to Teaching link -->
+    <div class="mb-6">
+      <a href="/teaching" class="text-blue-600 hover:underline flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Back to Teaching
+      </a>
+    </div>
+
+    <!-- Course Header -->
+    <header class="mb-8">
+      <h1 class="text-4xl font-bold mb-2">{data.title}</h1>
+      {data.course_number && (
+        <p class="text-xl text-gray-600 mb-2">{data.course_number}{data.current_semester &&(<span>, {data.current_semester}</span>)}</p>
+      )}
+    </header>
+
+    <!-- Course Resources -->
+    <section class="mb-8">
+      <div class="flex flex-wrap gap-4">
+        {data.website?.[0]?.www && (
+          <a href={data.website[0].www} 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="inline-flex items-center px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+            Course Website
+          </a>
+        )}
+        {data.syllabus?.[0]?.file && (
+          <a href={`/api/files/courses/${data.syllabus[0].file}`} 
+             class="inline-flex items-center px-4 py-2 bg-gray-600 text-white hover:bg-gray-700 rounded">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+            Syllabus ({data.syllabus[0].sem})
+          </a>
+        )}
+      </div>
+    </section>
+
+    <!-- Course Content (includes description and any additional content) -->
+    {htmlContent && (
+      <section class="mb-8">
+        <div class="prose prose-lg max-w-none" set:html={htmlContent} />
+      </section>
+    )}
+
+    <!-- Past Semesters -->
+    {data.past_semesters && data.past_semesters.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Past Semesters</h2>
+        <p>
+          {data.past_semesters.map((past, index) => (
+            <span>
+              {index > 0 && <span class="mx-2">•</span>}
+              {past.www ? (
+                <a href={past.www} 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="text-blue-600 hover:underline">
+                  {past.sem}
+                </a>
+              ) : (
+                <span>{past.sem}</span>
+              )}
+            </span>
+          ))}
+        </p>
+      </section>
+    )}
+
+    <!-- Comments -->
+    {data.comment && (
+      <section class="mb-8 p-4 bg-gray-100 rounded">
+        <p class="italic">{data.comment}</p>
+      </section>
+    )}
+  </div>
+</Layout>
+
+<style is:global>
+  .prose p {
+    margin-bottom: 1rem;
+  }
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+  .prose h2, .prose h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose ul, .prose ol {
+    margin-bottom: 1rem;
+  }
+  .prose li {
+    margin-bottom: 0.25rem;
+  }
+</style>

@@ -1,0 +1,707 @@
+---
+// src/pages/[summerschoolyear]/[course].astro
+export const prerender = false;
+
+import LayoutSinglePage from '../../layouts/LayoutSinglePage.astro';
+import fs from 'fs/promises';
+import path from 'path';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+
+// Get parameters from URL
+const summerschoolYear = Astro.params.summerschoolyear; // e.g., 'esslli2024'
+const courseName = Astro.params.course; // e.g., 'neighborhood-semantics'
+
+// Extract summer school name (esslli, nasslli, etc.) and year from combined parameter
+const match = summerschoolYear.match(/^([a-z]+)(\d{4})$/);
+if (!match) {
+  return new Response(null, { status: 404 });
+}
+
+const summerschool = match[1]; // 'esslli' or 'nasslli'
+const year = match[2]; // '2024'
+
+// Check if course directory exists
+const courseDir = path.join(process.cwd(), 'data', summerschool, year, courseName);
+
+try {
+  await fs.access(courseDir);
+} catch {
+  return new Response(null, { status: 404 });
+}
+
+// Read course index file
+const indexPath = path.join(courseDir, 'index.md');
+let courseInfo = {
+  title: courseName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+  venue: '',
+  dates: '',
+  time: '',
+  location: '',
+  school: summerschool.toUpperCase() + ' ' + year,
+  school_www: '',
+  instructor: 'Eric Pacuit',
+  instructor_www: 'pacuit.org',
+  coinstructor: '',
+  coinstructor_www: ''
+};
+
+try {
+  const indexContent = await fs.readFile(indexPath, 'utf8');
+  const { data, content: description } = matter(indexContent);
+  courseInfo = { ...courseInfo, ...data };
+  courseInfo.description = marked(description);
+} catch (e) {
+  console.error('Could not read index.md:', e);
+}
+
+// Format instructors display
+function formatInstructors(info) {
+  if (!info.coinstructor) {
+    return {
+      text: 'Instructor',
+      names: [{
+        name: info.instructor || 'Eric Pacuit',
+        url: info.instructor_www || 'pacuit.org'
+      }]
+    };
+  }
+  
+  // Sort instructors alphabetically by last name
+  const instructors = [
+    { name: info.instructor || 'Eric Pacuit', url: info.instructor_www || 'pacuit.org' },
+    { name: info.coinstructor, url: info.coinstructor_www }
+  ].sort((a, b) => {
+    const lastA = a.name.split(' ').pop();
+    const lastB = b.name.split(' ').pop();
+    return lastA.localeCompare(lastB);
+  });
+  
+  return {
+    text: 'Instructors',
+    names: instructors
+  };
+}
+
+const instructorInfo = formatInstructors(courseInfo);
+
+// Read all day files
+const dayData = [];
+for (let i = 1; i <= 5; i++) {
+  try {
+    const dayPath = path.join(courseDir, `day${i}.md`);
+    const dayContent = await fs.readFile(dayPath, 'utf8');
+    const { data, content } = matter(dayContent);
+    dayData.push({
+      day: i,
+      ...data,
+      content: marked(content)
+    });
+  } catch (e) {
+    // Day file doesn't exist
+  }
+}
+
+// Check which days have slides and get their filenames
+const daysWithSlides = dayData.filter(day => day.file).map(day => ({
+  day: day.day,
+  file: day.file
+}));
+---
+
+<LayoutSinglePage title={`${courseInfo.title} - ${courseInfo.school}`}>
+  <div class="min-h-screen bg-white">
+    <!-- Header -->
+    <header class="border-b">
+      <div class="max-w-5xl mx-auto px-6 py-8">
+        <div class="flex items-start justify-between">
+          <div>
+            <h1 class="text-4xl md:text-5xl font-light text-gray-900 mb-4">{courseInfo.title}</h1>
+            <div class="text-lg text-gray-600 space-y-1">
+              <!-- Instructor(s) line -->
+              <p>
+                {instructorInfo.text}: {instructorInfo.names.map((inst, idx) => (
+                  <>
+                    {idx > 0 && ' and '}
+                    {inst.name}
+                    {inst.url && (
+                      <>
+                        {' '}
+                        (<a href={inst.url.startsWith('http') ? inst.url : `https://${inst.url}`} 
+                            target="_blank" rel="noopener noreferrer" 
+                            class="text-blue-600 hover:text-blue-800 transition-colors">website</a>)
+                      </>
+                    )}
+                  </>
+                ))}
+              </p>
+              {courseInfo.school_www ? (
+                <p>
+                  <a href={courseInfo.school_www.startsWith('http') ? courseInfo.school_www : `https://${courseInfo.school_www}`} 
+                     target="_blank" rel="noopener noreferrer" 
+                     class="text-blue-600 hover:text-blue-800 transition-colors">
+                    {courseInfo.school}
+                  </a>
+                  {courseInfo.venue ? <span class="text-gray-500"> • {courseInfo.venue}</span> : null}
+                </p>
+              ) : (
+                <p>
+                  {courseInfo.school}
+                  {courseInfo.venue ? <span class="text-gray-500"> • {courseInfo.venue}</span> : null}
+                </p>
+              )}
+              {courseInfo.dates ? <p class="text-gray-500">{courseInfo.dates}</p> : null}
+              {(courseInfo.time || courseInfo.location) ? (
+                <p class="text-gray-500">
+                  {courseInfo.time}
+                  {courseInfo.time && courseInfo.location ? ' • ' : ''}
+                  {courseInfo.location}
+                </p>
+              ) : null}
+            </div>
+          </div>
+          <a href="/short-courses" class="text-gray-400 hover:text-gray-600 transition-colors p-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation - Hidden on mobile -->
+    <nav class="border-b sticky top-0 bg-white z-50 hidden sm:block" id="main-nav">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="flex space-x-2 py-4" role="tablist">
+          <button
+            id="overview-btn"
+            class="nav-btn text-base font-medium py-2 px-4 rounded-md transition-all bg-transparent text-gray-600 hover:bg-gray-100 cursor-pointer"
+          >
+            Overview
+          </button>
+          {[1, 2, 3, 4, 5].map((day) => {
+            const hasContent = dayData.some(d => d.day === day);
+            if (hasContent) {
+              return (
+                <a
+                  href={`#day${day}`}
+                  class="nav-link text-base font-medium py-2 px-4 rounded-md transition-all bg-transparent text-gray-600 hover:bg-gray-100"
+                  key={day}
+                >
+                  Day {day}
+                </a>
+              );
+            } else {
+              return (
+                <span class="text-base font-medium py-2 px-4 rounded-md bg-transparent text-gray-300 cursor-not-allowed" key={day}>
+                  Day {day}
+                </span>
+              );
+            }
+          })}
+          {daysWithSlides.length > 0 ? (
+            <button
+              id="download-all-btn"
+              class="nav-btn text-base font-medium py-2 px-4 rounded-md transition-all bg-transparent text-blue-600 hover:bg-blue-50 cursor-pointer ml-auto flex items-center gap-2"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+              </svg>
+              Download All Slides
+            </button>
+          ) : null}
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-12">
+      <!-- Collapsible Overview Section (always visible on mobile) -->
+      <div id="overview-section" class="transition-all duration-500 ease-in-out max-h-0 overflow-hidden sm:max-h-0 max-h-none sm:overflow-hidden overflow-visible">
+        <div class="pb-8 mb-8">
+          <div class="prose prose-lg max-w-none" data-mathjax-process>
+            {courseInfo.description ? <div set:html={courseInfo.description} data-mathjax-content /> : null}
+          </div>
+        </div>
+      </div>
+
+      <!-- All Days Content -->
+      {dayData.map((day, index) => (
+        <section id={`day${day.day}`} class={`scroll-mt-24 sm:scroll-mt-24 scroll-mt-4 transition-all duration-300 ${index > 0 ? "mt-8 pt-8" : ""}`} key={day.day}>
+          <div class="mb-6">
+            <h2 class="text-xl font-normal text-gray-700 mb-2">Day {day.day}: {day.title}</h2>
+            {day.date ? <p class="text-gray-500 mb-4 text-sm">{day.date}</p> : null}
+            
+            <div class="mb-6 ml-6">
+              {day.file ? (
+                <a href={`/api/files/${summerschool}/${year}/${courseName}/${day.file}`} 
+                   target="_blank"
+                   download
+                   class="inline-flex items-center gap-3 px-4 py-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors group">
+                  <svg class="w-5 h-5 text-gray-400 group-hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                          d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                  <span class="text-gray-700 group-hover:text-gray-900">Slides</span>
+                </a>
+              ) : (
+                <div class="tooltip-container inline-flex">
+                  <div class="inline-flex items-center gap-3 px-4 py-2 rounded-lg border-2 border-dashed border-gray-200 cursor-not-allowed bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-gray-500 font-medium">Slides <span class="text-gray-400 text-sm">(coming soon)</span></span>
+                  </div>
+                  <span class="tooltip-text">Slides will be uploaded soon!</span>
+                </div>
+              )}
+            </div>
+          </div>
+          
+          <div class="prose prose-lg max-w-none ml-6" data-mathjax-process>
+            <div set:html={day.content} data-mathjax-content />
+          </div>
+        </section>
+      ))}
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t mt-16">
+      <div class="max-w-5xl mx-auto px-6 py-8">
+        <div class="text-center text-sm text-gray-600">
+          <a href="https://pacuit.org" target="_blank" rel="noopener noreferrer" 
+             class="text-gray-700 hover:text-blue-600 transition-colors">
+            Eric Pacuit
+          </a>
+          <span class="mx-2">•</span>
+          <span>{courseInfo.school}</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Configure MathJax BEFORE loading -->
+  <script define:vars={{ daysWithSlides, summerschool, year, courseName }}>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['html', 'ams']}
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        ignoreHtmlClass: 'no-mathjax',
+        processHtmlClass: 'mathjax-process|prose'
+      },
+      startup: {
+        pageReady: () => {
+          return MathJax.startup.defaultPageReady().then(() => {
+            console.log('MathJax initial processing complete');
+          });
+        }
+      }
+    };
+    
+    // Store course data for download functionality
+    window.courseData = {
+      daysWithSlides: daysWithSlides,
+      summerschool: summerschool,
+      year: year,
+      courseName: courseName
+    };
+  </script>
+  
+  <!-- Load MathJax for LaTeX rendering -->
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+    onerror="console.error('Failed to load MathJax from CDN')">
+  </script>
+  
+  <script>
+    // Global function to process MathJax
+    window.processMathJax = function() {
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        const elements = document.querySelectorAll('[data-mathjax-process]');
+        console.log('Found ' + elements.length + ' elements to process for MathJax');
+        
+        window.MathJax.startup.document.clear();
+        window.MathJax.startup.document.updateDocument();
+        
+        elements.forEach(el => {
+          window.MathJax.typesetPromise([el]).then(() => {
+            console.log('MathJax processed element:', el);
+          }).catch((e) => console.error('MathJax error on element:', el, e));
+        });
+      } else {
+        console.warn('MathJax not yet loaded');
+      }
+    };
+    
+    // Handle overview section
+    const overviewBtn = document.getElementById('overview-btn');
+    const overviewSection = document.getElementById('overview-section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    let overviewOpen = false;
+    
+    function showOverview() {
+      overviewSection.style.maxHeight = overviewSection.scrollHeight + 'px';
+      overviewOpen = true;
+      
+      if (overviewBtn) {
+        overviewBtn.classList.remove('bg-transparent', 'text-gray-600');
+        overviewBtn.classList.add('bg-blue-500', 'text-white');
+      }
+      
+      navLinks.forEach(link => {
+        link.classList.remove('bg-blue-500', 'text-white');
+        link.classList.add('bg-transparent', 'text-gray-600');
+      });
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      setTimeout(() => {
+        window.processMathJax();
+      }, 600);
+    }
+    
+    function hideOverview() {
+      overviewSection.style.maxHeight = '0';
+      overviewOpen = false;
+      
+      if (overviewBtn) {
+        overviewBtn.classList.remove('bg-blue-500', 'text-white');
+        overviewBtn.classList.add('bg-transparent', 'text-gray-600');
+      }
+    }
+    
+    // Toggle overview when button clicked (desktop only)
+    if (overviewBtn) {
+      overviewBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (overviewOpen) {
+          hideOverview();
+        } else {
+          showOverview();
+        }
+      });
+    }
+    
+    // Handle nav link clicks
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        if (overviewOpen) {
+          hideOverview();
+          setTimeout(() => {
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              setTimeout(window.processMathJax, 500);
+            }
+          }, 300);
+        } else {
+          const targetId = this.getAttribute('href');
+          const target = document.querySelector(targetId);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(window.processMathJax, 500);
+          }
+        }
+        
+        if (overviewBtn) {
+          overviewBtn.classList.remove('bg-blue-500', 'text-white');
+          overviewBtn.classList.add('bg-transparent', 'text-gray-600');
+        }
+        
+        navLinks.forEach(l => {
+          l.classList.remove('bg-blue-500', 'text-white');
+          l.classList.add('bg-transparent', 'text-gray-600');
+        });
+        
+        this.classList.remove('bg-transparent', 'text-gray-600');
+        this.classList.add('bg-blue-500', 'text-white');
+      });
+    });
+    
+    // Handle download all slides
+    const downloadBtn = document.getElementById('download-all-btn');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', async () => {
+        downloadBtn.disabled = true;
+        downloadBtn.innerHTML = '\n          <svg class="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>\n            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>\n          </svg>\n          Preparing download...\n        ';
+        
+        try {
+          const { summerschool, year, courseName, daysWithSlides } = window.courseData;
+          
+          // Try the complex endpoint first since file API works with that pattern
+          const apiUrl = '/api/download-all-slides/' + summerschool + '/' + year + '/' + courseName;
+          console.log('Downloading from:', apiUrl, 'with days:', daysWithSlides);
+          
+          let response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ days: daysWithSlides })
+          });
+          
+          // If complex endpoint fails, try simple endpoint
+          if (!response.ok) {
+            console.log('Complex endpoint failed, trying simple endpoint...');
+            const simpleUrl = '/api/download-slides';
+            response = await fetch(simpleUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ 
+                summerschool, 
+                year, 
+                coursename: courseName, 
+                days: daysWithSlides 
+              })
+            });
+          }
+          
+          if (response.ok) {
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = courseName + '-slides.zip';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+          } else {
+            const errorText = await response.text();
+            console.error('Download failed:', response.status, errorText);
+            alert('Failed to download slides. Error: ' + response.status + ' - ' + errorText);
+          }
+        } catch (error) {
+          console.error('Download error:', error);
+          alert('Failed to download slides. Error: ' + error.message);
+        } finally {
+          downloadBtn.disabled = false;
+          downloadBtn.innerHTML = '\n            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>\n            </svg>\n            Download All Slides\n          ';
+        }
+      });
+    }
+    
+    // Process math on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM loaded, starting MathJax check...');
+      
+      // Show overview by default on mobile
+      if (window.innerWidth < 640) {
+        const overviewSection = document.getElementById('overview-section');
+        if (overviewSection) {
+          overviewSection.style.maxHeight = 'none';
+          overviewSection.style.overflow = 'visible';
+          overviewOpen = true;
+        }
+      }
+      
+      let mathJaxCheckCount = 0;
+      const mathJaxInterval = setInterval(() => {
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          clearInterval(mathJaxInterval);
+          console.log('MathJax found after', mathJaxCheckCount, 'checks');
+          
+          setTimeout(() => {
+            console.log('Processing MathJax...');
+            window.processMathJax();
+          }, 500);
+        } else {
+          mathJaxCheckCount++;
+          if (mathJaxCheckCount % 10 === 0) {
+            console.log('Still waiting for MathJax... (' + mathJaxCheckCount + ' checks)');
+          }
+          if (mathJaxCheckCount > 50) {
+            clearInterval(mathJaxInterval);
+            console.error('MathJax failed to load after 5 seconds');
+          }
+        }
+      }, 100);
+    });
+    
+    // Also process when MathJax is loaded
+    window.addEventListener('load', () => {
+      console.log('Window loaded, checking MathJax...');
+      if (window.MathJax && window.MathJax.startup) {
+        window.MathJax.startup.document.clear();
+        window.MathJax.startup.document.updateDocument();
+      }
+      setTimeout(() => {
+        console.log('Attempting MathJax processing after window load...');
+        window.processMathJax();
+      }, 1500);
+    });
+    
+    // Reprocess MathJax after any navigation
+    window.addEventListener('hashchange', () => {
+      setTimeout(window.processMathJax, 100);
+    });
+    
+    // Check if MathJax script exists
+    const mathJaxScript = document.getElementById('MathJax-script');
+    if (mathJaxScript) {
+      console.log('MathJax script tag found:', mathJaxScript.src);
+    } else {
+      console.error('MathJax script tag not found!');
+    }
+    
+    // Manual fallback to ensure MathJax runs
+    setTimeout(() => {
+      if (window.MathJax && !document.querySelector('mjx-container')) {
+        console.log('No MathJax output detected, forcing reprocessing...');
+        window.processMathJax();
+      } else if (!window.MathJax) {
+        console.error('MathJax still not loaded after 3 seconds');
+      } else {
+        console.log('MathJax appears to be working (found mjx-container elements)');
+      }
+    }, 3000);
+  </script>
+</LayoutSinglePage>
+
+<style is:global>
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Professional typography */
+  .prose {
+    color: #374151;
+  }
+  
+  .prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+  
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .prose h2, .prose h3 {
+    font-weight: 400;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .prose h2 {
+    font-size: 1.875rem;
+  }
+  
+  .prose h3 {
+    font-size: 1.5rem;
+  }
+  
+  .prose a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  
+  .prose a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Navigation button states */
+  .nav-btn:not(.bg-blue-500):hover,
+  .nav-link:not(.bg-blue-500):hover {
+    background-color: rgb(243 244 246) !important;
+  }
+  
+  /* Hover effect for disabled slides */
+  .cursor-not-allowed:hover {
+    opacity: 0.8;
+    transform: scale(0.98);
+    transition: all 0.2s;
+  }
+  
+  /* Custom tooltip */
+  .tooltip-container {
+    position: relative;
+    display: inline-flex;
+  }
+  
+  .tooltip-container .tooltip-text {
+    visibility: hidden;
+    width: 160px;
+    background-color: #374151;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 12px;
+    position: absolute;
+    z-index: 100;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.875rem;
+    font-weight: normal;
+    white-space: nowrap;
+  }
+  
+  .tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .tooltip-container .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #374151 transparent transparent transparent;
+  }
+  
+  /* Ensure MathJax displays properly */
+  .MathJax, .MathJax_Display {
+    display: inline-block !important;
+    font-size: inherit !important;
+  }
+  
+  mjx-container {
+    display: inline-block !important;
+    margin: 0 0.1em;
+  }
+  
+  mjx-container[display="true"] {
+    display: block !important;
+    text-align: center;
+    margin: 1em 0;
+  }
+  
+  /* Ensure math content is visible */
+  .prose .MathJax, .prose mjx-container {
+    color: inherit !important;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 640px) {
+    .nav-btn, .nav-link {
+      font-size: 0.875rem;
+      padding: 0.5rem 0.75rem;
+    }
+    
+    /* Show overview by default on mobile */
+    #overview-section {
+      max-height: none !important;
+      overflow: visible !important;
+    }
+    
+    /* Adjust scroll margins for mobile */
+    section[id^="day"] {
+      scroll-margin-top: 1rem !important;
+    }
+  }
+</style>

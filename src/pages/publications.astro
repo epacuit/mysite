@@ -1,0 +1,500 @@
+---
+// src/pages/publications.astro
+import Layout from '../layouts/Layout.astro';
+
+// Read all publication markdown files from data/pubs subdirectories
+const publications = await Astro.glob('../../data/pubs/**/*.md');
+
+// Sort by year descending
+const sortedPubs = publications.sort((a, b) => b.frontmatter.year - a.frontmatter.year);
+
+// Get unique years and tags for filtering
+const allYears = [...new Set(sortedPubs.map(p => p.frontmatter.year))].sort((a, b) => b - a);
+const allTags = ['Logic', 'Game Theory', 'Social Choice Theory'];
+
+// Helper to convert basic markdown to HTML
+function processMarkdown(text) {
+  if (!text) return '';
+  // Convert *text* to <em>text</em> for italics
+  return text.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+
+// Group publications by type
+const pubTypes = [
+  { key: 'book', title: 'Books' },
+  { key: 'manuscript', title: 'Working Papers' },
+  { key: 'journal', title: 'Journal Articles' },
+  { key: 'encyclopedia', title: 'Encyclopedia Entries' },
+  { key: 'proceedings', title: 'Conference Proceedings (Peer Reviewed)' },
+  { key: 'chapter', title: 'Book Chapters' }
+];
+
+// Helper to get PDF filename with path
+function getPdfPath(pub) {
+  const fm = pub.frontmatter;
+  
+  // If file is explicitly false or doesn't exist, no PDF
+  if (!fm.file) return null;
+  
+  // Check if file is an external URL (like arxiv)
+  if (typeof fm.file === 'string' && (fm.file.startsWith('http://') || fm.file.startsWith('https://'))) {
+    return fm.file; // Return the URL directly
+  }
+  
+  // Get the relative path from data/pubs/
+  const parts = pub.file.split('/');
+  const pubsIndex = parts.indexOf('pubs');
+  const relativePath = parts.slice(pubsIndex + 1, -1).join('/'); // Get subdirectory path
+  
+  let filename;
+  
+  // If file has a name property, use it
+  if (typeof fm.file === 'object' && fm.file.name) {
+    filename = fm.file.name;
+  }
+  // If file is true, derive from markdown filename
+  else if (fm.file === true) {
+    const mdName = parts[parts.length - 1];
+    filename = mdName.replace('.md', '.pdf');
+  }
+  // If file is a string, use it as the filename
+  else if (typeof fm.file === 'string') {
+    filename = fm.file;
+  } else {
+    return null;
+  }
+  
+  // Return full path including subdirectory
+  return relativePath ? `${relativePath}/${filename}` : filename;
+}
+
+// Generate BibTeX
+function generateBibtex(fm) {
+  const authors = fm.authors.replace(/, and/g, ' and').replace(/,/g, ' and');
+  const authorsArray = authors.split(' and ').map(a => {
+    const names = a.trim().split(' ');
+    return names[names.length - 1];
+  });
+  const citationKey = authorsArray.join('') + fm.year;
+  
+  let bibtexType = '@article';
+  if (fm.type === 'book') bibtexType = '@book';
+  else if (['proceedings', 'chapter', 'encyclopedia'].includes(fm.type)) bibtexType = '@inproceedings';
+  else if (fm.type === 'manuscript') bibtexType = '@misc';
+  
+  let bibtex = `${bibtexType}{${citationKey},\n`;
+  bibtex += `  author = {${authors}},\n`;
+  bibtex += `  title = {${fm.title}},\n`;
+  if (fm.bookname) bibtex += `  booktitle = {${fm.bookname}},\n`;
+  if (fm.journal) bibtex += `  journal = {${fm.journal}},\n`;
+  if (fm.volume) bibtex += `  volume = {${fm.volume}},\n`;
+  if (fm.number) bibtex += `  number = {${fm.number}},\n`;
+  if (fm.pages) bibtex += `  pages = {${fm.pages}},\n`;
+  bibtex += `  year = {${fm.year}}\n}`;
+  
+  return bibtex;
+}
+---
+
+<Layout title="Publications" activePage="publications">
+  <div class="max-w-5xl mx-auto px-4 pb-20">
+    <!-- Header -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold mb-4">Publications</h1>
+    </div>
+
+    <!-- Filters -->
+    <div class="mb-16">
+      <!-- Topic filters -->
+      <div class="mb-6">
+        <div class="flex flex-wrap gap-2 items-center">
+          <span class="text-gray-600 mr-2">Topics:</span>
+          {allTags.map(tag => (
+            <button
+              class="filter-btn topic-filter px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 transition-all duration-200"
+              data-topic={tag}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Year filters -->
+      <div class="mb-4">
+        <div class="flex flex-wrap gap-2 items-center">
+          <span class="text-gray-600 mr-2">Years:</span>
+          {allYears.map(year => (
+            <button
+              class="filter-btn year-filter px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 transition-all duration-200"
+              data-year={year}
+            >
+              {year}
+            </button>
+          ))}
+        </div>
+      </div>
+      
+      <button 
+        id="clear-filters" 
+        class="text-sm text-gray-500 hover:text-gray-700 hidden mt-4 transition-colors duration-200"
+      >
+        Clear all filters
+      </button>
+    </div>
+
+    <!-- Publications by type -->
+    {pubTypes.map(({ key, title }) => {
+      const pubs = sortedPubs.filter(p => p.frontmatter.type === key);
+      if (pubs.length === 0) return null;
+      
+      return (
+        <section class="pub-section mb-16">
+          <h2 class="text-2xl font-semibold mb-8">{title}</h2>
+          <div class="publication-list">
+            {pubs.map((pub, idx) => {
+              const pdfPath = getPdfPath(pub);
+              const bibtex = generateBibtex(pub.frontmatter);
+              const uniqueId = `${key}-${idx}`;
+              
+              // Build links array
+              const links = [];
+              if (pdfPath) {
+                // Check if it's an external URL or local file
+                const pdfUrl = pdfPath.startsWith('http') ? pdfPath : `/api/files/pubs/${pdfPath}`;
+                links.push(`<a href="${pdfUrl}" target="_blank" class="text-blue-600 hover:text-blue-800">PDF</a>`);
+              }
+              if (pub.frontmatter.publisherlink) links.push(`<a href="${pub.frontmatter.publisherlink}" target="_blank" class="text-blue-600 hover:text-blue-800">DOI</a>`);
+              if (pub.frontmatter.preprintlink) links.push(`<a href="${pub.frontmatter.preprintlink}" target="_blank" class="text-blue-600 hover:text-blue-800">Preprint</a>`);
+              if (pub.frontmatter.code) links.push(`<a href="${pub.frontmatter.code}" target="_blank" class="text-blue-600 hover:text-blue-800">Code</a>`);
+              if (pub.frontmatter.website) links.push(`<a href="${pub.frontmatter.website}" target="_blank" class="text-blue-600 hover:text-blue-800">Website</a>`);
+              
+              return (
+                <article 
+                  class="publication mb-2" 
+                  data-year={pub.frontmatter.year} 
+                  data-tags={JSON.stringify(pub.frontmatter.tags || [])}
+                >
+                  <div>
+                    <p class="mb-2 text-gray-800 leading-relaxed" set:html={(() => {
+                      const parts = [];
+                      
+                      // Helper function to clean up commas
+                      function cleanField(field) {
+                        if (!field || !field.trim()) return '';
+                        // Remove leading and trailing commas and whitespace
+                        return field.replace(/^,\s*/, '').replace(/,\s*$/, '').trim();
+                      }
+                      
+                      // Title
+                      const title = cleanField(pub.frontmatter.title);
+                      if (title) {
+                        parts.push(`<span class="font-medium italic">${title}</span>`);
+                      }
+                      
+                      // Authors
+                      const authors = cleanField(pub.frontmatter.authors);
+                      if (authors) {
+                        parts.push(processMarkdown(authors));
+                      }
+                      
+                      // Citation - clean up leading/trailing commas
+                      const citation = cleanField(pub.frontmatter.citation);
+                      if (citation) {
+                        parts.push(processMarkdown(citation));
+                      }
+                      
+                      // Year
+                      if (pub.frontmatter.year) {
+                        parts.push(pub.frontmatter.year);
+                      }
+                      
+                      // Join with commas
+                      let result = parts.join(', ');
+                      
+                      // Add links if any
+                      if (links.length > 0) {
+                        result += ` (${links.join(', ')})`;
+                      }
+                      
+                      return result;
+                    })()}></p>
+                    
+                    {pub.frontmatter.additionaldata && (
+                      <div class="ml-4 mb-3 mt-2">
+                        {pub.frontmatter.additionaldata.map(item => (
+                          <p class="text-gray-600 text-sm">{item}</p>
+                        ))}
+                      </div>
+                    )}
+                    
+                    <div class="mt-3 flex gap-2">
+                      {pub.frontmatter.abstract && (
+                        <button 
+                          class="text-gray-500 hover:text-gray-800 transition-colors duration-200 flex items-center gap-1"
+                          onclick={`toggleContent('abstract-${uniqueId}')`}
+                        >
+                          abstract 
+                          <svg id={`abstract-arrow-${uniqueId}`} class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                          </svg>
+                        </button>
+                      )}
+                      
+                      <button 
+                        class="text-gray-500 hover:text-gray-800 transition-colors duration-200 flex items-center gap-1"
+                        onclick={`toggleContent('bibtex-${uniqueId}')`}
+                      >
+                        bibtex 
+                        <svg id={`bibtex-arrow-${uniqueId}`} class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </button>
+                    </div>
+                    
+                    {pub.frontmatter.abstract && (
+                      <div id={`abstract-${uniqueId}`} class="collapsible-content mt-4">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                          <p class="text-gray-700 leading-relaxed">
+                            {pub.frontmatter.abstract}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    
+                    <div id={`bibtex-${uniqueId}`} class="collapsible-content mt-4">
+                      <div class="bg-gray-50 p-6 rounded-lg" style="position: relative;">
+                        <button 
+                          style="position: absolute; top: 24px; right: 24px; z-index: 10;"
+                          class="text-gray-400 hover:text-gray-600 p-1.5 rounded hover:bg-white transition-all duration-200"
+                          onclick={`copyBibtex('bibtex-text-${uniqueId}', 'copy-btn-${uniqueId}')`}
+                          id={`copy-btn-${uniqueId}`}
+                          title="Copy BibTeX"
+                        >
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                        </button>
+                        <div style="overflow-x: auto; padding-right: 60px;">
+                          <pre id={`bibtex-text-${uniqueId}`} class="font-mono text-gray-700 whitespace-pre">{bibtex}</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</Layout>
+
+<style>
+  .filter-btn {
+    font-weight: 500;
+  }
+  
+  .filter-btn.active {
+    background-color: rgb(59 130 246);
+    color: white;
+    border-color: rgb(59 130 246);
+  }
+  
+  .filter-btn.active:hover {
+    background-color: rgb(37 99 235);
+    border-color: rgb(37 99 235);
+  }
+  
+  .publication {
+    transition: opacity 0.3s ease;
+  }
+  
+  .publication.hidden {
+    display: none;
+  }
+  
+  .pub-section.hidden {
+    display: none;
+  }
+  
+  .collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .collapsible-content.show {
+    max-height: 2000px;
+    opacity: 1;
+  }
+  
+  /* Chevron rotation */
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+  
+  /* Ensure bibtex scrolls horizontally */
+  pre {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 #f7fafc;
+  }
+  
+  pre::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  pre::-webkit-scrollbar-track {
+    background: #f7fafc;
+  }
+  
+  pre::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 4px;
+  }
+</style>
+
+<script>
+  // Toggle content function
+  function toggleContent(id) {
+    const content = document.getElementById(id);
+    const arrow = document.getElementById(id.replace('abstract-', 'abstract-arrow-').replace('bibtex-', 'bibtex-arrow-'));
+    
+    if (content.classList.contains('show')) {
+      content.classList.remove('show');
+      arrow.classList.remove('rotate-180');
+    } else {
+      content.classList.add('show');
+      arrow.classList.add('rotate-180');
+    }
+  }
+  
+  // Copy bibtex function
+  function copyBibtex(textId, buttonId) {
+    const bibtexText = document.getElementById(textId).textContent;
+    const button = document.getElementById(buttonId);
+    
+    navigator.clipboard.writeText(bibtexText).then(() => {
+      // Change icon to checkmark
+      button.innerHTML = `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      `;
+      button.classList.remove('text-gray-400');
+      button.classList.add('text-green-600');
+      
+      // Revert after 2 seconds
+      setTimeout(() => {
+        button.innerHTML = `
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+          </svg>
+        `;
+        button.classList.remove('text-green-600');
+        button.classList.add('text-gray-400');
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy:', err);
+    });
+  }
+  
+  // Make functions global
+  window.toggleContent = toggleContent;
+  window.copyBibtex = copyBibtex;
+  
+  // Filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const topicFilters = document.querySelectorAll('.topic-filter');
+    const yearFilters = document.querySelectorAll('.year-filter');
+    const publications = document.querySelectorAll('.publication');
+    const sections = document.querySelectorAll('.pub-section');
+    const clearButton = document.getElementById('clear-filters');
+    
+    let selectedTopics = new Set();
+    let selectedYears = new Set();
+    
+    function updateClearButton() {
+      if (selectedTopics.size > 0 || selectedYears.size > 0) {
+        clearButton.classList.remove('hidden');
+      } else {
+        clearButton.classList.add('hidden');
+      }
+    }
+    
+    function applyFilters() {
+      // Filter publications
+      publications.forEach(pub => {
+        const year = parseInt(pub.dataset.year);
+        const tags = JSON.parse(pub.dataset.tags || '[]');
+        
+        const showByYear = selectedYears.size === 0 || selectedYears.has(year.toString());
+        const showByTopic = selectedTopics.size === 0 || 
+          tags.some(tag => selectedTopics.has(tag));
+        
+        if (showByYear && showByTopic) {
+          pub.classList.remove('hidden');
+        } else {
+          pub.classList.add('hidden');
+        }
+      });
+      
+      // Hide empty sections
+      sections.forEach(section => {
+        const visiblePubs = section.querySelectorAll('.publication:not(.hidden)');
+        if (visiblePubs.length === 0) {
+          section.classList.add('hidden');
+        } else {
+          section.classList.remove('hidden');
+        }
+      });
+      
+      updateClearButton();
+    }
+    
+    // Topic filter clicks
+    topicFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const topic = btn.dataset.topic;
+        
+        if (selectedTopics.has(topic)) {
+          selectedTopics.delete(topic);
+          btn.classList.remove('active');
+        } else {
+          selectedTopics.add(topic);
+          btn.classList.add('active');
+        }
+        
+        applyFilters();
+      });
+    });
+    
+    // Year filter clicks
+    yearFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const year = btn.dataset.year;
+        
+        if (selectedYears.has(year)) {
+          selectedYears.delete(year);
+          btn.classList.remove('active');
+        } else {
+          selectedYears.add(year);
+          btn.classList.add('active');
+        }
+        
+        applyFilters();
+      });
+    });
+    
+    // Clear filters
+    clearButton.addEventListener('click', () => {
+      selectedTopics.clear();
+      selectedYears.clear();
+      topicFilters.forEach(btn => btn.classList.remove('active'));
+      yearFilters.forEach(btn => btn.classList.remove('active'));
+      applyFilters();
+    });
+  });
+</script>

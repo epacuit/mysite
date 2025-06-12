@@ -1,0 +1,147 @@
+
+- announcement:  "[Logic research group](https://logic-group.pacuit.org) (weekly seminar at the University of Maryland)"
+  new: false
+  weight: 119
+  hide: false
+
+- announcement: '"Common p-Belief and Plausibility Measures" will be presented at [TARK 2025](https://ccc.cs.uni-duesseldorf.de/tark-2025/), July 14-16, 2025, Dusseldorf, Germany'
+  new: true
+  weight: 118
+  hide: false
+
+
+- announcement: "Co-Organized [Social Choice for AI Ethics and Safety 2025 (SC4AI'25)](https://sites.google.com/view/sc4ai/workshops/sc4ai25?authuser=0), May 19, 2025, AAMAS, Detroit, Michigan"
+  new: true
+  weight: 117
+  hide: false
+
+- announcement: 'Invited Speaker, [Modal Logic Session, Association for Symbolic Logic](https://math.nmsu.edu/asl-2025/schedule.html), "Common p-Belief and Plausibility Measures", New Mexico State University, Las Cruces, New Mexico, May 13-16, 2025'
+  new: true
+  weight: 116
+  hide: false
+
+
+
+- announcement: "Nordic Online Logic Seminar, [NOLS](https://scandinavianlogic.org/2024-08-19-NOL-Seminar-Eric-Pacuit.html), August 26, 2024"
+  new: false
+  weight: 116
+  hide: true
+
+- announcement: "[ESSLLI 2024](https://2024.esslli.eu/) Course: [Neighborhood Semantics for Modal Logic](/esslli2024/neighborhood-semantics/), Leuven, Belgium"
+  new: false
+  weight: 115
+  hide: true
+
+- announcement: "[ESSLLI 2024](https://2024.esslli.eu/) Course: [Social Choice and Machine Learning](/esslli2024/social-choice-machine-learning/), Leuven, Belgium"
+  new: false
+  weight: 114
+  hide: true
+
+
+- announcement: "Invited Speaker, [LUCI (Logic, Uncertainty, Computation and Information) Lab](https://luci.unimi.it/) Seminar, Online, March 4, 2024"
+  new: false
+  weight: 109
+  hide: true
+
+- announcement: "Invited Participant, Social Choice for AI Ethics and Safety, University of California, Berkeley, December 6-8, 2023"
+  new: false
+  weight: 108
+  hide: true
+
+
+- announcement: "Invited Speaker, [Conference on Voting Theory and Preference Aggregation](https://micro.econ.kit.edu/downloads/Conference_on_Voting_Theory_and_Preference_Aggregation_2023_Program_with_Papers.pdf), Karlsruhe Institute of Technology, Germany, October 9-11, 2023"
+  new: false
+  weight: 107
+  hide: true
+
+- announcement:  "[Online notes on logic and probability](https://logic-probability.pacuit.org): Prepared for an course introducing logic and probability ([PHIL 171](https://phil171.org))"
+  new: false
+  weight: 104
+  hide: false
+
+
+- announcement: "[ESSLLI 2023](https://2023.esslli.eu/) Course: [Computational Game Theory in Julia](/esslli2023/game-theory-julia/), University of Ljubljana, Solvenia"
+  new: false
+  weight: 106
+  hide: true
+
+- announcement: "[ESSLLI 2023](https://2023.esslli.eu/) Course: [Tools for Formal Epistemology: Doxastic Logic, Probability, and Default Logic](/esslli2023/tools-formal-epistemology/), (with Aleks Knoks), University of Ljubljana, Solvenia"
+  new: false
+  weight: 105
+  hide: true
+
+
+- announcement:  "[Normative Reasoning for AI](https://www.dagstuhl.de/en/seminars/seminar-calendar/seminar-details/23151), Dagstuhl Workshop, April 10-14, 2023"
+  new: false
+  weight: 103
+  hide: true
+
+- announcement:  "Talk: [Social Choice and Welfare Conference](https://sscw2020.colmex.mx/), Stable Voting, June 23, 2022"
+  new: false
+  weight: 102
+  hide: true
+
+- announcement: "[ESSLLI 2022](https://2022.esslli.eu/) Course: [Conditionals in Game Theory](https://pacuit.org/esslli2022/conditionals-games/) (with Ilaria Canavotto), August 15 - August 19, National University of Ireland Galway"
+  new: true
+  weight: 107
+  hide: true
+
+- announcement: "[ESSLLI 2022](https://2022.esslli.eu/) Course: [Logics for Social Choice Theory](https://pacuit.org/esslli2022/logics-social-choice/), August 15 - August 19, National University of Ireland Galway"
+  new: true
+  weight: 106
+  hide: true
+
+
+- announcement: "[ESSLLI 2021](https://esslli2021.unibz.it/) Course: [Probabilistic Methods in Social Choice](https://pacuit.org/esslli2021/prob-social-choice/), online."
+  new: false
+  weight: 104
+  hide: true
+
+- announcement:  "Talk: [COMSOC Video Seminar](https://sites.google.com/view/comsoc-seminar/), Online, May 28, 2021"
+  new: false
+  weight: 103
+  hide: true
+
+- announcement:  "Book: [Neighborhood Semantics for Modal Logic](https://pacuit.org/modal/neighborhoods/), Springer 2017.   "
+  new: false
+  weight: 50
+  hide: false
+
+- announcement:  "Talk: [Logic and Philosophy of Science Group Talk](https://philosophy.utoronto.ca/event/logic-science-talk-eric-pacuit-maryland/), University of Toronto, October 30th, 2020"
+  new: false
+  weight: 106
+  hide: true
+
+- announcement: "ESSLLI 2019 Course: [Puzzles](http://pacuit.org/esslli2019/puzzles), (with Hans van Ditmarsch), University of Latvia, Riga, Latvia."
+  new: false
+  weight: 101
+  hide: true
+
+- announcement:  "ESSLLI 2019 Course: [Logics of Action, Ability, Knowledge and Obligation](http://pacuit.org/esslli2019/epstit), (with Jeff Horty), University of Latvia, Riga, Latvia."
+  new: false
+  weight: 100
+  hide: true
+
+- announcement:  "Talk: [Knowledge of Knowledge, Regensburg International Workshop](https://www.uni-regensburg.de/philosophie-kunst-geschichte-gesellschaft/theoretische-philosophie/workshops/2019/), Beliefs, Propositions and Definite Descriptions, Aug. 22, 2019"
+  new: true
+  weight: 90
+  hide: true
+
+- announcement:  "Talk: [Working Group in History and Philosophy of Logic, Mathematics and Science](http://hplms.berkeley.edu/), Strategic reasoning: From beliefs about mistakes to mistaken beliefs, October 17, 2018"
+  new: false
+  weight: 80
+  hide: true
+  
+- announcement:  "Talk: [Logic, Information, and Topology Workshop](https://www.cmu.edu/dietrich/philosophy/events/workshops-conferences/index.html),  Beliefs, Propositions and Definite Descriptions, Center for Formal Epistemology, Carnegie Mellon University, October 20th, 2018"
+  new: false
+  weight: 80
+  hide: true
+
+- announcement:  "Short Course: [Neighborhood semantics for modal logic](http://app.pacuit.io/teaching/nbhd2018_tsinghua), Tsinghua University, Beijing, November, 2018."
+  new: true
+  weight: 5
+  hide: true
+
+  
+  
+ 

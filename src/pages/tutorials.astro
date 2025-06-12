@@ -1,0 +1,67 @@
+---
+// src/pages/tutorials.astro
+import Layout from '../layouts/Layout.astro';
+import { parse } from 'yaml';
+import fs from 'fs/promises';
+
+// Read and parse the tutorials YAML file
+const tutorialsYaml = await fs.readFile('./data/tutorials.yaml', 'utf8');
+const tutorialsData = parse(tutorialsYaml);
+---
+
+<Layout title="Tutorials" activePage="tutorials">
+  <div class="max-w-5xl mx-auto px-4 pb-20">
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-6">Tutorials</h1>
+      
+      <p class="text-gray-700 mb-8 leading-relaxed">
+        Below is a list of notes, interactive tutorials and videos that I have produced for 
+        my courses. Consult my <a href="/teaching" class="text-blue-600 hover:text-blue-800">teaching page</a> for more information.
+      </p>
+      
+      <!-- Tutorials List -->
+      <ul class="space-y-3 ml-6">
+        {tutorialsData.map((tutorial) => (
+          <li>
+            <a
+              href={tutorial.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center text-blue-600 hover:text-blue-800 group"
+            >
+              <span class="mr-2 flex-shrink-0">
+                {tutorial.icon === "link" ? (
+                  <!-- External Link Icon -->
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                ) : tutorial.icon === "pdf" ? (
+                  <!-- PDF Icon -->
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-5L9 2H4z" clip-rule="evenodd"></path>
+                    <path d="M9 13h2v-2H9v2zm0-3h2V7H9v3z"></path>
+                  </svg>
+                ) : (
+                  <!-- YouTube Icon -->
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                )}
+              </span>
+              <span class="group-hover:underline">{tutorial.text}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Optional: Add hover effect for icons */
+  a:hover svg {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+  }
+</style>
