@@ -18,7 +18,7 @@ publisherlink: https://arxiv.org/abs/2208.06907
 tags: 
   - Social Choice Theory
   - Logic
-front_page: true
+front_page: false
 frontpage_data:
   - icon: link
     short_blurb: "(with Wes Holliday, Chase Norman, and Saam Zahedian), Mathematical Analyses of Decisions, Voting, and Games, 2024" 

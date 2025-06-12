@@ -4,9 +4,9 @@ coauthor:
   - Steven Kuhn
 authors: Steven Kuhn and Eric Pacuit
 journal: 
-year: 2024
+year: 2025
 type: manuscript
-citation: "in preparation"
+citation: "presented at LOFT 2024, full paper in preparation"
 volume:
 number:
 pages: 

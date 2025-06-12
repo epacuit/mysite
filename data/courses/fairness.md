@@ -1,7 +1,7 @@
 ---
 title: Fairness
 short_name: Fairness
-course_number: PHIL 209F/PHPE 308M
+course_number: PHPE 308M/PHIL 209F
 level: Undergraduate
 current_semester: Fall 2025
 website:

@@ -1,22 +1,26 @@
 
 - announcement:  "[Logic research group](https://logic-group.pacuit.org) (weekly seminar at the University of Maryland)"
   new: false
-  weight: 119
+  weight: 150
   hide: false
 
 - announcement: '"Common p-Belief and Plausibility Measures" will be presented at [TARK 2025](https://ccc.cs.uni-duesseldorf.de/tark-2025/), July 14-16, 2025, Dusseldorf, Germany'
   new: true
+  weight: 119
+  hide: false
+
+- announcement: "[ESSLLI 2025](https://2025.esslli.eu/) Course: [Epistemic Arithmetic](/esslli2025/epistemic-arithmetic/), Bochum, Germany"
+  new: true
   weight: 118
   hide: false
 
-
 - announcement: "Co-Organized [Social Choice for AI Ethics and Safety 2025 (SC4AI'25)](https://sites.google.com/view/sc4ai/workshops/sc4ai25?authuser=0), May 19, 2025, AAMAS, Detroit, Michigan"
-  new: true
+  new: false
   weight: 117
   hide: false
 
 - announcement: 'Invited Speaker, [Modal Logic Session, Association for Symbolic Logic](https://math.nmsu.edu/asl-2025/schedule.html), "Common p-Belief and Plausibility Measures", New Mexico State University, Las Cruces, New Mexico, May 13-16, 2025'
-  new: true
+  new: false
   weight: 116
   hide: false
 
@@ -24,7 +28,7 @@
 
 - announcement: "Nordic Online Logic Seminar, [NOLS](https://scandinavianlogic.org/2024-08-19-NOL-Seminar-Eric-Pacuit.html), August 26, 2024"
   new: false
-  weight: 116
+  weight: 115
   hide: true
 
 - announcement: "[ESSLLI 2024](https://2024.esslli.eu/) Course: [Neighborhood Semantics for Modal Logic](/esslli2024/neighborhood-semantics/), Leuven, Belgium"

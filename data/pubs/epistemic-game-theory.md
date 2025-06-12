@@ -5,9 +5,9 @@ coauthor:
   - Olivier Roy
 authors: Paolo Galeazzi, Eric Pacuit, and Olivier Roy
 journal: 
-year: 2023
+year: 2025
 type: manuscript
-citation: "short book in preparation"
+citation: "book in preparation, Cambridge University Press"
 volume:
 number:
 pages: 
@@ -18,10 +18,10 @@ preprintlink:
 additionaldata:
 tags: 
   - Game Theory
-front_page: false
+front_page: true
 frontpage_data:
-  - icon: link 
-    short_blurb: "(with Paolo Galeazzi and Olivier Roy), under submission"
+  - icon: none 
+    short_blurb: "(with Paolo Galeazzi and Olivier Roy), forthcoming book, Cambridge University Press"
     use_publisher_link: false
     use_preprint_link: 
 blurb: 

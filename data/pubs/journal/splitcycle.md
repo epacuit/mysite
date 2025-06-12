@@ -18,7 +18,7 @@ preprintlink: https://arxiv.org/abs/2004.02350
 additionaldata:
 tags: 
   - Social Choice Theory
-front_page: true
+front_page: false
 frontpage_data:
   - icon: link
     short_blurb: "(with Wes Holliday), Public Choice." 

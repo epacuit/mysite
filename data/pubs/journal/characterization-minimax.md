@@ -3,16 +3,16 @@ title: "An extension of May's Theorem to three alternatives: axiomatizing Minima
 coauthor: 
   - Wesley H. Holliday
 authors: Wesley H. Holliday, and Eric Pacuit
-journal: 
-year: 2024
-type: manuscript
-citation: ", under submission"
+journal: Social Choice and Welfare
+year: 2025
+type: journal
+citation: "Social Choice and Welfare, 2025, https://doi.org/10.1007/s00355-025-01388-0"
 volume:
 number:
 pages: 
 bookname: 
 file: 
-publisherlink:  
+publisherlink:  https://doi.org/10.1007/s00355-025-01388-0
 preprintlink:  https://arxiv.org/abs/2312.14256
 additionaldata:
 tags: 
@@ -20,7 +20,7 @@ tags:
 front_page: true
 frontpage_data:
   - icon: link 
-    short_blurb: "(with Wes Holliday), under submission"
+    short_blurb: "(with Wes Holliday), Social Choice and Welfare, 2025"
     use_publisher_link: false
     use_preprint_link: true
 blurb: 

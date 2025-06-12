@@ -1,12 +1,12 @@
 ---
-title: 'Methods in Philosophy, Politics and Economics: Individual and Group Decision Making'
-short_name: Methods in Philosophy, Politics and Economics
+title: 'Individual and Group Decision-Making'
+short_name: Individual and Group Decision-Making
 course_number: PHPE 400
 level: Undergraduate
 current_semester: Fall 2025
 website:
   - sem: Fall 2025
-    www:  
+    www: https://umd.instructure.com/courses/1391343
 syllabus:
   - sem: Fall 2024
     file: syl-methods-ppe-v4.pdf

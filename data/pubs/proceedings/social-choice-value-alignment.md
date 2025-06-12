@@ -16,13 +16,13 @@ authors: "Vincent Conitzer, Rachel Freedman, Jobst Heitzig, Wesley H. Holliday, 
 journal: 
 year: 2024
 type: proceedings
-citation: ", presented at ICML 2024 and Social Choice and Welfare Conference 2024"
+citation: ", presented at ICML 2024 and Social Choice and Welfare Conference 2024, Forthcoming."
 volume:
-number:
-pages: 
-bookname: 
+number: 371
+pages: 9346 - 9360
+bookname: "ICML'24: Proceedings of the 41st International Conference on Machine Learning"
 file: 
-publisherlink:  
+publisherlink:  https://dl.acm.org/doi/abs/10.5555/3692070.3692441
 preprintlink:  https://arxiv.org/abs/2404.10271
 additionaldata:
 tags: 

@@ -5,12 +5,12 @@ coauthor:
   - Wesley H. Holliday
 authors: Yifeng Ding, Wesley H. Holliday, and Eric Pacuit
 journal: Social Choice and Welfare
-year: 2024
+year: 2025
 type: journal
-citation: ", Social Choice and Welfare, 2024"
-volume:
-number:
-pages: 
+citation: ", Social Choice and Welfare, 64, pp. 557 - 601, 2025"
+volume: 64
+number: 
+pages: 557 - 601
 bookname: 
 file: 
 publisherlink: https://doi.org/10.1007/s00355-024-01539-w 
@@ -21,7 +21,7 @@ tags:
 front_page: true
 frontpage_data:
   - icon: link 
-    short_blurb: "(with Yifeng Ding, and Wes Holliday),  Social Choice and Welfare, 2024"
+    short_blurb: "(with Yifeng Ding, and Wes Holliday),  Social Choice and Welfare, 2025"
     use_publisher_link: true
     use_preprint_link: false
 blurb: 

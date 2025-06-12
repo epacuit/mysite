@@ -6,10 +6,11 @@ authors: Wesley H. Holliday and Eric Pacuit
 journal: Constitutional Political Economy
 year: 2023
 type: journal
-citation: 'Constitutional Political Economy'
-volume:
+citation: 'Constitutional Political Economy, 34, pp. 421 - 433, 2023'
+website: https://stablevoting.org
+volume: 34
 number:
-pages:
+pages: 421 - 433
 bookname: 
 file: 
 publisherlink:  https://doi.org/10.1007/s10602-022-09383-9
