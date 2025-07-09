@@ -3,7 +3,7 @@ title: "Epistemic Arithmetic"
 venue: Bochum, Germany
 dates: July 28 - August 1, 2025
 time: 14:00 - 15:30
-location: TBA
+location: HGB 50
 school: ESSLLI 2025
 school_www: https://2025.esslli.eu
 coteacher: 
