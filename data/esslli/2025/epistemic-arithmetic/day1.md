@@ -5,5 +5,5 @@ file:  ep-arithmetic-lec1.pdf
 date: July 28, 2025
 ---
 
-Topics to be covered: Robinson’s Q; Peano Arithmetic PA; a brief introduction to Godel coding; Godel-Carnap fixed-point theorem; and a brief discussion of Godel’s incompleteness theorems; Lob's Theorem
+Introduction to Godel's Theorems; Robinson’s Q; Peano Arithmetic PA; a brief introduction to Godel coding; Godel-Carnap fixed-point theorem; and a brief discussion of Godel’s incompleteness theorems
  
