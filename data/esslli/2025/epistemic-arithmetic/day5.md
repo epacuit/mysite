@@ -1,6 +1,6 @@
 ---
 lecture: 5
-title: "Godel's Disjunction II"
+title: "Godel's Disjunction"
 file:   ep-arithmetic-lec5.pdf
 date: August 1, 2025
 ---
