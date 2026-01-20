@@ -6,14 +6,16 @@ level: Undergraduate
 current_semester: Fall 2025
 website:
   - sem: Fall 2025
-    www:  
+    www:  https://umd.instructure.com/courses/1391244
 syllabus:
-  - sem: Spring 2024
+  - sem: Fall 2025
     file:  ./syl-fairness.pdf
 comment:  
 past_semesters:
- - sem: Spring 2024
-   www:  https://umd.instructure.com/courses/1362256
+  - sem: Fall 2025
+    www:  https://umd.instructure.com/courses/1391244
+  - sem: Spring 2024
+    www:  https://umd.instructure.com/courses/1362256
 
 ---
 

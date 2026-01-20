@@ -6,9 +6,9 @@ level: Undergraduate
 current_semester: Spring 2026
 website:
   - sem: Spring 2026
-    www:   
+    www: https://umd.instructure.com/courses/1401564  
 syllabus:
-  - sem: Spring 2024
+  - sem: Spring 2026
     file:  ./syl-godel.pdf
 comment:  
 past_semesters:
@@ -26,4 +26,7 @@ past_semesters:
    www: https://myelms.umd.edu/courses/1221496
 ---
 
-This course is focused on two fundamental theorems of Kurt Godel: The incompleteness theorems. The first theorem states, roughly, that every formal mathematical theory, provided it is sufficiently expressive and free from contradictions, is incomplete in the sense that there are always statements (in fact, true statements) in the language of the theory which the theory cannot prove. The second incompleteness theorem states that sufficiently expressive arithmetic theories cannot prove their own consistency. We will prove the 1st and 2nd Incompleteness Theorems and survey their technical and philosophical repercussions. Topics to be covered include: formal models of computation (especially elementary recursion theory); Church-Turing Thesis; Godel’s 1st and 2nd incompleteness theorems and their repercussions; Tarski’s proof of the undefinability of truth; Undecidability of the Halting Problem; Decidable subsystems of arithmetic; provability logic (Kripke soundness and completeness, arithmetical soundness and completeness, fixed-point theorems); absolute provability; and The Knower Paradox (and epistemic arithmetic).
+This course will focus on  Kurt Godel's first and second incompleteness theorems.   The first incompleteness theorem states, roughly, that every logical system that is sufficiently expressive and free from contradictions is incomplete in the sense that there are always statements such that neither the statement nor its negation can be proved.   The second incompleteness theorem states that sufficiently expressive arithmetic theories cannot prove their own consistency.   We will prove the 1st and 2nd Incompleteness Theorems and survey their technical and philosophical repercussions.    
+
+
+The primary goal of the course is to introduce the technical and philosophical topics that arise when proving G\"odel's Incompleteness Theorems.  Topics to be covered include: formal models of computation (especially elementary recursion theory); the Church-Turing Thesis; G\"odel's 1st and 2nd incompleteness theorems and their repercussions; Tarski's proof of the undefinability of truth; Undecidability of the Halting Problem; provability logic - Kripke soundness and completeness (time permitting),   absolute provability and  The Knower Paradox (time permitting); and  non-standard models of arithmetic (time permitting).

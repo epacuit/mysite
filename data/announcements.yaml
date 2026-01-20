@@ -4,13 +4,23 @@
   weight: 150
   hide: false
 
-- announcement: '"Common p-Belief and Plausibility Measures" will be presented at [TARK 2025](https://ccc.cs.uni-duesseldorf.de/tark-2025/), July 14-16, 2025, Dusseldorf, Germany'
+- announcement: 'Invited Participant, BIRS Workshop: The Mathematics of Elections, Fairness, and Representation, March 29 - April 3, 2026'
   new: true
+  weight: 121
+  hide: false
+
+- announcement: 'Talk at Online Social Choice and Welfare Seminar, February 17, 2025, online'
+  new: true
+  weight: 120
+  hide: false
+
+- announcement: '"Common p-Belief and Plausibility Measures" will be presented at [TARK 2025](https://ccc.cs.uni-duesseldorf.de/tark-2025/), July 14-16, 2025, Dusseldorf, Germany'
+  new: false
   weight: 119
   hide: false
 
 - announcement: "[ESSLLI 2025](https://2025.esslli.eu/) Course: [Epistemic Arithmetic](/esslli2025/epistemic-arithmetic/), Bochum, Germany"
-  new: true
+  new: false
   weight: 118
   hide: false
 
@@ -33,12 +43,12 @@
 
 - announcement: "[ESSLLI 2024](https://2024.esslli.eu/) Course: [Neighborhood Semantics for Modal Logic](/esslli2024/neighborhood-semantics/), Leuven, Belgium"
   new: false
-  weight: 115
+  weight: 114
   hide: true
 
 - announcement: "[ESSLLI 2024](https://2024.esslli.eu/) Course: [Social Choice and Machine Learning](/esslli2024/social-choice-machine-learning/), Leuven, Belgium"
   new: false
-  weight: 114
+  weight: 113
   hide: true
 
 

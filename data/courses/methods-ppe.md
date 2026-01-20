@@ -8,10 +8,12 @@ website:
   - sem: Fall 2025
     www: https://umd.instructure.com/courses/1391343
 syllabus:
-  - sem: Fall 2024
-    file: syl-methods-ppe-v4.pdf
+  - sem: Fall 2025
+    file: syl-methods-ppe-v5.pdf
 comment: 
 past_semesters:
+ - sem: Fall 2025
+   www: https://umd.instructure.com/courses/1391343
  - sem: Fall 2024
    www: https://umd.instructure.com/courses/1370492
  - sem: Fall 2023
