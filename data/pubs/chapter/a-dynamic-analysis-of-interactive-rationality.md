@@ -12,7 +12,7 @@ number:
 pages: 187 - 206
 bookname: Epistemology, Knowledge and the Impact of Interaction
 publisher: Springer
-file: dynintrat-pacuit-roy.pdf
+file: /api/files/pubs/chapter/dynintrat-pacuit-roy.pdf
 publisherlink:  https://link.springer.com/chapter/10.1007%2F978-3-319-26506-3_6
 preprintlink:
 additionaldata:

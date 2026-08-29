@@ -12,7 +12,7 @@ number: 5
 pages: 891 - 908
 bookname:
 publisherlink:  http://link.springer.com/article/10.1007%2Fs11229-012-0191-y
-file: substantive_assumptions.pdf
+file: /api/files/pubs/journal/substantive_assumptions.pdf
 preprintlink:  
 additionaldata:
 tags: 

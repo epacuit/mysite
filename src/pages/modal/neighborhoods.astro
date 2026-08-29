@@ -3,7 +3,7 @@
 import Layout from '../../layouts/Layout.astro';
 
 // Read the overview markdown content
-const overviewMd = await Astro.glob('../../../data/overviews/neighborhood-semantics.md');
+const overviewMd = Object.values(import.meta.glob('../../../data/overviews/neighborhood-semantics.md', { eager: true }));
 const overviewContent = overviewMd[0]?.compiledContent() || '';
 ---
 

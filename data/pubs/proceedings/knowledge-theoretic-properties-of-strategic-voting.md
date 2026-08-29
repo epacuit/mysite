@@ -12,7 +12,7 @@ volume:
 number:
 pages: 18 - 30
 bookname: "Proceedings of Logics In Artificial Intelligence: 9th Euorpean Conference (JELIA)"
-file: jeliabi2.pdf
+file: /api/files/pubs/proceedings/jeliabi2.pdf
 publisherlink:  http://link.springer.com/chapter/10.1007/978-3-540-30227-8_5
 preprintlink:
 additionaldata:

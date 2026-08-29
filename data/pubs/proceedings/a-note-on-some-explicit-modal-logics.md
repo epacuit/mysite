@@ -10,13 +10,12 @@ volume:
 number:
 pages: 117 - 125
 bookname: Proceedings of the Fifth Panhellenic Logic Symposium
-file: lps5.pdf
+file: /api/files/pubs/proceedings/lps5.pdf
 publisherlink: https://eprints.illc.uva.nl/id/document/501
 preprintlink: 
 additionaldata:
 tags: 
-  - lori
-  - logic
+  - Logic
 front_page: false
 frontpage_data:  
 blurb: 

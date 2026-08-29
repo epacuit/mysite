@@ -1,70 +1,47 @@
-// src/pages/api/files/[...path].js
 import fs from 'fs/promises';
 import path from 'path';
 
-export async function GET({ params, url }) {
+import { dataRoot, parseCatchAllPath, resolveInside } from '../../../utils/safeDataPath.js';
+
+const contentTypes = new Map([
+  ['.ipynb', 'application/x-ipynb+json'],
+  ['.odp', 'application/vnd.oasis.opendocument.presentation'],
+  ['.pdf', 'application/pdf'],
+  ['.ppt', 'application/vnd.ms-powerpoint'],
+  ['.pptx', 'application/vnd.openxmlformats-officedocument.presentationml.presentation'],
+]);
+
+export async function GET({ params }) {
+  const pathParts = parseCatchAllPath(params.path);
+  const filePath = pathParts ? resolveInside(dataRoot, ...pathParts) : null;
+
+  if (!filePath) return new Response('Invalid path', { status: 400 });
+
+  const extension = path.extname(filePath).toLowerCase();
+  const contentType = contentTypes.get(extension);
+  if (!contentType) return new Response('Unsupported file type', { status: 415 });
+
   try {
-    console.log('Raw params:', params);
-    
-    // Get the path from the URL instead of params to avoid parsing issues
-    const urlPath = new URL(url).pathname;
-    const pathMatch = urlPath.match(/^\/api\/files\/(.+)$/);
-    
-    if (!pathMatch || !pathMatch[1]) {
-      return new Response('Invalid path', { status: 400 });
-    }
-    
-    const requestedPath = pathMatch[1];
-    console.log('Requested path:', requestedPath);
-    
-    // Construct the full file path
-    const filePath = path.join(process.cwd(), 'data', requestedPath);
-    console.log('Full file path:', filePath);
-    
-    // Check if file exists
-    try {
-      await fs.access(filePath);
-    } catch (e) {
-      console.error('File not found:', filePath);
-      return new Response('File not found', { status: 404 });
-    }
-    
-    // Read the file
+    const fileInfo = await fs.stat(filePath);
+    if (!fileInfo.isFile()) return new Response('File not found', { status: 404 });
+
     const fileContent = await fs.readFile(filePath);
-    
-    // Determine content type based on file extension
-    const ext = path.extname(filePath).toLowerCase();
-    let contentType = 'application/octet-stream';
-    
-    switch (ext) {
-      case '.pdf':
-        contentType = 'application/pdf';
-        break;
-      case '.ppt':
-      case '.pptx':
-        contentType = 'application/vnd.ms-powerpoint';
-        break;
-      case '.odp':
-        contentType = 'application/vnd.oasis.opendocument.presentation';
-        break;
-    }
-    
-    // Get filename for download
-    const filename = path.basename(filePath);
-    
-    // Return the file
+    const filename = path.basename(filePath).replace(/["\r\n]/g, '_');
+
     return new Response(fileContent, {
       status: 200,
       headers: {
-        'Content-Type': contentType,
+        'Cache-Control': 'public, max-age=3600',
         'Content-Disposition': `attachment; filename="${filename}"`,
         'Content-Length': fileContent.length.toString(),
-        'Cache-Control': 'public, max-age=3600'
-      }
+        'Content-Type': contentType,
+        'X-Content-Type-Options': 'nosniff',
+      },
     });
-    
   } catch (error) {
-    console.error('Error serving file:', error);
+    if (error?.code === 'ENOENT' || error?.code === 'ENOTDIR') {
+      return new Response('File not found', { status: 404 });
+    }
     return new Response('Internal server error', { status: 500 });
   }
 }

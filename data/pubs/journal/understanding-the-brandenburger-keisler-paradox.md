@@ -11,7 +11,7 @@ number: 3
 pages: 435 - 454
 bookname:
 publisherlink:  http://dx.doi.org/10.1007/s11225-007-9069-2
-file: bkparadox_sl.pdf
+file: /api/files/pubs/journal/bkparadox_sl.pdf
 preprintlink: 
 additionaldata:
 tags: 

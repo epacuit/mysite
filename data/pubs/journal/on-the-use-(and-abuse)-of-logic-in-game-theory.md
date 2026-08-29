@@ -11,7 +11,7 @@ number: 6
 pages: 741 - 753
 bookname:
 publisherlink:  http://link.springer.com/article/10.1007/s10992-015-9356-8
-file: jpl-loggames-final.pdf
+file: /api/files/pubs/journal/jpl-loggames-final.pdf
 preprintlink:  
 additionaldata:
 tags: 

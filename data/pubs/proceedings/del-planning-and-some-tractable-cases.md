@@ -12,7 +12,7 @@ volume:
 number:
 pages: 179 - 192
 bookname: Proceedings of Logic, Rationality, And Interaction (Lori-III)
-file: del-planning.file
+file:
 publisherlink:  http://link.springer.com/chapter/10.1007/978-3-642-24130-7_13
 preprintlink:
 additionaldata:

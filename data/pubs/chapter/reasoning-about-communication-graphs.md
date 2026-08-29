@@ -11,7 +11,7 @@ volume:
 number:
 pages: 135 - 157
 bookname: "Interactive Logic: Selected Papers from the 7th Augustus de Morgan Workshop"
-file: reas-comgraphs.pdf
+file: /api/files/pubs/chapter/reas-comgraphs.pdf
 publisherlink: https://www.jstor.org/stable/j.ctt45kdbf
 preprintlink:
 additionaldata:

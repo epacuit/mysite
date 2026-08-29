@@ -1,152 +1,120 @@
-// src/pages/api/download-all-slides/[...path].js
 import JSZip from 'jszip';
 import fs from 'fs/promises';
 import path from 'path';
 
-export async function POST({ params, request }) {
-  try {
-    // Extract parameters from the path
-    // params.path could be a string or array depending on Astro version
-    let pathParts;
-    if (Array.isArray(params.path)) {
-      pathParts = params.path;
-    } else if (typeof params.path === 'string') {
-      pathParts = params.path.split('/');
-    } else {
-      // Fallback: try to parse from the URL
-      const { days } = await request.json();
-      console.error('Unexpected params.path format:', params.path);
-      return new Response(JSON.stringify({ error: 'Invalid path format' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-    
-    const [summerschool, year, coursename] = pathParts;
-    
-    const { days } = await request.json();
-    
-    console.log('Download request:', { 
-      summerschool, 
-      year, 
-      coursename, 
-      days,
-      pathParts,
-      paramsPath: params.path
-    });
-    
-    // Create a new zip file
-    const zip = new JSZip();
-    
-    // Base directory for course files
-    const courseDir = path.join(process.cwd(), 'data', summerschool, year, coursename);
-    console.log('Looking in directory:', courseDir);
-    
-    // Check if directory exists
-    try {
-      await fs.access(courseDir);
-    } catch (e) {
-      console.error('Course directory not found:', courseDir);
-      return new Response(JSON.stringify({ error: 'Course directory not found' }), {
-        status: 404,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-    
-    // Track if we found any files
-    let filesAdded = 0;
-    const errors = [];
-    
-    // Add each file to the zip
-    for (const dayInfo of days) {
-      try {
-        const fileName = dayInfo.file;
-        
-        if (fileName) {
-          const filePath = path.join(courseDir, fileName);
-          console.log(`Attempting to read: ${filePath}`);
-          
-          try {
-            const fileContent = await fs.readFile(filePath);
-            zip.file(fileName, fileContent);
-            filesAdded++;
-            console.log(`Successfully added ${fileName} to zip`);
-          } catch (readError) {
-            console.error(`Failed to read ${fileName}:`, readError.message);
-            errors.push(`Could not read ${fileName}`);
-          }
-        }
-      } catch (e) {
-        console.error(`Error processing day:`, e);
-        errors.push(e.message);
-      }
-    }
-    
-    if (filesAdded === 0) {
-      return new Response(JSON.stringify({ 
-        error: 'No slide files could be added to zip',
-        details: errors 
-      }), {
-        status: 404,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-    
-    console.log(`Creating zip with ${filesAdded} files...`);
-    
-    // Generate the zip file
-    const zipContent = await zip.generateAsync({ 
-      type: 'nodebuffer',
-      compression: 'DEFLATE',
-      compressionOptions: { level: 6 }
-    });
-    
-    console.log(`Zip created successfully, size: ${zipContent.length} bytes`);
-    
-    // Return the zip file
-    return new Response(zipContent, {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/zip',
-        'Content-Disposition': `attachment; filename="${coursename}-slides.zip"`,
-        'Content-Length': zipContent.length.toString()
-      }
-    });
-    
-  } catch (error) {
-    console.error('Unexpected error in download API:', error);
-    return new Response(JSON.stringify({ 
-      error: 'Internal server error',
-      message: error.message,
-      stack: error.stack 
-    }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
+import {
+  dataRoot,
+  isPlainFilename,
+  parseCatchAllPath,
+  resolveInside,
+} from '../../../utils/safeDataPath.js';
+
+const allowedFileExtensions = new Set(['.ipynb', '.odp', '.pdf', '.ppt', '.pptx']);
+
+function jsonResponse(body, status) {
+  return Response.json(body, {
+    status,
+    headers: { 'Cache-Control': 'no-store' },
+  });
 }
 
-// Handle GET for debugging
-export async function GET({ params }) {
-  // Handle both array and string formats
-  let pathParts;
-  if (Array.isArray(params.path)) {
-    pathParts = params.path;
-  } else if (typeof params.path === 'string') {
-    pathParts = params.path.split('/');
-  } else {
-    pathParts = [];
+export async function POST({ params, request }) {
+  const pathParts = parseCatchAllPath(params.path);
+  if (!pathParts || pathParts.length !== 3) {
+    return jsonResponse({ error: 'Invalid course path' }, 400);
   }
-  
-  return new Response(JSON.stringify({ 
-    message: 'Download API endpoint',
-    method: 'Use POST to download files',
-    path: pathParts.join('/'),
-    pathParts: pathParts,
-    paramsPath: params.path,
-    expectedPath: '[summerschool]/[year]/[coursename]'
-  }), {
+
+  const [summerSchool, year, courseName] = pathParts;
+  if (
+    !['esslli', 'nasslli'].includes(summerSchool) ||
+    !/^\d{4}$/.test(year) ||
+    !/^[a-z0-9][a-z0-9-]*$/.test(courseName)
+  ) {
+    return jsonResponse({ error: 'Invalid course path' }, 400);
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return jsonResponse({ error: 'Request body must be valid JSON' }, 400);
+  }
+
+  if (!Array.isArray(body?.days) || body.days.length === 0 || body.days.length > 10) {
+    return jsonResponse({ error: 'days must be a non-empty list of at most 10 entries' }, 400);
+  }
+
+  const requestedFiles = [];
+  for (const day of body.days) {
+    const filename = day?.file;
+    if (!isPlainFilename(filename) || !allowedFileExtensions.has(path.extname(filename).toLowerCase())) {
+      return jsonResponse({ error: 'Invalid slide filename' }, 400);
+    }
+    if (!requestedFiles.includes(filename)) requestedFiles.push(filename);
+  }
+
+  const courseDirectory = resolveInside(dataRoot, summerSchool, year, courseName);
+  if (!courseDirectory) return jsonResponse({ error: 'Invalid course path' }, 400);
+
+  try {
+    const courseInfo = await fs.stat(courseDirectory);
+    if (!courseInfo.isDirectory()) return jsonResponse({ error: 'Course not found' }, 404);
+  } catch (error) {
+    if (error?.code === 'ENOENT' || error?.code === 'ENOTDIR') {
+      return jsonResponse({ error: 'Course not found' }, 404);
+    }
+    return jsonResponse({ error: 'Internal server error' }, 500);
+  }
+
+  const zip = new JSZip();
+  const missingFiles = [];
+
+  for (const filename of requestedFiles) {
+    const filePath = resolveInside(courseDirectory, filename);
+    if (!filePath) return jsonResponse({ error: 'Invalid slide filename' }, 400);
+
+    try {
+      const fileInfo = await fs.stat(filePath);
+      if (!fileInfo.isFile()) {
+        missingFiles.push(filename);
+        continue;
+      }
+      zip.file(filename, await fs.readFile(filePath));
+    } catch (error) {
+      if (error?.code === 'ENOENT' || error?.code === 'ENOTDIR') {
+        missingFiles.push(filename);
+        continue;
+      }
+      return jsonResponse({ error: 'Internal server error' }, 500);
+    }
+  }
+
+  if (Object.keys(zip.files).length === 0) {
+    return jsonResponse({ error: 'No requested slide files were found' }, 404);
+  }
+
+  const zipContent = await zip.generateAsync({
+    type: 'nodebuffer',
+    compression: 'DEFLATE',
+    compressionOptions: { level: 6 },
+  });
+
+  return new Response(zipContent, {
     status: 200,
-    headers: { 'Content-Type': 'application/json' }
+    headers: {
+      'Cache-Control': 'no-store',
+      'Content-Disposition': `attachment; filename="${courseName}-slides.zip"`,
+      'Content-Length': zipContent.length.toString(),
+      'Content-Type': 'application/zip',
+      'X-Content-Type-Options': 'nosniff',
+      ...(missingFiles.length > 0 ? { 'X-Missing-Files': missingFiles.length.toString() } : {}),
+    },
+  });
+}
+
+export function GET() {
+  return new Response('Method not allowed', {
+    status: 405,
+    headers: { Allow: 'POST' },
   });
 }

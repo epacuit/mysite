@@ -11,7 +11,7 @@ volume:
 number:
 pages: 441 - 461
 bookname: "Interactive Computation: The New Paradigm"
-file: socsoft-survey.pdf
+file: /api/files/pubs/chapter/socsoft-survey.pdf
 publisherlink: http://link.springer.com/chapter/10.1007%2F3-540-34874-3_17
 tags: 
   - Logic

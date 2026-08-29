@@ -13,7 +13,7 @@ number: 1
 pages: 52 - 86
 bookname:
 publisherlink:  http://dx.doi.org/10.3390/g2010052
-file: games-paper.pdf
+file: /api/files/pubs/journal/games-paper.pdf
 preprintlink:  
 additionaldata:
 

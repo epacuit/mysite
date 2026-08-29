@@ -13,7 +13,7 @@ volume:
 number:
 pages:
 bookname: 'Mathematical Analyses of Decisions, Voting, and Games, Contemporary Mathematics. American Mathematical Society'
-file: 
+file:
 publisherlink: https://arxiv.org/abs/2208.06907
 tags: 
   - Social Choice Theory

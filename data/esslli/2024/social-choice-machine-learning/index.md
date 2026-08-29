@@ -5,7 +5,7 @@ dates: August 5 - August 9, 2024
 time: 11:00am - 12:30pm
 location: Ruth Benedict
 school: ESSLLI 2024
-school_www: 2024.esslli.eu
+school_www: https://2024.esslli.eu
 coteacher: 
 ---
 

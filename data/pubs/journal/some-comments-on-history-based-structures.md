@@ -11,7 +11,7 @@ number: 4
 pages: 613 - 624
 bookname:
 publisherlink:  http://dx.doi.org/10.1016/j.jal.2006.03.012
-file: jal-history.pdf
+file: /api/files/pubs/journal/jal-history.pdf
 preprintlink:  
 additionaldata:
 tags: 

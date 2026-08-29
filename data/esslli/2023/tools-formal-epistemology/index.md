@@ -5,7 +5,7 @@ dates: July 31 - August 4, 2023
 time: 2:00pm - 3:30pm
 location: PB
 school: ESSLLI 2023
-school_www: 2023.esslli.eu
+school_www: https://2023.esslli.eu
 coteacher: 
   - name:  "Aleks Knoks"
     web: https://aleksknoks.com/

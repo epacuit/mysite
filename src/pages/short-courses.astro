@@ -2,8 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 
 // Read all course index.md files from the data directory
-const esslliCourses = await Astro.glob('../../data/esslli/**/index.md');
-const nasslliCourses = await Astro.glob('../../data/nasslli/**/index.md');
+const esslliCourses = Object.values(import.meta.glob('../../data/esslli/**/index.md', { eager: true }));
+const nasslliCourses = Object.values(import.meta.glob('../../data/nasslli/**/index.md', { eager: true }));
 
 // Process all courses
 const courses = [];

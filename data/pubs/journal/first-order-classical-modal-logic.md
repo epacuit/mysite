@@ -12,7 +12,7 @@ number: 2
 pages: 171 - 210
 bookname:
 publisherlink:  http://link.springer.com/article/10.1007%2Fs11225-006-9010-0
-file: folnbhd-SL.pdf
+file: /api/files/pubs/journal/folnbhd-SL.pdf
 preprintlink: 
 additionaldata:
   - "This paper superscedes Horacio Arlo-Costa and Eric Pacuit (2005). First-order classical modal logic: Applications in logics of knowledge and probability, in *Proceedings of Theoretical Aspects of Rationality and Knowledge (TARK)*, pp. 262 - 278."  

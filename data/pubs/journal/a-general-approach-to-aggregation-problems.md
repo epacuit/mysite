@@ -12,7 +12,7 @@ number: 3
 pages: 517 - 536
 bookname:
 publisherlink:  http://logcom.oxfordjournals.org/content/19/3/517.full.file
-file: daniels-pacuit-general-aggregation.pdf
+file: /api/files/pubs/journal/daniels-pacuit-general-aggregation.pdf
 preprintlink: 
 additionaldata:
 tags: 

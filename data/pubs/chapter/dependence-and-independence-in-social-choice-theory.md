@@ -11,7 +11,7 @@ volume:
 number:
 pages: 235-260
 bookname: Dependence Logic
-file: depind-sch_final.pdf
+file: /api/files/pubs/chapter/depind-sch_final.pdf
 publisherlink: https://link.springer.com/chapter/10.1007%2F978-3-319-31803-5_11
 preprintlink:
 additionaldata:

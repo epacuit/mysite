@@ -12,7 +12,7 @@ number: 61
 pages: 61 - 92
 bookname:
 publisherlink:  https://doi.org/10.1007/s11225-011-9347-x
-file:  dynevbel.pdf
+file: /api/files/pubs/journal/dynevbel.pdf
 preprintlink: 
 additionaldata:
 tags: 

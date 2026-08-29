@@ -10,7 +10,7 @@ volume:
 number:
 pages: 3 - 33
 bookname: Models of Strategic Reasoning
-file: reas-games-v6.pdf
+file: /api/files/pubs/chapter/reas-games-v6.pdf
 publisherlink: https://link.springer.com/chapter/10.1007%2F978-3-662-48540-8_1
 preprintlink:
 additionaldata:

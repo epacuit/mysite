@@ -10,7 +10,7 @@ volume:
 number:
 pages:
 bookname: The Stanford Encyclopedia of Philosophy
-file: 
+file:
 publisherlink: http://plato.stanford.edu/entries/voting-methods/
 preprintlink: 
 additionaldata: 

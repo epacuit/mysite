@@ -12,12 +12,12 @@ volume:
 number:
 pages: 
 bookname: 
-file: 
-publisherlink:   
+file:
+publisherlink:
 preprintlink:   
 additionaldata:
 tags: 
-  - Social Choice
+  - Social Choice Theory
 front_page: true
 frontpage_data:
   - icon: none 

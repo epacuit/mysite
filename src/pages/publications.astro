@@ -3,7 +3,7 @@
 import Layout from '../layouts/Layout.astro';
 
 // Read all publication markdown files from data/pubs subdirectories
-const publications = await Astro.glob('../../data/pubs/**/*.md');
+const publications = Object.values(import.meta.glob('../../data/pubs/**/*.md', { eager: true }));
 
 // Sort by year descending
 const sortedPubs = publications.sort((a, b) => b.frontmatter.year - a.frontmatter.year);
@@ -36,9 +36,12 @@ function getPdfPath(pub) {
   // If file is explicitly false or doesn't exist, no PDF
   if (!fm.file) return null;
   
-  // Check if file is an external URL (like arxiv)
-  if (typeof fm.file === 'string' && (fm.file.startsWith('http://') || fm.file.startsWith('https://'))) {
-    return fm.file; // Return the URL directly
+  // External URLs and site-root paths are already complete.
+  if (
+    typeof fm.file === 'string' &&
+    (fm.file.startsWith('http://') || fm.file.startsWith('https://') || fm.file.startsWith('/'))
+  ) {
+    return fm.file;
   }
   
   // Get the relative path from data/pubs/
@@ -161,7 +164,9 @@ function generateBibtex(fm) {
               const links = [];
               if (pdfPath) {
                 // Check if it's an external URL or local file
-                const pdfUrl = pdfPath.startsWith('http') ? pdfPath : `/api/files/pubs/${pdfPath}`;
+                const pdfUrl = pdfPath.startsWith('http') || pdfPath.startsWith('/')
+                  ? pdfPath
+                  : `/api/files/pubs/${pdfPath}`;
                 links.push(`<a href="${pdfUrl}" target="_blank" class="text-blue-600 hover:text-blue-800">PDF</a>`);
               }
               if (pub.frontmatter.publisherlink) links.push(`<a href="${pub.frontmatter.publisherlink}" target="_blank" class="text-blue-600 hover:text-blue-800">DOI</a>`);

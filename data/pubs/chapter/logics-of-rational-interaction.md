@@ -11,7 +11,7 @@ volume:
 number:
 pages: 5 - 32
 bookname: Dynamic Formal Epistemology
-file: lori-kooipac.pdf
+file: /api/files/pubs/chapter/lori-kooipac.pdf
 publisherlink:  http://link.springer.com/chapter/10.1007/978-94-007-0074-1_2
 preprintlink:
 additionaldata:

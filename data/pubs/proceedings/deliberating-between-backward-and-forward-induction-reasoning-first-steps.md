@@ -11,7 +11,7 @@ volume:
 number:
 pages:
 bookname: Proceedings of Theoretical Aspects of Rationality and Knowledge (TARK 2015)
-file: fi-bi-reasoning-tark-final.pdf
+file: /api/files/pubs/proceedings/fi-bi-reasoning-tark-final.pdf
 publisherlink: 	https://www.imsc.res.in/tark/TARK2015-proceedings.pdf
 preprintlink: 
 additionaldata:

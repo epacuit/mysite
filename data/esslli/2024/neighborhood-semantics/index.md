@@ -5,7 +5,7 @@ dates: August 5 - August 9, 2024
 time: 2:00pm - 3:30pm
 location: AV 03.12
 school: ESSLLI 2024
-school_www: 2024.esslli.eu
+school_www: https://2024.esslli.eu
 coteacher: 
 ---
 This course provides a comprehensive overview of the general theory of neighborhood semantics for modal logic, primarily based on my 2017 book *Neighborhood Semantics for Modal Logic*, and discusses several interesting new applications. Neighborhood models generalize the standard relational, or Kripke, models for modal logic. They were independently invented by Dana Scott and Richard Montague. In fact, the idea of neighborhood semantics for modal logic is already implicit in the seminal work of McKinsey and Tarski on topological semantics for modal logic. The original motivation for generalizing relational semantics was to provide a semantics for a wider class of modal logics, such as the so-called non-normal modal logics.
@@ -21,7 +21,6 @@ The main objective of the course is to demonstrate precisely where neighborhood 
 
 
 First, students will be introduced to the mathematical theory of modal logic, such as that found in the seminal textbook *Modal Logic* by Blackburn, de Rijke, and Venema, which is important for all ESSLLI students. Second, the mathematical ideas discussed in this course are useful in other research areas familiar to many ESSLLI students. Finally, this course will discuss interpretations of neighborhood semantics for modal logic that are of particular interest to many students at ESSLLI.
-
 
 
 

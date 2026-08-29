@@ -11,7 +11,7 @@ volume:
 number:
 pages: 138 - 150
 bookname: Proceedings of the 10th European Conference on Logics in Artificial Intelligence (JELIA-2006)
-file: ml-pref-negotiation.pdf
+file: /api/files/pubs/proceedings/ml-pref-negotiation.pdf
 publisherlink:  http://link.springer.com/chapter/10.1007%2F11853886_13
 preprintlink: 
 additionaldata:

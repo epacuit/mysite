@@ -12,7 +12,7 @@ volume: 169
 number: 2
 pages: 219 - 221
 bookname:
-file: syn-lli.pdf
+file: /api/files/pubs/syn-lli.pdf
 publisherlink:  http://link.springer.com/article/10.1007%2Fs11229-009-9558-0
 preprintlink: 
 additionaldata:

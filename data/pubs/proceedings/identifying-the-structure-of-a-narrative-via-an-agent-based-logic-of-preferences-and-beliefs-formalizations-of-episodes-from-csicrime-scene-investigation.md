@@ -12,7 +12,7 @@ volume:
 number:
 pages: 45 - 63
 bookname: Proceedings of the Fifth International Workshop on Modeling of Objects, Components and Agents (MOCA'09)
-file: csi-del.pdf
+file: /api/files/pubs/proceedings/csi-del.pdf
 publisherlink: https://www2.informatik.uni-hamburg.de/tgi/events/moca09/#Proceedings
 preprintlink: 
 additionaldata:

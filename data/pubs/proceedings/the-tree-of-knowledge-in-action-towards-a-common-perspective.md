@@ -11,7 +11,7 @@ volume:
 number:
 pages: 87 - 106
 bookname: Proceedings of Advances in Modal Logic, Volume 6
-file: vanBenthem-Pacuit-AiML.pdf
+file: /api/files/pubs/proceedings/vanBenthem-Pacuit-AiML.pdf
 publisherlink: http://aiml.net/volumes/volume6/
 preprintlink:
 additionaldata:

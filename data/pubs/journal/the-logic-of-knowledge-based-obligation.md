@@ -13,7 +13,7 @@ number: 2
 pages: 311 - 341
 bookname:
 publisherlink:  http://link.springer.com/article/10.1007%2Fs11229-005-3877-6
-file: kbo.pdf
+file: /api/files/pubs/journal/kbo.pdf
 preprintlink:  
 additionaldata:
 tags: 

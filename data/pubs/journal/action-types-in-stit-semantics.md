@@ -12,7 +12,7 @@ number: 4
 pages: 617 - 637
 bookname:
 publisherlink:  https://doi.org/10.1017/S1755020317000016
-file: kstit-root.pdf
+file: /api/files/pubs/journal/kstit-root.pdf
 preprintlink: 
 additionaldata:
 tags: 

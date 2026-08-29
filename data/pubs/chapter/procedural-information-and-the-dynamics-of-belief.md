@@ -10,7 +10,7 @@ volume:
 number:
 pages: 135 - 154
 bookname: Interdisciplinary Works in Logic, Epistemology, Psychology and Linguistics
-file: procedral-belrev.pdf
+file: /api/files/pubs/chapter/procedral-belrev.pdf
 publisherlink: http://link.springer.com/chapter/10.1007/978-3-319-03044-9_6
 preprintlink:
 additionaldata:

@@ -12,7 +12,7 @@ number: 2
 pages: 297 - 319
 bookname:
 publisherlink:  http://link.springer.com/article/10.1007/s11225-014-9545-4
-file: dyntypes-klein-pacuit.pdf
+file: /api/files/pubs/journal/dyntypes-klein-pacuit.pdf
 preprintlink: 
 additionaldata:
 tags: 

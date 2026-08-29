@@ -13,12 +13,12 @@ volume:
 number:
 pages: 
 bookname: 
-file: 
-publisherlink:   
+file:
+publisherlink:
 preprintlink:  https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5073085 
 additionaldata:
 tags: 
-  - Social Choice
+  - Social Choice Theory
 front_page: true
 frontpage_data:
   - icon: link 

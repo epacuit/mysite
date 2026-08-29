@@ -11,7 +11,7 @@ volume:
 number:
 pages:
 bookname: The Stanford Encyclopedia of Philosophy
-file: 
+file:
 publisherlink: https://plato.stanford.edu/entries/epistemic-game/
 preprintlink: 
 additionaldata: 

@@ -10,7 +10,7 @@ volume:
 number:
 pages: 229 - 239
 bookname: Proof, Computation And Agency
-file: logaw.pdf
+file: /api/files/pubs/chapter/logaw.pdf
 publisherlink: http://dx.doi.org/10.1007/978-94-007-0080-2_13
 preprintlink:
 additionaldata:

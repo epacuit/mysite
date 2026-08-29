@@ -12,7 +12,7 @@ number: 3
 pages: 412 - 444
 bookname:
 publisherlink:  http://dx.doi.org/10.1017/S1755020311000190
-file: pac-simon-rsl.pdf
+file: /api/files/pubs/journal/pac-simon-rsl.pdf
 preprintlink:  
 additionaldata:
 tags: 

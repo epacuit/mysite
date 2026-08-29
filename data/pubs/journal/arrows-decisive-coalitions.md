@@ -12,8 +12,8 @@ number:
 pages: 463 - 505
 bookname:
 publisherlink:  https://link.springer.com/article/10.1007/s00355-018-1163-z
-file: 
-preprintlink: https://escholarship.org/uc/item/9hd0g86c 
+file:
+preprintlink: https://escholarship.org/uc/item/9hd0g86c
 additionaldata:
 tags: 
   - Logic

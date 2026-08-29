@@ -13,7 +13,7 @@ number: 1
 pages: 106 - 133
 bookname:
 publisherlink:  http://dx.doi.org/10.1016/j.apal.2013.07.007
-file:  evnbhd-APAL.pdf
+file: /api/files/pubs/journal/evnbhd-APAL.pdf
 preprintlink: 
 additionaldata:
   - "This paper supercedes Johan van Benthem, David Fern&aacute;ndez-Duque and Eric Pacuit, Evidence Logic: A New Look at Neighborhood Structures, in *Proceedings Of Advances In Modal Logic Volume 9*, pp. 97 - 118."

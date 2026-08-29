@@ -11,7 +11,7 @@ number: 9
 pages: 815 - 833
 bookname:
 publisherlink:  http://onlinelibrary.wiley.com/doi/10.1111/phc3.12060/abstract
-file:  phco2.pdf
+file: /api/files/pubs/journal/phco2.pdf
 preprintlink: 
 additionaldata:
 tags: 

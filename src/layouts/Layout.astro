@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 export interface Props {
   title: string;
   activePage?: string;
@@ -13,8 +15,8 @@ const {
 } = Astro.props;
 
 const fullTitle = title === 'Eric Pacuit' ? title : `${title} | Eric Pacuit`;
-const siteUrl = 'https://ericpacuit.org'; // Update with your actual domain
-const currentUrl = `${siteUrl}${Astro.url.pathname}`;
+const siteUrl = Astro.site?.origin ?? Astro.url.origin;
+const currentUrl = new URL(Astro.url.pathname, `${siteUrl}/`).href;
 ---
 
 <!DOCTYPE html>

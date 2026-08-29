@@ -11,7 +11,7 @@ volume:
 number:
 pages: 599 - 614
 bookname: Handbook of Human Computation
-file: woc-handbook.pdf
+file: /api/files/pubs/chapter/woc-handbook.pdf
 publisherlink: http://link.springer.com/chapter/10.1007/978-1-4614-8806-4_47
 preprintlink:
 additionaldata:

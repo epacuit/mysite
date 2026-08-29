@@ -10,7 +10,7 @@ volume: 41
 number: 4
 pages: 629 - 631
 bookname:
-file: editorial-JPL.pdf
+file: /api/files/pubs/editorial-JPL.pdf
 publisherlink: https://link.springer.com/article/10.1007/s10992-012-9232-8 
 preprintlink: 
 additionaldata: 

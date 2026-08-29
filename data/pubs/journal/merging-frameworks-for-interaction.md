@@ -14,7 +14,7 @@ number: 5
 pages: 491 - 526
 bookname:
 publisherlink:  http://link.springer.com/article/10.1007%2Fs10992-008-9099-x
-file: deletl-final.pdf
+file: /api/files/pubs/journal/deletl-final.pdf
 preprintlink:  
 additionaldata:
 tags: 

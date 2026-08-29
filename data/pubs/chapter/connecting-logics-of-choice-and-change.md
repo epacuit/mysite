@@ -11,7 +11,7 @@ volume:
 number:
 pages: 291 - 314
 bookname: Nuel Belnap on Indeterminism and Free Action, Outstanding Contributions to Logic
-file: choice-change-vanBenthem-pacuit.pdf
+file: /api/files/pubs/chapter/choice-change-vanBenthem-pacuit.pdf
 publisherlink: http://link.springer.com/chapter/10.1007%2F978-3-319-01754-9_14
 preprintlink:
 additionaldata:

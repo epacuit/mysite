@@ -12,7 +12,7 @@ number:
 pages: 162 - 181
 bookname:
 publisherlink:  https://ojs.victoria.ac.nz/ajl/article/view/1800/1651
-file: belrev-games.pdf
+file: /api/files/pubs/journal/belrev-games.pdf
 preprintlink: 
 additionaldata:
 tags: 

@@ -5,7 +5,7 @@ dates: July 17 - 21, 2017
 time: "9:00 - 10:30"
 location: Room 255, Floor 2
 school: ESSLLI 2017
-school_www: www.irit.fr/esslli2017/
+school_www: https://www.irit.fr/esslli2017/
 coteacher: 
 ---
 
@@ -32,4 +32,3 @@ The second motivation is that a course on foundational issues in decision and ga
 
 
 The course will be of interest for students in logic, philosophy, computer science (especially multi-agent systems) and linguistics (especially those interested in formal pragmatics). It will be self-contained, thus does not require previous knowledge of the game- and decision-theoretical material that we will cover.
-

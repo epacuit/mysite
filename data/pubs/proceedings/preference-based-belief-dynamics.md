@@ -11,7 +11,7 @@ volume:
 number:
 pages: 141 - 151
 bookname: Proceedings of 7th Conference on Logic and the Foundations of Game and Decision (LOFT 2006)
-file: belpref3.pdf
+file: /api/files/pubs/proceedings/belpref3.pdf
 publisherlink: https://loft06.csc.liv.ac.uk/programme.html
 tags: 
   - Logic

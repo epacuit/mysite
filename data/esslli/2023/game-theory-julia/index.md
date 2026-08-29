@@ -5,7 +5,7 @@ dates: July 31 - August 4, 2023
 time: 5:00pm - 6:30pm
 location: P1
 school: ESSLLI 2023
-school_www: 2023.esslli.eu
+school_www: https://2023.esslli.eu
 coteacher: 
 ---
 
@@ -21,4 +21,3 @@ The main topics in game theory that will be discussed include:
 * Repeated games: Iterated Prisoner's dilemma, spatial games, games on networks
 * Extensive form games: Backward induction, forward induction
 * Lewis signaling games
-

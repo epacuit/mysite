@@ -21,7 +21,7 @@ volume:
 number: 371
 pages: 9346 - 9360
 bookname: "ICML'24: Proceedings of the 41st International Conference on Machine Learning"
-file: 
+file:
 publisherlink:  https://dl.acm.org/doi/abs/10.5555/3692070.3692441
 preprintlink:  https://arxiv.org/abs/2404.10271
 additionaldata:

@@ -13,7 +13,7 @@ volume:
 number:
 pages:  327-333
 bookname: Proceedings of the 23rd Amsterdam Colloquium, 2022
-file: 
+file:
 publisherlink: https://www.dropbox.com/s/umjf5rn8mjq3rbx/Proceedings2022.pdf?dl=0
 preprintlink: 
 additionaldata:

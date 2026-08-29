@@ -11,8 +11,8 @@ volume:
 number:
 pages: 
 bookname: 
-file: 
-publisherlink:   
+file:
+publisherlink:
 preprintlink:   
 additionaldata:
 tags: 

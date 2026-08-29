@@ -12,7 +12,7 @@ number: 1
 pages: 29 - 49
 bookname:
 publisherlink:  https://link.springer.com/article/10.1007/s11229-010-9768-5
-file:  logobsaccess.pdf
+file: /api/files/pubs/journal/logobsaccess.pdf
 preprintlink: 
 additionaldata:
 tags: 

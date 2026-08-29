@@ -13,8 +13,8 @@ number: 2
 pages: 1 - 38
 bookname:
 publisherlink:  http://arxiv.org/abs/0901.4430
-file: 
-preprintlink:  
+file:
+preprintlink:
 additionaldata:
 tags: 
   - Logic

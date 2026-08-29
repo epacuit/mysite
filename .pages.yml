@@ -1,0 +1,210 @@
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      create: "Add {filename} with Pages CMS"
+      update: "Update {filename} with Pages CMS"
+      delete: "Delete {filename} with Pages CMS"
+      rename: "Rename {oldFilename} to {newFilename} with Pages CMS"
+
+media:
+  - name: publication_pdfs
+    label: Publication PDFs
+    input: data/pubs
+    output: /api/files/pubs
+    extensions: [pdf]
+    rename: safe
+
+content:
+  - name: publications
+    label: Publications
+    description: Create and update publication metadata and PDF files.
+    type: collection
+    path: data/pubs
+    subfolders: true
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: create
+    operations:
+      create: true
+      rename: false
+      delete: false
+    view:
+      layout: list
+      primary: title
+      fields: [year, type, authors, front_page]
+      sort: [year, type, title, authors, front_page]
+      search: [title, authors, citation, journal, bookname, tags]
+      default:
+        sort: year
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+
+      - name: authors
+        label: Displayed authors
+        type: string
+        required: true
+        description: Full author line exactly as it should appear on the website.
+
+      - name: coauthor
+        label: Coauthors
+        type: string
+        list: true
+        description: Individual coauthor names used as structured metadata.
+
+      - name: year
+        label: Year
+        type: number
+        required: true
+        options:
+          min: 1900
+          max: 2100
+
+      - name: type
+        label: Publication type
+        type: select
+        required: true
+        options:
+          values:
+            - name: book
+              label: Book
+            - name: manuscript
+              label: Working paper
+            - name: journal
+              label: Journal article
+            - name: encyclopedia
+              label: Encyclopedia entry
+            - name: proceedings
+              label: Conference proceedings
+            - name: chapter
+              label: Book chapter
+
+      - name: citation
+        label: Citation text
+        type: text
+        required: true
+        description: Publication venue and other text displayed between the authors and year.
+
+      - name: journal
+        label: Journal
+        type: string
+
+      - name: volume
+        label: Volume
+        type: number
+
+      - name: number
+        label: Issue number
+        type: number
+
+      - name: pages
+        label: Pages
+        type: string
+
+      - name: bookname
+        label: Book or volume title
+        type: string
+
+      - name: publisher
+        label: Publisher
+        type: string
+
+      - name: file
+        label: Publication PDF
+        type: file
+        description: Upload or select a PDF. Uploaded files are stored in this repository and served by the website.
+        options:
+          media: publication_pdfs
+          extensions: [pdf]
+          rename: safe
+
+      - name: publisherlink
+        label: Publisher or DOI link
+        type: string
+        description: Full https:// URL.
+
+      - name: preprintlink
+        label: Preprint link
+        type: string
+        description: Full https:// URL, such as an arXiv page.
+
+      - name: code
+        label: Code link
+        type: string
+        description: Full https:// URL for a code repository.
+
+      - name: website
+        label: Project website
+        type: string
+        description: Full https:// URL for a related project page.
+
+      - name: additionaldata
+        label: Additional notes
+        type: string
+        list: true
+
+      - name: tags
+        label: Topic tags
+        type: select
+        options:
+          multiple: true
+          values:
+            - Logic
+            - Game Theory
+            - Social Choice Theory
+
+      - name: abstract
+        label: Abstract
+        type: text
+
+      - name: blurb
+        label: General blurb
+        type: text
+
+      - name: front_page
+        label: Show under Recent Publications
+        type: boolean
+        default: false
+
+      - name: frontpage_data
+        label: Homepage display settings
+        type: object
+        list:
+          max: 1
+          collapsible:
+            collapsed: false
+            summary: "{short_blurb}"
+        fields:
+          - name: icon
+            label: Link icon
+            type: select
+            options:
+              values:
+                - name: link
+                  label: Link
+                - name: pdf
+                  label: PDF
+                - name: none
+                  label: None
+
+          - name: short_blurb
+            label: Homepage citation
+            type: text
+            description: Short citation displayed after the title on the homepage.
+
+          - name: use_publisher_link
+            label: Link title to publisher or DOI
+            type: boolean
+            default: false
+
+          - name: use_preprint_link
+            label: Link title to preprint
+            type: boolean
+            default: false

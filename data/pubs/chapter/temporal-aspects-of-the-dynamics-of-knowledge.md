@@ -11,7 +11,7 @@ volume:
 number:
 pages: 235 - 266
 bookname: Johan van Benthem on Logic and Information Dynamics, Outstanding Contributions to Logic
-file: GorankPacuit-TempKnow.pdf
+file: /api/files/pubs/chapter/GorankPacuit-TempKnow.pdf
 publisherlink: http://link.springer.com/chapter/10.1007%2F978-3-319-06025-5_9
 preprintlink:
 additionaldata:

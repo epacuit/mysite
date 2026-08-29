@@ -11,7 +11,7 @@ volume:
 number:
 pages: 190 - 206
 bookname: Proceedings of Logic and the Foundations of Game and Decision Theory (LOFT 8)
-file: assumption-completeness-ml.pdf
+file: /api/files/pubs/proceedings/assumption-completeness-ml.pdf
 publisherlink: http://link.springer.com/chapter/10.1007/978-3-642-15164-4_10
 preprintlink: 
 additionaldata:

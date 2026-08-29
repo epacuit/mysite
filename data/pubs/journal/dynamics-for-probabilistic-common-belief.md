@@ -11,7 +11,7 @@ number: 4
 pages: 32 - 53
 bookname:
 publisherlink:  http://studiesinlogic.sysu.edu.cn:8080/ljxyj/EN/abstract/abstract233.shtml#
-file:  dyn-common-p-belief-FINAL.pdf
+file: /api/files/pubs/journal/dyn-common-p-belief-FINAL.pdf
 preprintlink: 
 additionaldata:
 tags: 

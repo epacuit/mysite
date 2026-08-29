@@ -12,7 +12,7 @@ volume:
 number:
 pages: 572 - 574
 bookname: "Principles of Knowledge Representation and Reasoning: Proceedings of The Twelfth International Conference"
-file: joint-rev-bel-intention.pdf
+file: /api/files/pubs/proceedings/joint-rev-bel-intention.pdf
 publisherlink:  https://www.aaai.org/Library/KR/kr10contents.php
 preprintlink:
 additionaldata:

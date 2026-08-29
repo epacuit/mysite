@@ -12,7 +12,7 @@ volume:
 number:
 pages:  111-127
 bookname: Proceedings of Logic, Rationality, and Interaction, 8th International Workshop, LORI 2021, Xi'an, China, October 16-18, 2021, 
-file: 
+file:
 publisherlink: https://link.springer.com/chapter/10.1007/978-3-030-88708-7_9
 preprintlink: https://arxiv.org/abs/2110.08453
 additionaldata:

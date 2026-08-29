@@ -11,7 +11,7 @@ volume:
 number:
 pages: 189 - 209
 bookname: Proceedings of the Theoretical Aspects of Rationality and Knowledge 2021 (TARK 2021), EPTCS 335
-file: 
+file:
 publisherlink: https://doi.org/10.4204/EPTCS.335.17
 preprintlink: https://arxiv.org/abs/2106.11502v1
 additionaldata:

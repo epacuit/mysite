@@ -12,8 +12,8 @@ number:
 pages: 297 - 345
 bookname: 
 publisherlink:  https://link.springer.com/article/10.1007/s10992-021-09629-1
-file:  
-preprintlink: 
+file:
+preprintlink:
 additionaldata:
 tags: 
   - Game Theory
