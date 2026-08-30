@@ -8,8 +8,6 @@ type: encyclopedia
 citation: in The Stanford Encyclopedia of Philosophy,  Edward N. Zalta (eds.)
 bookname: The Stanford Encyclopedia of Philosophy
 publisherlink: https://plato.stanford.edu/entries/epistemic-game/
-additionaldata:
-  - new version with substantive revisions expected in Summer 2025
 tags:
   - Game Theory
 front_page: true
