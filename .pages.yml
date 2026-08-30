@@ -23,7 +23,7 @@ content:
     description: Create and update publication metadata and PDF files.
     type: collection
     path: data/pubs
-    subfolders: true
+    subfolders: false
     format: yaml-frontmatter
     filename:
       template: "{primary}.md"
@@ -35,9 +35,9 @@ content:
     view:
       layout: list
       primary: title
-      fields: [year, type, authors, front_page]
-      sort: [year, type, title, authors, front_page]
-      search: [title, authors, citation, journal, bookname, tags]
+      fields: [title, year, type, authors, front_page]
+      sort: [front_page, year, type, title, authors]
+      search: [year, title, authors, citation, journal, bookname, tags]
       default:
         search: ""
         sort: year
@@ -170,7 +170,7 @@ content:
         type: text
 
       - name: front_page
-        label: Show under Recent Publications
+        label: Featured on front page
         type: boolean
         default: false
 

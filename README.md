@@ -70,7 +70,7 @@ After `.pages.yml` has been committed and pushed to GitHub:
 1. Open [app.pagescms.org](https://app.pagescms.org) and sign in with GitHub.
 2. Install the Pages CMS GitHub App with access limited to this website repository.
 3. Select the repository, the `main` branch, and then **Publications**.
-4. Search or sort the publication list, open an entry, edit its fields, and save.
+4. Search or sort the complete publication list, open an entry, edit its fields, and save. Search for a year such as `2025` to show that year's publications. The default sort is newest year first; sort by **Featured on front page** in descending order to bring all homepage publications to the top.
 5. Pages CMS commits the Markdown change to GitHub. Netlify then rebuilds the site.
 
 The **Publication PDF** field can select an existing PDF or upload a new one. PDFs are stored below `data/pubs/` and served through `/api/files/pubs/`. Uploads are limited to `.pdf` files and their filenames are made URL-safe.
@@ -166,7 +166,7 @@ Important details:
 
 ## Publications
 
-Each publication is one Markdown file somewhere below `data/pubs/`. Subdirectories such as `journal/`, `chapter/`, and `proceedings/` are useful for organization, but the `type` field determines where the publication appears.
+Each publication is one Markdown file directly inside `data/pubs/`. Keeping the metadata files in this single directory lets Pages CMS display every publication in one sortable, searchable list. PDF files may remain in subdirectories such as `journal/`, `chapter/`, and `proceedings/`; the `type` field records the publication type.
 
 Minimal example:
 

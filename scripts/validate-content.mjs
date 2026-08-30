@@ -391,8 +391,8 @@ async function validatePagesCms() {
     addError(configPath, 'a publications content collection is required');
     return;
   }
-  if (publicationConfig.path !== 'data/pubs' || publicationConfig.subfolders !== true) {
-    addError(configPath, 'the publications collection must include data/pubs and its subfolders');
+  if (publicationConfig.path !== 'data/pubs' || publicationConfig.subfolders !== false) {
+    addError(configPath, 'the publications collection must use the flat data/pubs directory');
   }
 
   const configuredFields = new Set((publicationConfig.fields || []).map(field => field?.name));
