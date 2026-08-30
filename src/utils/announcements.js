@@ -1,11 +1,9 @@
-import fs from 'node:fs/promises';
-
+import announcementsYaml from '../../data/announcements.yaml?raw';
 import { parse } from 'yaml';
 
 export const announcementTypes = new Set(['conference', 'course', 'general', 'talk', 'workshop']);
 export const newAnnouncementDays = 30;
 
-const announcementsFile = new URL('../../data/announcements.yaml', import.meta.url);
 const millisecondsPerDay = 24 * 60 * 60 * 1000;
 
 function dateOnlyTimestamp(value) {
@@ -24,8 +22,8 @@ function todayTimestamp(now) {
   return Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
 }
 
-export async function loadAnnouncements() {
-  const data = parse(await fs.readFile(announcementsFile, 'utf8'));
+export function loadAnnouncements() {
+  const data = parse(announcementsYaml);
   if (!Array.isArray(data)) throw new Error('data/announcements.yaml must contain a YAML list');
 
   return data.map((item, index) => ({

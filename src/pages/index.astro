@@ -7,6 +7,8 @@ import {
   renderAnnouncementText,
 } from '../utils/announcements.js';
 
+export const prerender = true;
+
 const visibleAnnouncements = getVisibleAnnouncements(await loadAnnouncements());
 
 // Read all publication markdown files from data/pubs subdirectories
