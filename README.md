@@ -61,23 +61,25 @@ git push origin main
 
 Add only files that belong in the update. In particular, check untracked files before using `git add -A`.
 
-## Pages CMS publication editor
+## Pages CMS content editor
 
-[Pages CMS](https://app.pagescms.org) provides a private, form-based editor for the publication files. Its configuration is `.pages.yml`; it does not add an admin page or any CMS code to the public website.
+[Pages CMS](https://app.pagescms.org) provides private, form-based editors for publications, regular teaching courses, and homepage announcements. Its configuration is `.pages.yml`; it does not add an admin page or any CMS code to the public website. ESSLLI and other short-course materials are intentionally excluded.
 
 After `.pages.yml` has been committed and pushed to GitHub:
 
 1. Open [app.pagescms.org](https://app.pagescms.org) and sign in with GitHub.
 2. Install the Pages CMS GitHub App with access limited to this website repository.
-3. Select the repository, the `main` branch, and then **Publications**.
-4. Search or sort the complete publication list, open an entry, edit its fields, and save. Search for a year such as `2025` to show that year's publications. The default sort is newest year first; sort by **Featured on front page** in descending order to bring all homepage publications to the top.
+3. Select the repository and the `main` branch, then choose **Publications**, **Teaching courses**, or **Homepage announcements**.
+4. Edit the content and save. In Publications, search for a year such as `2025` or sort by **Featured on front page**. In Homepage announcements, drag entries into the desired display order and use **Show on homepage** to hide stale items without deleting them.
 5. Pages CMS commits the Markdown change to GitHub. Netlify then rebuilds the site.
 
 The **Publication PDF** field can select an existing PDF or upload a new one. PDFs are stored below `data/pubs/` and served through `/api/files/pubs/`. Uploads are limited to `.pdf` files and their filenames are made URL-safe.
 
+The **Syllabus PDF** field works the same way for regular teaching courses. Put the current course website and syllabus first because the public course pages use the first entry for their main buttons. Course descriptions are edited as Markdown in the **Course description** field.
+
 Direct editing remains fully supported. Before editing locally after using Pages CMS, run `git pull`. After a direct edit is pushed, Pages CMS reads the new GitHub version. Avoid editing the same publication in Pages CMS and locally at the same time, since that can create an ordinary Git conflict.
 
-Pages CMS is configured with content merging enabled so an additional frontmatter field added by hand is preserved. The local validator also reports any publication field that has not yet been added to the CMS form.
+Pages CMS is configured with content merging enabled so additional frontmatter fields added by hand are preserved. The local validator also checks that the required CMS editors and upload sources remain configured.
 
 ## Where things live
 
@@ -85,7 +87,7 @@ Pages CMS is configured with content merging enabled so an additional frontmatte
 | --- | --- |
 | Announcements on the home page | `data/announcements.yaml` |
 | Recent publications on the home page | Publication Markdown files in `data/pubs/` |
-| Full publications list | `data/pubs/**/*.md` |
+| Full publications list | `data/pubs/*.md` |
 | UMD courses | `data/courses/*.md` |
 | Course syllabi | `data/courses/*.pdf` |
 | Earlier courses at other institutions | `data/past_courses.csv` |

@@ -5,6 +5,7 @@ import path from 'path';
 import fs from 'fs/promises';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import { getCourseFileUrl } from '../../utils/courseFiles.js';
 
 export const prerender = true;
 
@@ -40,6 +41,7 @@ marked.setOptions({
 
 // Convert markdown content to HTML if there's any
 const htmlContent = content ? marked(content) : '';
+const syllabusUrl = getCourseFileUrl(data.syllabus?.[0]?.file);
 ---
 
 <Layout title={`${data.title} - Eric Pacuit`} activePage="teaching">
@@ -77,8 +79,8 @@ const htmlContent = content ? marked(content) : '';
             Course Website
           </a>
         )}
-        {data.syllabus?.[0]?.file && (
-          <a href={`/api/files/courses/${data.syllabus[0].file}`} 
+        {syllabusUrl && (
+          <a href={syllabusUrl}
              class="course-resource-link course-resource-link--secondary">
             <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 

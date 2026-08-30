@@ -5,6 +5,7 @@ import Papa from 'papaparse';
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
+import { getCourseFileUrl } from '../utils/courseFiles.js';
 
 // Read all course markdown files from data/courses
 const coursesDir = path.join(process.cwd(), 'data', 'courses');
@@ -80,12 +81,14 @@ const pastCoursesBySchool = pastCourses.reduce((acc, course) => {
             <h2 class="text-2xl font-semibold mb-4">{sem}</h2>
             {semCourses.length > 0 ? (
               <ul class="space-y-4">
-                {semCourses.map((course) => (
+                {semCourses.map((course) => {
+                  const syllabusUrl = getCourseFileUrl(course.data.syllabus?.[0]?.file);
+                  return (
                   <li>
                     <h3 class="font-medium text-lg mb-2">{course.data.title}</h3>
                     <div class="flex flex-wrap gap-3">
-                      {course.data.syllabus?.[0]?.file && (
-                        <a href={`/api/files/courses/${course.data.syllabus[0].file}`} 
+                      {syllabusUrl && (
+                        <a href={syllabusUrl}
                            class="inline-flex items-center px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm">
                           <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
@@ -116,7 +119,8 @@ const pastCoursesBySchool = pastCourses.reduce((acc, course) => {
                       </a>
                     </div>
                   </li>
-                ))}
+                  );
+                })}
               </ul>
             ) : (
               <p class="text-gray-600 italic">I'll link to my courses for this semester soon!</p>

@@ -134,7 +134,8 @@ async function validateCourses() {
   counts.courses = files.length;
 
   for (const filePath of files) {
-    const data = await readFrontmatter(filePath);
+    // Pages CMS uses a strict YAML parser, so validate courses the same way.
+    const data = await readFrontmatter(filePath, { strictYaml: true });
     if (!data) continue;
 
     if (!hasText(data.title)) addError(filePath, 'title is required');
@@ -162,10 +163,19 @@ async function validateCourses() {
         if (!hasText(syllabus.file)) {
           continue;
         }
-        const relativeFile = syllabus.file.replace(/^\.\//, '');
-        if (relativeFile.includes('..') || path.isAbsolute(relativeFile)) {
+        const courseFilePrefix = '/api/files/courses/';
+        const relativeFile = syllabus.file.startsWith(courseFilePrefix)
+          ? syllabus.file.slice(courseFilePrefix.length)
+          : syllabus.file.replace(/^\.\//, '');
+        const resolvedFile = path.resolve(coursesDirectory, relativeFile);
+        const pathWithinCourses = path.relative(coursesDirectory, resolvedFile);
+        if (
+          pathWithinCourses === '..' ||
+          pathWithinCourses.startsWith(`..${path.sep}`) ||
+          path.isAbsolute(pathWithinCourses)
+        ) {
           addError(filePath, `syllabus[${index}].file must stay inside data/courses`);
-        } else if (!await fileExists(path.join(coursesDirectory, relativeFile))) {
+        } else if (!await fileExists(resolvedFile)) {
           addError(filePath, `syllabus file not found: ${relativeFile}`);
         }
       }
@@ -273,12 +283,12 @@ async function validateAnnouncements() {
 
     const dates = {};
     for (const field of ['posted', 'new_until']) {
-      if (item[field] == null) continue;
+      if (item[field] == null || item[field] === '') continue;
       dates[field] = dateOnlyTimestamp(item[field]);
       if (dates[field] === null) addError(filePath, `${label}.${field} must be a real date in YYYY-MM-DD format`);
     }
 
-    if (item.new_until != null && item.posted == null) {
+    if (item.new_until && !item.posted) {
       addError(filePath, `${label}.new_until requires posted`);
     } else if (dates.posted != null && dates.new_until != null && dates.new_until < dates.posted) {
       addError(filePath, `${label}.new_until cannot be earlier than posted`);
@@ -394,6 +404,9 @@ async function validatePagesCms() {
   if (publicationConfig.path !== 'data/pubs' || publicationConfig.subfolders !== false) {
     addError(configPath, 'the publications collection must use the flat data/pubs directory');
   }
+  if (!(publicationConfig.view?.search || []).includes('year')) {
+    addError(configPath, 'the publications collection must allow searching by year');
+  }
 
   const configuredFields = new Set((publicationConfig.fields || []).map(field => field?.name));
   const publicationFiles = await walk(
@@ -422,6 +435,44 @@ async function validatePagesCms() {
   const pdfMedia = config?.media?.find(entry => entry?.name === 'publication_pdfs');
   if (pdfMedia?.input !== 'data/pubs' || pdfMedia?.output !== '/api/files/pubs') {
     addError(configPath, 'publication_pdfs must map data/pubs to /api/files/pubs');
+  }
+
+  const courseConfig = config?.content?.find(entry => entry?.name === 'courses');
+  if (!courseConfig) {
+    addError(configPath, 'a regular teaching courses collection is required');
+  } else {
+    if (courseConfig.path !== 'data/courses' || courseConfig.subfolders !== false) {
+      addError(configPath, 'the courses collection must use data/courses without subfolders');
+    }
+
+    const courseFields = new Set((courseConfig.fields || []).map(field => field?.name));
+    for (const field of ['title', 'short_name', 'course_number', 'level', 'current_semester', 'website', 'syllabus', 'past_semesters', 'comment', 'body']) {
+      if (!courseFields.has(field)) addError(configPath, `course field "${field}" is missing from the CMS form`);
+    }
+
+    const syllabusField = (courseConfig.fields || []).find(field => field?.name === 'syllabus');
+    const syllabusFileField = (syllabusField?.fields || []).find(field => field?.name === 'file');
+    if (syllabusFileField?.type !== 'file' || syllabusFileField?.options?.media !== 'course_syllabi') {
+      addError(configPath, 'the course syllabus field must use the course_syllabi media source');
+    }
+  }
+
+  const syllabusMedia = config?.media?.find(entry => entry?.name === 'course_syllabi');
+  if (syllabusMedia?.input !== 'data/courses' || syllabusMedia?.output !== '/api/files/courses') {
+    addError(configPath, 'course_syllabi must map data/courses to /api/files/courses');
+  }
+
+  const announcementConfig = config?.content?.find(entry => entry?.name === 'homepage_announcements');
+  if (!announcementConfig) {
+    addError(configPath, 'a homepage announcements editor is required');
+  } else {
+    if (announcementConfig.path !== 'data/announcements.yaml' || announcementConfig.format !== 'yaml' || announcementConfig.list !== true) {
+      addError(configPath, 'homepage announcements must edit the top-level list in data/announcements.yaml');
+    }
+    const announcementFields = new Set((announcementConfig.fields || []).map(field => field?.name));
+    for (const field of ['text', 'type', 'posted', 'new_until', 'show']) {
+      if (!announcementFields.has(field)) addError(configPath, `announcement field "${field}" is missing from the CMS form`);
+    }
   }
 }
 

@@ -17,6 +17,13 @@ media:
     extensions: [pdf]
     rename: safe
 
+  - name: course_syllabi
+    label: Course syllabi
+    input: data/courses
+    output: /api/files/courses
+    extensions: [pdf]
+    rename: safe
+
 content:
   - name: publications
     label: Publications
@@ -209,3 +216,190 @@ content:
             label: Link title to preprint
             type: boolean
             default: false
+
+  - name: courses
+    label: Teaching courses
+    description: Create and update regular UMD teaching courses. ESSLLI and other short courses are not included.
+    type: collection
+    path: data/courses
+    subfolders: false
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: create
+    operations:
+      create: true
+      rename: false
+      delete: false
+    view:
+      layout: list
+      primary: title
+      fields: [title, course_number, current_semester, level]
+      sort: [title, course_number, current_semester, level]
+      search: [title, short_name, course_number, current_semester, level]
+      default:
+        search: ""
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: Course title
+        type: string
+        required: true
+
+      - name: short_name
+        label: Short title
+        type: string
+        description: Shorter title used where space is limited. It may be the same as the course title.
+
+      - name: course_number
+        label: Course number
+        type: string
+        description: For example, PHIL 121 or PHPE 408O/PHIL 438V.
+
+      - name: level
+        label: Level
+        type: select
+        required: true
+        options:
+          values:
+            - Undergraduate
+            - Graduate
+            - Undergraduate/Graduate
+
+      - name: current_semester
+        label: Current or most recent semester
+        type: string
+        description: Use a value such as Fall 2026 or Spring 2027. This controls whether the course appears under Current Courses.
+
+      - name: website
+        label: Course websites
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{sem}"
+        description: Put the current semester first; the website uses the first entry for the main course button.
+        fields:
+          - name: sem
+            label: Semester
+            type: string
+            required: true
+
+          - name: www
+            label: Website URL
+            type: string
+            description: Full http:// or https:// URL.
+
+          - name: link
+            label: Legacy website URL
+            type: string
+            description: Preserved for older course data. Use Website URL for new entries.
+
+      - name: syllabus
+        label: Syllabi
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{sem}"
+        description: Put the current semester first; the website uses the first entry for the syllabus button.
+        fields:
+          - name: sem
+            label: Semester
+            type: string
+            required: true
+
+          - name: file
+            label: Syllabus PDF
+            type: file
+            options:
+              media: course_syllabi
+              extensions: [pdf]
+              rename: safe
+
+      - name: past_semesters
+        label: Past semesters
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{sem}"
+        fields:
+          - name: sem
+            label: Semester
+            type: string
+            required: true
+
+          - name: www
+            label: Website URL
+            type: string
+            description: Full http:// or https:// URL. This may be left blank.
+
+      - name: comment
+        label: Additional note
+        type: text
+
+      - name: body
+        label: Course description
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+
+  - name: homepage_announcements
+    label: Homepage announcements
+    description: Add, reorder, show, and hide announcements displayed on the homepage.
+    type: file
+    path: data/announcements.yaml
+    format: yaml
+    list: true
+    operations:
+      delete: false
+    fields:
+      - name: text
+        label: Announcement
+        type: text
+        required: true
+        description: Markdown links such as [Conference](https://example.org) are supported.
+
+      - name: type
+        label: Type
+        type: select
+        default: general
+        options:
+          values:
+            - name: general
+              label: General or other
+            - name: talk
+              label: Talk
+            - name: conference
+              label: Conference
+            - name: workshop
+              label: Workshop
+            - name: course
+              label: Course
+
+      - name: posted
+        label: Posted date
+        type: date
+        default: ""
+        description: Optional. Displays the NEW badge for 30 days.
+        options:
+          time: false
+          format: yyyy-MM-dd
+
+      - name: new_until
+        label: Show NEW badge until
+        type: date
+        default: ""
+        description: Optional override for the normal 30-day NEW period. Requires a posted date.
+        options:
+          time: false
+          format: yyyy-MM-dd
+
+      - name: show
+        label: Show on homepage
+        type: boolean
+        default: true
