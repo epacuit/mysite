@@ -92,9 +92,14 @@ async function walk(directory, predicate = () => true) {
   return matches.sort();
 }
 
-async function readFrontmatter(filePath) {
+async function readFrontmatter(filePath, { strictYaml = false } = {}) {
   try {
-    return matter(await fs.readFile(filePath, 'utf8')).data;
+    const source = await fs.readFile(filePath, 'utf8');
+    if (!strictYaml) return matter(source).data;
+
+    const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+    if (!frontmatter) throw new Error('missing --- frontmatter delimiters');
+    return parseYaml(frontmatter[1]);
   } catch (error) {
     addError(filePath, `cannot parse frontmatter (${error.message})`);
     return null;
@@ -177,7 +182,8 @@ async function validatePublications() {
   counts.publications = files.length;
 
   for (const filePath of files) {
-    const data = await readFrontmatter(filePath);
+    // Pages CMS uses a strict YAML parser, so validate publications the same way.
+    const data = await readFrontmatter(filePath, { strictYaml: true });
     if (!data) continue;
 
     if (!hasText(data.title)) addError(filePath, 'title is required');

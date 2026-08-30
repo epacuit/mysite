@@ -1,6 +1,5 @@
 ---
-title: "Epistemic Pseudo-Agreement and Hyper-Domain
-Semantics for Epistemic Modals"
+title: "Epistemic Pseudo-Agreement and Hyper-Domain Semantics for Epistemic Modals"
 coauthor: 
   - Yichi (Raven) Zhang
   - Chase Norman

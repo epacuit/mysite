@@ -1,6 +1,5 @@
 ---
-title: "Split Cycle: A New Condorcet Consistent Voting Method
-Independent of Clones and Immune to Spoilers"
+title: "Split Cycle: A New Condorcet Consistent Voting Method Independent of Clones and Immune to Spoilers"
 coauthor: 
   - Wes Holliday
 authors: Wesley H. Holliday and Eric Pacuit

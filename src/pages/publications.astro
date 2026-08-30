@@ -1,505 +1,453 @@
 ---
-// src/pages/publications.astro
 import Layout from '../layouts/Layout.astro';
 
-// Read all publication markdown files from data/pubs subdirectories
 const publications = Object.values(import.meta.glob('../../data/pubs/**/*.md', { eager: true }));
 
-// Sort by year descending
-const sortedPubs = publications.sort((a, b) => b.frontmatter.year - a.frontmatter.year);
+const typeOptions = [
+  { key: 'book', filterLabel: 'Books', itemLabel: 'Book' },
+  { key: 'journal', filterLabel: 'Articles', itemLabel: 'Journal article' },
+  { key: 'chapter', filterLabel: 'Chapters', itemLabel: 'Book chapter' },
+  { key: 'proceedings', filterLabel: 'Proceedings', itemLabel: 'Proceedings' },
+  { key: 'encyclopedia', filterLabel: 'Encyclopedia', itemLabel: 'Encyclopedia entry' },
+  { key: 'manuscript', filterLabel: 'Working papers', itemLabel: 'Working paper' },
+];
+const typeLabels = Object.fromEntries(typeOptions.map(option => [option.key, option.itemLabel]));
+const topicOptions = ['Logic', 'Game Theory', 'Social Choice Theory'];
 
-// Get unique years and tags for filtering
-const allYears = [...new Set(sortedPubs.map(p => p.frontmatter.year))].sort((a, b) => b - a);
-const allTags = ['Logic', 'Game Theory', 'Social Choice Theory'];
+const sortedPubs = publications.sort((a, b) => {
+  const yearDifference = Number(b.frontmatter.year) - Number(a.frontmatter.year);
+  if (yearDifference !== 0) return yearDifference;
+  return String(a.frontmatter.title).localeCompare(String(b.frontmatter.title));
+});
+const allYears = [...new Set(sortedPubs.map(pub => Number(pub.frontmatter.year)))].sort((a, b) => b - a);
+const publicationsByYear = allYears.map(year => ({
+  year,
+  publications: sortedPubs.filter(pub => Number(pub.frontmatter.year) === year),
+}));
 
-// Helper to convert basic markdown to HTML
-function processMarkdown(text) {
-  if (!text) return '';
-  // Convert *text* to <em>text</em> for italics
-  return text.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+function cleanText(value) {
+  return typeof value === 'string' ? value.trim() : '';
 }
 
-// Group publications by type
-const pubTypes = [
-  { key: 'book', title: 'Books' },
-  { key: 'manuscript', title: 'Working Papers' },
-  { key: 'journal', title: 'Journal Articles' },
-  { key: 'encyclopedia', title: 'Encyclopedia Entries' },
-  { key: 'proceedings', title: 'Conference Proceedings (Peer Reviewed)' },
-  { key: 'chapter', title: 'Book Chapters' }
-];
+function processMarkdown(text) {
+  return cleanText(text).replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
 
-// Helper to get PDF filename with path
-function getPdfPath(pub) {
-  const fm = pub.frontmatter;
-  
-  // If file is explicitly false or doesn't exist, no PDF
-  if (!fm.file) return null;
-  
-  // External URLs and site-root paths are already complete.
-  if (
-    typeof fm.file === 'string' &&
-    (fm.file.startsWith('http://') || fm.file.startsWith('https://') || fm.file.startsWith('/'))
-  ) {
-    return fm.file;
-  }
-  
-  // Get the relative path from data/pubs/
+function getPdfUrl(pub) {
+  const file = pub.frontmatter.file;
+  if (!file) return null;
+  if (typeof file === 'string' && /^(?:https?:\/\/|\/)/.test(file)) return file;
+
   const parts = pub.file.split('/');
   const pubsIndex = parts.indexOf('pubs');
-  const relativePath = parts.slice(pubsIndex + 1, -1).join('/'); // Get subdirectory path
-  
+  const relativeDirectory = parts.slice(pubsIndex + 1, -1).join('/');
   let filename;
-  
-  // If file has a name property, use it
-  if (typeof fm.file === 'object' && fm.file.name) {
-    filename = fm.file.name;
-  }
-  // If file is true, derive from markdown filename
-  else if (fm.file === true) {
-    const mdName = parts[parts.length - 1];
-    filename = mdName.replace('.md', '.pdf');
-  }
-  // If file is a string, use it as the filename
-  else if (typeof fm.file === 'string') {
-    filename = fm.file;
-  } else {
-    return null;
-  }
-  
-  // Return full path including subdirectory
-  return relativePath ? `${relativePath}/${filename}` : filename;
+
+  if (typeof file === 'object' && file.name) filename = file.name;
+  else if (file === true) filename = parts.at(-1).replace(/\.md$/, '.pdf');
+  else if (typeof file === 'string') filename = file;
+  else return null;
+
+  const relativePath = relativeDirectory ? `${relativeDirectory}/${filename}` : filename;
+  return `/api/files/pubs/${relativePath}`;
 }
 
-// Generate BibTeX
-function generateBibtex(fm) {
-  const authors = fm.authors.replace(/, and/g, ' and').replace(/,/g, ' and');
-  const authorsArray = authors.split(' and ').map(a => {
-    const names = a.trim().split(' ');
-    return names[names.length - 1];
-  });
-  const citationKey = authorsArray.join('') + fm.year;
-  
-  let bibtexType = '@article';
-  if (fm.type === 'book') bibtexType = '@book';
-  else if (['proceedings', 'chapter', 'encyclopedia'].includes(fm.type)) bibtexType = '@inproceedings';
-  else if (fm.type === 'manuscript') bibtexType = '@misc';
-  
-  let bibtex = `${bibtexType}{${citationKey},\n`;
-  bibtex += `  author = {${authors}},\n`;
-  bibtex += `  title = {${fm.title}},\n`;
-  if (fm.bookname) bibtex += `  booktitle = {${fm.bookname}},\n`;
-  if (fm.journal) bibtex += `  journal = {${fm.journal}},\n`;
-  if (fm.volume) bibtex += `  volume = {${fm.volume}},\n`;
-  if (fm.number) bibtex += `  number = {${fm.number}},\n`;
-  if (fm.pages) bibtex += `  pages = {${fm.pages}},\n`;
-  bibtex += `  year = {${fm.year}}\n}`;
-  
-  return bibtex;
+function removeRepeatedTitle(citation, title) {
+  if (!citation || !title) return citation;
+  const titleIndex = citation.toLocaleLowerCase().indexOf(title.toLocaleLowerCase());
+  if (titleIndex === -1) return citation;
+  const afterTitle = citation.slice(titleIndex + title.length).replace(/^[\s,.;:–—-]+/, '').trim();
+  return afterTitle || citation;
 }
+
+function appendYear(text, year) {
+  if (!year) return text;
+  if (!text) return String(year);
+  return new RegExp(`\\b${year}\\b`).test(text) ? text : `${text}, ${year}`;
+}
+
+function getPublicationDetails(frontmatter) {
+  const year = Number(frontmatter.year);
+  const citation = cleanText(frontmatter.citation);
+
+  if (frontmatter.type === 'journal') {
+    const journal = cleanText(frontmatter.journal) || citation;
+    const volume = cleanText(String(frontmatter.volume ?? ''));
+    const number = cleanText(String(frontmatter.number ?? ''));
+    const pages = cleanText(String(frontmatter.pages ?? ''));
+    const details = [];
+    if (journal) details.push(`<em>${journal}</em>`);
+    if (volume) details.push(number ? `${volume}(${number})` : volume);
+    if (pages) details.push(`pp. ${pages}`);
+    return appendYear(details.join(', '), year);
+  }
+
+  let details = citation;
+  if (frontmatter.type === 'book') {
+    details = cleanText(frontmatter.publisher) || removeRepeatedTitle(citation, cleanText(frontmatter.title));
+  } else if (!details) {
+    details = cleanText(frontmatter.bookname) || cleanText(frontmatter.publisher);
+  }
+
+  return appendYear(processMarkdown(details), year);
+}
+
+function normalizeAuthorsForBibtex(authors) {
+  return cleanText(authors).replace(/, and/g, ' and').replace(/,/g, ' and');
+}
+
+function generateBibtex(frontmatter) {
+  const authors = normalizeAuthorsForBibtex(frontmatter.authors);
+  const authorSurnames = authors.split(' and ').map(author => author.trim().split(/\s+/).at(-1));
+  const citationKey = `${authorSurnames.join('')}${frontmatter.year}`;
+  const bibtexTypes = {
+    book: '@book',
+    chapter: '@incollection',
+    encyclopedia: '@incollection',
+    journal: '@article',
+    manuscript: '@misc',
+    proceedings: '@inproceedings',
+  };
+  const fields = [
+    `  author = {${authors}}`,
+    `  title = {${frontmatter.title}}`,
+  ];
+
+  if (frontmatter.bookname) fields.push(`  booktitle = {${frontmatter.bookname}}`);
+  if (frontmatter.journal) fields.push(`  journal = {${frontmatter.journal}}`);
+  if (frontmatter.publisher) fields.push(`  publisher = {${frontmatter.publisher}}`);
+  if (frontmatter.volume) fields.push(`  volume = {${frontmatter.volume}}`);
+  if (frontmatter.number) fields.push(`  number = {${frontmatter.number}}`);
+  if (frontmatter.pages) fields.push(`  pages = {${frontmatter.pages}}`);
+  fields.push(`  year = {${frontmatter.year}}`);
+
+  return `${bibtexTypes[frontmatter.type] || '@misc'}{${citationKey},\n${fields.join(',\n')}\n}`;
+}
+
 ---
 
 <Layout title="Publications" activePage="publications">
-  <div class="max-w-5xl mx-auto px-4 pb-20">
-    <!-- Header -->
-    <div class="mb-12">
-      <h1 class="text-4xl font-bold mb-4">Publications</h1>
-    </div>
+  <div class="publications-page">
+    <header class="publications-header">
+      <h1>Publications</h1>
+      <p id="publication-summary">{sortedPubs.length} publications · {allYears.at(-1)}–{allYears[0]}</p>
+    </header>
 
-    <!-- Filters -->
-    <div class="mb-16">
-      <!-- Topic filters -->
-      <div class="mb-6">
-        <div class="flex flex-wrap gap-2 items-center">
-          <span class="text-gray-600 mr-2">Topics:</span>
-          {allTags.map(tag => (
-            <button
-              class="filter-btn topic-filter px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 transition-all duration-200"
-              data-topic={tag}
-            >
-              {tag}
+    <section class="publication-toolbar" aria-label="Filter publications">
+      <div class="filter-row year-filter-row">
+        <label class="toolbar-label" for="publication-year">Year</label>
+        <select id="publication-year">
+          <option value="">All years</option>
+          {allYears.map(year => <option value={year}>{year}</option>)}
+        </select>
+      </div>
+
+      <div class="filter-row" data-filter-group="topic">
+        <span class="toolbar-label">Topic</span>
+        <div class="filter-options">
+          <button type="button" class="filter-chip is-active" data-filter="topic" data-value="all" aria-pressed="true">All</button>
+          {topicOptions.map(topic => (
+            <button type="button" class="filter-chip" data-filter="topic" data-value={topic} aria-pressed="false">{topic}</button>
+          ))}
+        </div>
+      </div>
+
+      <div class="filter-row" data-filter-group="type">
+        <span class="toolbar-label">Type</span>
+        <div class="filter-options">
+          <button type="button" class="filter-chip is-active" data-filter="type" data-value="all" aria-pressed="true">All</button>
+          {typeOptions.map(option => (
+            <button type="button" class="filter-chip" data-filter="type" data-value={option.key} aria-pressed="false">
+              {option.filterLabel}
             </button>
           ))}
         </div>
       </div>
-      
-      <!-- Year filters -->
-      <div class="mb-4">
-        <div class="flex flex-wrap gap-2 items-center">
-          <span class="text-gray-600 mr-2">Years:</span>
-          {allYears.map(year => (
-            <button
-              class="filter-btn year-filter px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 transition-all duration-200"
-              data-year={year}
-            >
-              {year}
-            </button>
-          ))}
-        </div>
-      </div>
-      
-      <button 
-        id="clear-filters" 
-        class="text-sm text-gray-500 hover:text-gray-700 hidden mt-4 transition-colors duration-200"
-      >
-        Clear all filters
-      </button>
-    </div>
 
-    <!-- Publications by type -->
-    {pubTypes.map(({ key, title }) => {
-      const pubs = sortedPubs.filter(p => p.frontmatter.type === key);
-      if (pubs.length === 0) return null;
-      
-      return (
-        <section class="pub-section mb-16">
-          <h2 class="text-2xl font-semibold mb-8">{title}</h2>
-          <div class="publication-list">
-            {pubs.map((pub, idx) => {
-              const pdfPath = getPdfPath(pub);
-              const bibtex = generateBibtex(pub.frontmatter);
-              const uniqueId = `${key}-${idx}`;
-              
-              // Build links array
-              const links = [];
-              if (pdfPath) {
-                // Check if it's an external URL or local file
-                const pdfUrl = pdfPath.startsWith('http') || pdfPath.startsWith('/')
-                  ? pdfPath
-                  : `/api/files/pubs/${pdfPath}`;
-                links.push(`<a href="${pdfUrl}" target="_blank" class="text-blue-600 hover:text-blue-800">PDF</a>`);
-              }
-              if (pub.frontmatter.publisherlink) links.push(`<a href="${pub.frontmatter.publisherlink}" target="_blank" class="text-blue-600 hover:text-blue-800">DOI</a>`);
-              if (pub.frontmatter.preprintlink) links.push(`<a href="${pub.frontmatter.preprintlink}" target="_blank" class="text-blue-600 hover:text-blue-800">Preprint</a>`);
-              if (pub.frontmatter.code) links.push(`<a href="${pub.frontmatter.code}" target="_blank" class="text-blue-600 hover:text-blue-800">Code</a>`);
-              if (pub.frontmatter.website) links.push(`<a href="${pub.frontmatter.website}" target="_blank" class="text-blue-600 hover:text-blue-800">Website</a>`);
-              
+      <div class="toolbar-footer">
+        <button type="button" id="clear-publication-filters" hidden>Clear filters</button>
+      </div>
+    </section>
+
+    <div id="publication-results">
+      {publicationsByYear.map(({ year, publications: yearPublications }) => (
+        <section class="publication-year" data-year-section={year}>
+          <header class="year-heading">
+            <h2>{year}</h2>
+            <span data-year-count>{yearPublications.length} {yearPublications.length === 1 ? 'publication' : 'publications'}</span>
+          </header>
+
+          <div class="year-publications">
+            {yearPublications.map((pub, index) => {
+              const frontmatter = pub.frontmatter;
+              const pdfUrl = getPdfUrl(pub);
+              const publicationId = `${year}-${index}`;
+              const abstractId = `abstract-${publicationId}`;
+              const bibtexId = `bibtex-${publicationId}`;
+              const bibtexTextId = `bibtex-text-${publicationId}`;
+              const primaryUrl = frontmatter.publisherlink || frontmatter.preprintlink || pdfUrl || frontmatter.website;
+              const resources = [
+                pdfUrl && { label: 'PDF', url: pdfUrl, kind: 'pdf' },
+                frontmatter.publisherlink && { label: 'Publisher', url: frontmatter.publisherlink, kind: 'external' },
+                frontmatter.preprintlink && { label: 'Preprint', url: frontmatter.preprintlink, kind: 'external' },
+                frontmatter.code && { label: 'Code', url: frontmatter.code, kind: 'external' },
+                frontmatter.website && { label: 'Website', url: frontmatter.website, kind: 'external' },
+              ].filter(Boolean);
+              const additionalData = Array.isArray(frontmatter.additionaldata)
+                ? frontmatter.additionaldata
+                : cleanText(frontmatter.additionaldata) ? [frontmatter.additionaldata] : [];
+
               return (
-                <article 
-                  class="publication mb-2" 
-                  data-year={pub.frontmatter.year} 
-                  data-tags={JSON.stringify(pub.frontmatter.tags || [])}
+                <article
+                  class="publication-item"
+                  data-publication
+                  data-year={year}
+                  data-type={frontmatter.type}
+                  data-tags={JSON.stringify(frontmatter.tags || [])}
                 >
-                  <div>
-                    <p class="mb-2 text-gray-800 leading-relaxed" set:html={(() => {
-                      const parts = [];
-                      
-                      // Helper function to clean up commas
-                      function cleanField(field) {
-                        if (!field || !field.trim()) return '';
-                        // Remove leading and trailing commas and whitespace
-                        return field.replace(/^,\s*/, '').replace(/,\s*$/, '').trim();
-                      }
-                      
-                      // Title
-                      const title = cleanField(pub.frontmatter.title);
-                      if (title) {
-                        parts.push(`<span class="font-medium italic">${title}</span>`);
-                      }
-                      
-                      // Authors
-                      const authors = cleanField(pub.frontmatter.authors);
-                      if (authors) {
-                        parts.push(processMarkdown(authors));
-                      }
-                      
-                      // Citation - clean up leading/trailing commas
-                      const citation = cleanField(pub.frontmatter.citation);
-                      if (citation) {
-                        parts.push(processMarkdown(citation));
-                      }
-                      
-                      // Year
-                      if (pub.frontmatter.year) {
-                        parts.push(pub.frontmatter.year);
-                      }
-                      
-                      // Join with commas
-                      let result = parts.join(', ');
-                      
-                      // Add links if any
-                      if (links.length > 0) {
-                        result += ` (${links.join(', ')})`;
-                      }
-                      
-                      return result;
-                    })()}></p>
-                    
-                    {pub.frontmatter.additionaldata && (
-                      <div class="ml-4 mb-3 mt-2">
-                        {pub.frontmatter.additionaldata.map(item => (
-                          <p class="text-gray-600 text-sm">{item}</p>
-                        ))}
-                      </div>
-                    )}
-                    
-                    <div class="mt-3 flex gap-2">
-                      {pub.frontmatter.abstract && (
-                        <button 
-                          class="text-gray-500 hover:text-gray-800 transition-colors duration-200 flex items-center gap-1"
-                          onclick={`toggleContent('abstract-${uniqueId}')`}
-                        >
-                          abstract 
-                          <svg id={`abstract-arrow-${uniqueId}`} class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  <div class="publication-title-row">
+                    <h3>
+                      {primaryUrl ? (
+                        <a href={primaryUrl} target="_blank" rel="noopener noreferrer">{frontmatter.title}</a>
+                      ) : frontmatter.title}
+                    </h3>
+                    <span class="publication-type">{typeLabels[frontmatter.type] || frontmatter.type}</span>
+                  </div>
+
+                  <p class="publication-authors">{frontmatter.authors}</p>
+                  <p class="publication-venue" set:html={getPublicationDetails(frontmatter)}></p>
+
+                  {additionalData.length > 0 && (
+                    <div class="publication-notes">
+                      {additionalData.map(item => <p set:html={processMarkdown(item)}></p>)}
+                    </div>
+                  )}
+
+                  <div class="publication-actions">
+                    {resources.map(resource => (
+                      <a class="publication-action" href={resource.url} target="_blank" rel="noopener noreferrer">
+                        {resource.kind === 'pdf' ? (
+                          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
                           </svg>
-                        </button>
-                      )}
-                      
-                      <button 
-                        class="text-gray-500 hover:text-gray-800 transition-colors duration-200 flex items-center gap-1"
-                        onclick={`toggleContent('bibtex-${uniqueId}')`}
-                      >
-                        bibtex 
-                        <svg id={`bibtex-arrow-${uniqueId}`} class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
+                        ) : (
+                          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M14 5h5v5"></path><path d="m10 14 9-9"></path><path d="M19 14v5H5V5h5"></path>
+                          </svg>
+                        )}
+                        {resource.label}
+                      </a>
+                    ))}
+
+                    {frontmatter.abstract && (
+                      <button type="button" class="publication-action detail-toggle" data-detail-target={abstractId} aria-controls={abstractId} aria-expanded="false">
+                        Abstract
+                        <svg class="detail-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m7 10 5 5 5-5"></path></svg>
                       </button>
-                    </div>
-                    
-                    {pub.frontmatter.abstract && (
-                      <div id={`abstract-${uniqueId}`} class="collapsible-content mt-4">
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                          <p class="text-gray-700 leading-relaxed">
-                            {pub.frontmatter.abstract}
-                          </p>
-                        </div>
-                      </div>
                     )}
-                    
-                    <div id={`bibtex-${uniqueId}`} class="collapsible-content mt-4">
-                      <div class="bg-gray-50 p-6 rounded-lg" style="position: relative;">
-                        <button 
-                          style="position: absolute; top: 24px; right: 24px; z-index: 10;"
-                          class="text-gray-400 hover:text-gray-600 p-1.5 rounded hover:bg-white transition-all duration-200"
-                          onclick={`copyBibtex('bibtex-text-${uniqueId}', 'copy-btn-${uniqueId}')`}
-                          id={`copy-btn-${uniqueId}`}
-                          title="Copy BibTeX"
-                        >
-                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                          </svg>
-                        </button>
-                        <div style="overflow-x: auto; padding-right: 60px;">
-                          <pre id={`bibtex-text-${uniqueId}`} class="font-mono text-gray-700 whitespace-pre">{bibtex}</pre>
-                        </div>
-                      </div>
+
+                    <button type="button" class="publication-action detail-toggle" data-detail-target={bibtexId} aria-controls={bibtexId} aria-expanded="false">
+                      BibTeX
+                      <svg class="detail-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m7 10 5 5 5-5"></path></svg>
+                    </button>
+                  </div>
+
+                  {frontmatter.abstract && (
+                    <div id={abstractId} class="publication-detail abstract-detail" hidden><p>{frontmatter.abstract}</p></div>
+                  )}
+
+                  <div id={bibtexId} class="publication-detail bibtex-detail" hidden>
+                    <div class="bibtex-heading">
+                      <span>BibTeX citation</span>
+                      <button type="button" class="copy-bibtex" data-copy-target={bibtexTextId}>Copy</button>
                     </div>
+                    <pre><code id={bibtexTextId}>{generateBibtex(frontmatter)}</code></pre>
                   </div>
                 </article>
               );
             })}
           </div>
         </section>
-      );
-    })}
+      ))}
+    </div>
+
+    <div id="no-publication-results" hidden>
+      <h2>No publications found</h2>
+      <p>Try another year or clear one of the filters.</p>
+    </div>
+
   </div>
 </Layout>
 
-<style>
-  .filter-btn {
-    font-weight: 500;
+<style is:global>
+  .publications-page { width: 100%; max-width: 64rem; margin: 0 auto; padding: 0 1rem 5rem; }
+  .publications-header { margin-bottom: 2rem; }
+  .publications-header h1 { margin: 0 0 0.35rem; color: #111827; font-size: 2.5rem; font-weight: 700; line-height: 1.15; }
+  .publications-header p { color: #6b7280; font-size: 1rem; }
+
+  .publication-toolbar { margin-bottom: 3rem; padding: 1.25rem; border: 1px solid #e5e7eb; border-radius: 0.75rem; background: #f9fafb; }
+  .toolbar-label { flex: 0 0 3.25rem; color: #4b5563; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.035em; line-height: 1.5; text-transform: uppercase; }
+  #publication-year { width: 13rem; max-width: 100%; min-height: 2.75rem; padding: 0.65rem 2rem 0.65rem 0.8rem; border: 1px solid #d1d5db; border-radius: 0.5rem; background: #fff; color: #1f2937; font-size: 1rem; line-height: 1.35; box-shadow: 0 1px 2px rgb(15 23 42 / 0.04); }
+  #publication-year:focus { border-color: #60a5fa; outline: 3px solid rgb(147 197 253 / 0.45); outline-offset: 1px; }
+  .filter-row { display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; }
+  .publication-toolbar > .filter-row:first-child { margin-top: 0; }
+  .filter-options { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .filter-chip { min-height: 2rem; padding: 0.3rem 0.7rem; border: 1px solid #d1d5db; border-radius: 999px; background: #fff; color: #4b5563; font-size: 0.875rem; font-weight: 600; line-height: 1.2; cursor: pointer; transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease; }
+  .filter-chip:hover { border-color: #93c5fd; background: #eff6ff; color: #1d4ed8; }
+  .filter-chip.is-active { border-color: #2563eb; background: #2563eb; color: #fff; }
+  .filter-chip:focus-visible, #clear-publication-filters:focus-visible, .publication-action:focus-visible, .copy-bibtex:focus-visible { outline: 3px solid rgb(147 197 253 / 0.65); outline-offset: 2px; }
+  .toolbar-footer { text-align: right; }
+  #clear-publication-filters { border: 0; background: transparent; color: #4b5563; font-size: 0.875rem; font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+  #clear-publication-filters:not([hidden]) { display: inline-block; margin-top: 0.75rem; }
+  #clear-publication-filters:hover { color: #1d4ed8; }
+
+  .publication-year { margin-bottom: 3.75rem; }
+  .year-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid #1f2937; }
+  .year-heading h2 { color: #111827; font-size: 1.75rem; font-weight: 650; line-height: 1.2; }
+  .year-heading span { color: #6b7280; font-size: 0.875rem; }
+  .publication-item { padding: 1.55rem 0 1.65rem; }
+  .publication-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.25rem; }
+  .publication-title-row h3 { margin: 0; color: #1f2937; font-size: 1.2rem; font-weight: 650; line-height: 1.4; }
+  .publication-title-row h3 a { color: #1d4ed8; text-decoration: none; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+  .publication-title-row h3 a:hover { color: #1e40af; text-decoration: underline; }
+  .publication-type { flex: none; margin-top: 0.15rem; padding: 0.2rem 0.5rem; border-radius: 999px; background: #f3f4f6; color: #6b7280; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.045em; line-height: 1.35; text-transform: uppercase; }
+  .publication-authors { margin-top: 0.35rem; color: #374151; font-size: 1rem; line-height: 1.55; }
+  .publication-venue { margin-top: 0.15rem; color: #6b7280; font-size: 0.95rem; line-height: 1.55; }
+  .publication-notes { margin-top: 0.55rem; padding-left: 0.75rem; border-left: 2px solid #dbeafe; color: #6b7280; font-size: 0.875rem; line-height: 1.5; }
+  .publication-notes p + p { margin-top: 0.25rem; }
+  .publication-actions { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.9rem; }
+  .publication-action { display: inline-flex; min-height: 2rem; align-items: center; gap: 0.35rem; padding: 0.3rem 0.6rem; border: 1px solid #d1d5db; border-radius: 0.4rem; background: #fff; color: #374151; font-family: inherit; font-size: 0.82rem; font-weight: 650; line-height: 1.2; text-decoration: none; cursor: pointer; transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease; }
+  .publication-action:hover { border-color: #93c5fd; background: #eff6ff; color: #1d4ed8; }
+  .publication-action svg { width: 0.9rem; height: 0.9rem; flex: none; stroke-width: 1.9; }
+  .detail-chevron { transition: transform 150ms ease; }
+  .detail-toggle[aria-expanded="true"] .detail-chevron { transform: rotate(180deg); }
+  .publication-detail { margin-top: 1rem; border: 1px solid #e5e7eb; border-radius: 0.65rem; background: #f9fafb; }
+  .abstract-detail { padding: 1rem 1.15rem; border-left: 3px solid #93c5fd; color: #374151; font-size: 0.95rem; line-height: 1.7; }
+  .bibtex-detail { overflow: hidden; }
+  .bibtex-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0.85rem; border-bottom: 1px solid #e5e7eb; color: #4b5563; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.025em; }
+  .copy-bibtex { padding: 0.25rem 0.55rem; border: 1px solid #d1d5db; border-radius: 0.35rem; background: #fff; color: #374151; font-size: 0.8rem; font-weight: 650; cursor: pointer; }
+  .copy-bibtex:hover { border-color: #93c5fd; color: #1d4ed8; }
+  .bibtex-detail pre { max-width: 100%; margin: 0; padding: 1rem; overflow-x: auto; color: #374151; font-size: 0.78rem; line-height: 1.55; white-space: pre; scrollbar-color: #cbd5e1 #f8fafc; scrollbar-width: thin; }
+  #no-publication-results { padding: 3.5rem 1rem; border: 1px dashed #d1d5db; border-radius: 0.75rem; color: #6b7280; text-align: center; }
+  #no-publication-results h2 { margin-bottom: 0.35rem; color: #374151; font-size: 1.25rem; font-weight: 650; }
+
+  @media (max-width: 700px) {
+    .publications-page { padding-inline: 0; }
+    .publications-header h1 { font-size: 2.15rem; }
+    .publication-toolbar { padding: 1rem; }
+    .filter-row { align-items: flex-start; flex-direction: column; gap: 0.45rem; }
+    .toolbar-label { flex-basis: auto; }
+    .toolbar-footer { text-align: left; }
+    .publication-title-row { flex-direction: column; gap: 0.45rem; }
+    .publication-type { order: -1; }
+    .publication-item { padding-block: 1.35rem; }
   }
-  
-  .filter-btn.active {
-    background-color: rgb(59 130 246);
-    color: white;
-    border-color: rgb(59 130 246);
-  }
-  
-  .filter-btn.active:hover {
-    background-color: rgb(37 99 235);
-    border-color: rgb(37 99 235);
-  }
-  
-  .publication {
-    transition: opacity 0.3s ease;
-  }
-  
-  .publication.hidden {
-    display: none;
-  }
-  
-  .pub-section.hidden {
-    display: none;
-  }
-  
-  .collapsible-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
-    opacity: 0;
-  }
-  
-  .collapsible-content.show {
-    max-height: 2000px;
-    opacity: 1;
-  }
-  
-  /* Chevron rotation */
-  .rotate-180 {
-    transform: rotate(180deg);
-  }
-  
-  /* Ensure bibtex scrolls horizontally */
-  pre {
-    scrollbar-width: thin;
-    scrollbar-color: #cbd5e0 #f7fafc;
-  }
-  
-  pre::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  pre::-webkit-scrollbar-track {
-    background: #f7fafc;
-  }
-  
-  pre::-webkit-scrollbar-thumb {
-    background: #cbd5e0;
-    border-radius: 4px;
+
+  @media print {
+    .publication-toolbar, .publication-actions, .publication-detail, .publication-type, .year-heading span { display: none !important; }
+    .publication-year { margin-bottom: 2rem; break-inside: avoid; }
   }
 </style>
 
 <script>
-  // Toggle content function
-  function toggleContent(id) {
-    const content = document.getElementById(id);
-    const arrow = document.getElementById(id.replace('abstract-', 'abstract-arrow-').replace('bibtex-', 'bibtex-arrow-'));
-    
-    if (content.classList.contains('show')) {
-      content.classList.remove('show');
-      arrow.classList.remove('rotate-180');
-    } else {
-      content.classList.add('show');
-      arrow.classList.add('rotate-180');
-    }
-  }
-  
-  // Copy bibtex function
-  function copyBibtex(textId, buttonId) {
-    const bibtexText = document.getElementById(textId).textContent;
-    const button = document.getElementById(buttonId);
-    
-    navigator.clipboard.writeText(bibtexText).then(() => {
-      // Change icon to checkmark
-      button.innerHTML = `
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-      `;
-      button.classList.remove('text-gray-400');
-      button.classList.add('text-green-600');
-      
-      // Revert after 2 seconds
-      setTimeout(() => {
-        button.innerHTML = `
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-          </svg>
-        `;
-        button.classList.remove('text-green-600');
-        button.classList.add('text-gray-400');
-      }, 2000);
-    }).catch(err => {
-      console.error('Failed to copy:', err);
-    });
-  }
-  
-  // Make functions global
-  window.toggleContent = toggleContent;
-  window.copyBibtex = copyBibtex;
-  
-  // Filter functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const topicFilters = document.querySelectorAll('.topic-filter');
-    const yearFilters = document.querySelectorAll('.year-filter');
-    const publications = document.querySelectorAll('.publication');
-    const sections = document.querySelectorAll('.pub-section');
-    const clearButton = document.getElementById('clear-filters');
-    
-    let selectedTopics = new Set();
-    let selectedYears = new Set();
-    
-    function updateClearButton() {
-      if (selectedTopics.size > 0 || selectedYears.size > 0) {
-        clearButton.classList.remove('hidden');
-      } else {
-        clearButton.classList.add('hidden');
+  function initializePublicationPage() {
+    const yearSelect = document.getElementById('publication-year');
+    const clearButton = document.getElementById('clear-publication-filters');
+    const summary = document.getElementById('publication-summary');
+    const noResults = document.getElementById('no-publication-results');
+    const publications = [...document.querySelectorAll('[data-publication]')];
+    const yearSections = [...document.querySelectorAll('[data-year-section]')];
+    const typeButtons = [...document.querySelectorAll('[data-filter="type"]')];
+    const topicButtons = [...document.querySelectorAll('[data-filter="topic"]')];
+    const selectedTypes = new Set();
+    const selectedTopics = new Set();
+    const total = publications.length;
+    const years = yearSections.map(section => Number(section.dataset.yearSection));
+    const defaultSummary = `${total} publications · ${Math.min(...years)}–${Math.max(...years)}`;
+
+    function updateFilterButtons(buttons, selectedValues) {
+      for (const button of buttons) {
+        const active = button.dataset.value === 'all' ? selectedValues.size === 0 : selectedValues.has(button.dataset.value);
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
       }
     }
-    
+
     function applyFilters() {
-      // Filter publications
-      publications.forEach(pub => {
-        const year = parseInt(pub.dataset.year);
-        const tags = JSON.parse(pub.dataset.tags || '[]');
-        
-        const showByYear = selectedYears.size === 0 || selectedYears.has(year.toString());
-        const showByTopic = selectedTopics.size === 0 || 
-          tags.some(tag => selectedTopics.has(tag));
-        
-        if (showByYear && showByTopic) {
-          pub.classList.remove('hidden');
-        } else {
-          pub.classList.add('hidden');
-        }
-      });
-      
-      // Hide empty sections
-      sections.forEach(section => {
-        const visiblePubs = section.querySelectorAll('.publication:not(.hidden)');
-        if (visiblePubs.length === 0) {
-          section.classList.add('hidden');
-        } else {
-          section.classList.remove('hidden');
-        }
-      });
-      
-      updateClearButton();
+      const selectedYear = yearSelect.value;
+      let visibleTotal = 0;
+
+      for (const publication of publications) {
+        const tags = JSON.parse(publication.dataset.tags || '[]');
+        const matchesYear = selectedYear === '' || publication.dataset.year === selectedYear;
+        const matchesType = selectedTypes.size === 0 || selectedTypes.has(publication.dataset.type);
+        const matchesTopic = selectedTopics.size === 0 || tags.some(tag => selectedTopics.has(tag));
+        const visible = matchesYear && matchesType && matchesTopic;
+        publication.hidden = !visible;
+        if (visible) visibleTotal += 1;
+      }
+
+      for (const section of yearSections) {
+        const visibleInYear = [...section.querySelectorAll('[data-publication]')].filter(publication => !publication.hidden).length;
+        section.hidden = visibleInYear === 0;
+        const count = section.querySelector('[data-year-count]');
+        if (count) count.textContent = `${visibleInYear} ${visibleInYear === 1 ? 'publication' : 'publications'}`;
+      }
+
+      const active = selectedYear !== '' || selectedTypes.size > 0 || selectedTopics.size > 0;
+      summary.textContent = active ? `${visibleTotal} of ${total} publications` : defaultSummary;
+      clearButton.hidden = !active;
+      noResults.hidden = visibleTotal !== 0;
     }
-    
-    // Topic filter clicks
-    topicFilters.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const topic = btn.dataset.topic;
-        
-        if (selectedTopics.has(topic)) {
-          selectedTopics.delete(topic);
-          btn.classList.remove('active');
-        } else {
-          selectedTopics.add(topic);
-          btn.classList.add('active');
-        }
-        
-        applyFilters();
-      });
-    });
-    
-    // Year filter clicks
-    yearFilters.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const year = btn.dataset.year;
-        
-        if (selectedYears.has(year)) {
-          selectedYears.delete(year);
-          btn.classList.remove('active');
-        } else {
-          selectedYears.add(year);
-          btn.classList.add('active');
-        }
-        
-        applyFilters();
-      });
-    });
-    
-    // Clear filters
-    clearButton.addEventListener('click', () => {
-      selectedTopics.clear();
-      selectedYears.clear();
-      topicFilters.forEach(btn => btn.classList.remove('active'));
-      yearFilters.forEach(btn => btn.classList.remove('active'));
+
+    function handleChipClick(buttons, selectedValues, clickedButton) {
+      const value = clickedButton.dataset.value;
+      if (value === 'all') selectedValues.clear();
+      else if (selectedValues.has(value)) selectedValues.delete(value);
+      else selectedValues.add(value);
+      updateFilterButtons(buttons, selectedValues);
       applyFilters();
+    }
+
+    for (const button of typeButtons) button.addEventListener('click', () => handleChipClick(typeButtons, selectedTypes, button));
+    for (const button of topicButtons) button.addEventListener('click', () => handleChipClick(topicButtons, selectedTopics, button));
+    yearSelect.addEventListener('change', applyFilters);
+
+    clearButton.addEventListener('click', () => {
+      yearSelect.value = '';
+      selectedTypes.clear();
+      selectedTopics.clear();
+      updateFilterButtons(typeButtons, selectedTypes);
+      updateFilterButtons(topicButtons, selectedTopics);
+      applyFilters();
+      yearSelect.focus();
     });
-  });
+
+    for (const button of document.querySelectorAll('.detail-toggle')) {
+      button.addEventListener('click', () => {
+        const panel = document.getElementById(button.dataset.detailTarget);
+        const willOpen = panel.hidden;
+        panel.hidden = !willOpen;
+        button.setAttribute('aria-expanded', String(willOpen));
+      });
+    }
+
+    for (const button of document.querySelectorAll('.copy-bibtex')) {
+      button.addEventListener('click', async () => {
+        const citation = document.getElementById(button.dataset.copyTarget).textContent;
+        const originalLabel = button.textContent;
+        try {
+          await navigator.clipboard.writeText(citation);
+          button.textContent = 'Copied';
+          setTimeout(() => { button.textContent = originalLabel; }, 1800);
+        } catch (error) {
+          button.textContent = 'Copy failed';
+          setTimeout(() => { button.textContent = originalLabel; }, 1800);
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initializePublicationPage, { once: true });
+  else initializePublicationPage();
 </script>
