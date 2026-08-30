@@ -39,6 +39,7 @@ content:
       sort: [year, type, title, authors, front_page]
       search: [title, authors, citation, journal, bookname, tags]
       default:
+        search: ""
         sort: year
         order: desc
     fields:
