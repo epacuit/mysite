@@ -1,18 +1,23 @@
 ---
-title: Epistemic Game Theory
-short_name: Epistemic Game Theory
-course_number: PHIL 858E
+title: Topics in Bayesian Epistemology
+short_name: Bayesian Epistemology
+course_number: PHIL 808K
 level: Graduate
-current_semester: Spring 2014
+current_semester: Fall 2026
 website:
-  - sem: Spring 2014
-    www: https://myelms.umd.edu/courses/1057200
+  - sem: Fall 2026
+    www: https://umd.instructure.com/courses/1411586
 syllabus:
-  - sem: Spring 2014
-    file: ./syl-phil858E-epgamethy.pdf
+  - sem: Fall 2026
+    file: ./syl-topics-bayesian-epistemology.pdf
 past_semesters:
 ---
 
-There are two main goals for this course.  The first is to provide a general introduction to game and decision theory with a special focus on the growing body of literature surrounding the so-called *epistemic* foundations of game theory.   Epistemic game theory aims at formalizing  assumptions about knowledge, belief and rationality,  and then studies their behavioral implications in games.   The second goal  is to carefully examine the   assumptions that are built into any game-theoretic model of social interaction. We will finish the course by discussing some broader issues  surrounding  the role that mathematical models play in the social sciences and the how to interpret a game-theoretic model. 
+This course is about the formal models of knowledge and belief used in logic, philosophy, computer science, artificial intelligence, game theory, linguistics, and statistics. It is focused on four foundational questions:
 
-Some previous exposure to game and decision theory will be helpful, but is not required (I will do my best to provide the necessary background in  game  and decision theory.   This will include a tutorial on the basic concepts of game and decision theory during the first lecture and additional  lectures on background material as needed during the semester).   This is an interdisciplinary topic, and so our readings will be taken from economics, logic, philosophy and cognitive science journals.
+* How should an agent's uncertainty be represented, and how are the different representations related?
+* What, if anything, justifies representing an agent's uncertainty by a probability measure?
+* How should an agent change her beliefs in response to new evidence?
+* What is the relationship between an agent's graded beliefs,   full beliefs, and the reasons that support them?
+
+The final part of the course (time permitting) focuses on issues that arise in decision theory and in the move from a single agent to a group of agents.
