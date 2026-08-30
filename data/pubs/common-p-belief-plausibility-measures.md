@@ -12,7 +12,7 @@ publisherlink: " https://doi.org/10.4204/EPTCS.437.10"
 tags:
   - Logic
   - Game Theory
-front_page: true
+front_page: false
 frontpage_data:
   - icon: link
     short_blurb: (with Leo Yang), TARK 2025, full version in preparation

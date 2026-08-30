@@ -1,116 +1,143 @@
-- text: "[Logic research group](https://logic-group.pacuit.org) (weekly seminar at the University of Maryland)"
+- text: "[Logic research group](https://logic-group.pacuit.org) (weekly seminar at
+    the University of Maryland)"
+  type: general
   show: true
-
-- text: "Invited Participant, BIRS Workshop: The Mathematics of Elections, Fairness, and Representation, March 29 - April 3, 2026"
+- text: "Invited Participant, BIRS Workshop: The Mathematics of Elections,
+    Fairness, and Representation, March 29 - April 3, 2026"
   type: workshop
   show: true
-
-- text: "Talk at Online Social Choice and Welfare Seminar, February 17, 2025, online"
+- text: Characterizations of voting rules based on majority margins, Talk at
+    Online Social Choice and Welfare Seminar, February 17, 2026, online
   type: talk
   show: true
-
-- text: "\"Common p-Belief and Plausibility Measures\" will be presented at [TARK 2025](https://ccc.cs.uni-duesseldorf.de/tark-2025/), July 14-16, 2025, Dusseldorf, Germany"
+- text: '"Common p-Belief and Plausibility Measures" will be presented at [TARK
+    2025](https://ccc.cs.uni-duesseldorf.de/tark-2025/), July 14-16, 2025,
+    Dusseldorf, Germany'
   type: talk
-  show: true
-
-- text: "[ESSLLI 2025](https://2025.esslli.eu/) Course: [Epistemic Arithmetic](/esslli2025/epistemic-arithmetic/), Bochum, Germany"
+  show: false
+- text: "[ESSLLI 2025](https://2025.esslli.eu/) Course: [Epistemic
+    Arithmetic](/esslli2025/epistemic-arithmetic/), Bochum, Germany"
   type: course
   show: true
-
-- text: "Co-Organized [Social Choice for AI Ethics and Safety 2025 (SC4AI'25)](https://sites.google.com/view/sc4ai/workshops/sc4ai25?authuser=0), May 19, 2025, AAMAS, Detroit, Michigan"
+- text: Co-Organized [Social Choice for AI Ethics and Safety 2025
+    (SC4AI'25)](https://sites.google.com/view/sc4ai/workshops/sc4ai25?authuser=0),
+    May 19, 2025, AAMAS, Detroit, Michigan
   type: workshop
   show: true
-
-- text: "Invited Speaker, [Modal Logic Session, Association for Symbolic Logic](https://math.nmsu.edu/asl-2025/schedule.html), \"Common p-Belief and Plausibility Measures\", New Mexico State University, Las Cruces, New Mexico, May 13-16, 2025"
+- text: Invited Speaker, [Modal Logic Session, Association for Symbolic
+    Logic](https://math.nmsu.edu/asl-2025/schedule.html), "Common p-Belief and
+    Plausibility Measures", New Mexico State University, Las Cruces, New Mexico,
+    May 13-16, 2025
   type: talk
   show: true
-
-- text: "Nordic Online Logic Seminar, [NOLS](https://scandinavianlogic.org/2024-08-19-NOL-Seminar-Eric-Pacuit.html), August 26, 2024"
+- text: Nordic Online Logic Seminar,
+    [NOLS](https://scandinavianlogic.org/2024-08-19-NOL-Seminar-Eric-Pacuit.html),
+    August 26, 2024
   type: talk
   show: false
-
-- text: "[ESSLLI 2024](https://2024.esslli.eu/) Course: [Neighborhood Semantics for Modal Logic](/esslli2024/neighborhood-semantics/), Leuven, Belgium"
+- text: "[ESSLLI 2024](https://2024.esslli.eu/) Course: [Neighborhood Semantics
+    for Modal Logic](/esslli2024/neighborhood-semantics/), Leuven, Belgium"
   type: course
   show: false
-
-- text: "[ESSLLI 2024](https://2024.esslli.eu/) Course: [Social Choice and Machine Learning](/esslli2024/social-choice-machine-learning/), Leuven, Belgium"
+- text: "[ESSLLI 2024](https://2024.esslli.eu/) Course: [Social Choice and Machine
+    Learning](/esslli2024/social-choice-machine-learning/), Leuven, Belgium"
   type: course
   show: false
-
-- text: "Invited Speaker, [LUCI (Logic, Uncertainty, Computation and Information) Lab](https://luci.unimi.it/) Seminar, Online, March 4, 2024"
+- text: Invited Speaker, [LUCI (Logic, Uncertainty, Computation and Information)
+    Lab](https://luci.unimi.it/) Seminar, Online, March 4, 2024
   type: talk
   show: false
-
-- text: "Invited Participant, Social Choice for AI Ethics and Safety, University of California, Berkeley, December 6-8, 2023"
+- text: Invited Participant, Social Choice for AI Ethics and Safety, University of
+    California, Berkeley, December 6-8, 2023
   type: workshop
   show: false
-
-- text: "Invited Speaker, [Conference on Voting Theory and Preference Aggregation](https://micro.econ.kit.edu/downloads/Conference_on_Voting_Theory_and_Preference_Aggregation_2023_Program_with_Papers.pdf), Karlsruhe Institute of Technology, Germany, October 9-11, 2023"
+- text: Invited Speaker, [Conference on Voting Theory and Preference
+    Aggregation](https://micro.econ.kit.edu/downloads/Conference_on_Voting_Theory_and_Preference_Aggregation_2023_Program_with_Papers.pdf),
+    Karlsruhe Institute of Technology, Germany, October 9-11, 2023
   type: talk
   show: false
-
-- text: "[Online notes on logic and probability](https://logic-probability.pacuit.org): Prepared for an course introducing logic and probability ([PHIL 171](https://phil171.org))"
+- text: "[Online notes on logic and
+    probability](https://logic-probability.pacuit.org): Prepared for an course
+    introducing logic and probability ([PHIL 171](https://phil171.org))"
+  type: general
   show: true
-
-- text: "[ESSLLI 2023](https://2023.esslli.eu/) Course: [Computational Game Theory in Julia](/esslli2023/game-theory-julia/), University of Ljubljana, Solvenia"
+- text: "[ESSLLI 2023](https://2023.esslli.eu/) Course: [Computational Game Theory
+    in Julia](/esslli2023/game-theory-julia/), University of Ljubljana,
+    Solvenia"
   type: course
   show: false
-
-- text: "[ESSLLI 2023](https://2023.esslli.eu/) Course: [Tools for Formal Epistemology: Doxastic Logic, Probability, and Default Logic](/esslli2023/tools-formal-epistemology/), (with Aleks Knoks), University of Ljubljana, Solvenia"
+- text: "[ESSLLI 2023](https://2023.esslli.eu/) Course: [Tools for Formal
+    Epistemology: Doxastic Logic, Probability, and Default
+    Logic](/esslli2023/tools-formal-epistemology/), (with Aleks Knoks),
+    University of Ljubljana, Solvenia"
   type: course
   show: false
-
-- text: "[Normative Reasoning for AI](https://www.dagstuhl.de/en/seminars/seminar-calendar/seminar-details/23151), Dagstuhl Workshop, April 10-14, 2023"
+- text: "[Normative Reasoning for
+    AI](https://www.dagstuhl.de/en/seminars/seminar-calendar/seminar-details/23\
+    151), Dagstuhl Workshop, April 10-14, 2023"
   type: workshop
   show: false
-
-- text: "Talk: [Social Choice and Welfare Conference](https://sscw2020.colmex.mx/), Stable Voting, June 23, 2022"
+- text: "Talk: [Social Choice and Welfare
+    Conference](https://sscw2020.colmex.mx/), Stable Voting, June 23, 2022"
   type: talk
   show: false
-
-- text: "[ESSLLI 2022](https://2022.esslli.eu/) Course: [Conditionals in Game Theory](https://pacuit.org/esslli2022/conditionals-games/) (with Ilaria Canavotto), August 15 - August 19, National University of Ireland Galway"
+- text: "[ESSLLI 2022](https://2022.esslli.eu/) Course: [Conditionals in Game
+    Theory](https://pacuit.org/esslli2022/conditionals-games/) (with Ilaria
+    Canavotto), August 15 - August 19, National University of Ireland Galway"
   type: course
   show: false
-
-- text: "[ESSLLI 2022](https://2022.esslli.eu/) Course: [Logics for Social Choice Theory](https://pacuit.org/esslli2022/logics-social-choice/), August 15 - August 19, National University of Ireland Galway"
+- text: "[ESSLLI 2022](https://2022.esslli.eu/) Course: [Logics for Social Choice
+    Theory](https://pacuit.org/esslli2022/logics-social-choice/), August 15 -
+    August 19, National University of Ireland Galway"
   type: course
   show: false
-
-- text: "[ESSLLI 2021](https://esslli2021.unibz.it/) Course: [Probabilistic Methods in Social Choice](https://pacuit.org/esslli2021/prob-social-choice/), online."
+- text: "[ESSLLI 2021](https://esslli2021.unibz.it/) Course: [Probabilistic
+    Methods in Social
+    Choice](https://pacuit.org/esslli2021/prob-social-choice/), online."
   type: course
   show: false
-
-- text: "Talk: [COMSOC Video Seminar](https://sites.google.com/view/comsoc-seminar/), Online, May 28, 2021"
+- text: "Talk: [COMSOC Video
+    Seminar](https://sites.google.com/view/comsoc-seminar/), Online, May 28,
+    2021"
   type: talk
   show: false
-
-- text: "Book: [Neighborhood Semantics for Modal Logic](https://pacuit.org/modal/neighborhoods/), Springer 2017."
+- text: "Book: [Neighborhood Semantics for Modal
+    Logic](https://pacuit.org/modal/neighborhoods/), Springer 2017."
+  type: general
   show: true
-
-- text: "Talk: [Logic and Philosophy of Science Group Talk](https://philosophy.utoronto.ca/event/logic-science-talk-eric-pacuit-maryland/), University of Toronto, October 30th, 2020"
+- text: "Talk: [Logic and Philosophy of Science Group
+    Talk](https://philosophy.utoronto.ca/event/logic-science-talk-eric-pacuit-m\
+    aryland/), University of Toronto, October 30th, 2020"
   type: talk
   show: false
-
-- text: "ESSLLI 2019 Course: [Puzzles](http://pacuit.org/esslli2019/puzzles), (with Hans van Ditmarsch), University of Latvia, Riga, Latvia."
+- text: "ESSLLI 2019 Course: [Puzzles](http://pacuit.org/esslli2019/puzzles),
+    (with Hans van Ditmarsch), University of Latvia, Riga, Latvia."
   type: course
   show: false
-
-- text: "ESSLLI 2019 Course: [Logics of Action, Ability, Knowledge and Obligation](http://pacuit.org/esslli2019/epstit), (with Jeff Horty), University of Latvia, Riga, Latvia."
+- text: "ESSLLI 2019 Course: [Logics of Action, Ability, Knowledge and
+    Obligation](http://pacuit.org/esslli2019/epstit), (with Jeff Horty),
+    University of Latvia, Riga, Latvia."
   type: course
   show: false
-
-- text: "Talk: [Knowledge of Knowledge, Regensburg International Workshop](https://www.uni-regensburg.de/philosophie-kunst-geschichte-gesellschaft/theoretische-philosophie/workshops/2019/), Beliefs, Propositions and Definite Descriptions, Aug. 22, 2019"
+- text: "Talk: [Knowledge of Knowledge, Regensburg International
+    Workshop](https://www.uni-regensburg.de/philosophie-kunst-geschichte-gesell\
+    schaft/theoretische-philosophie/workshops/2019/), Beliefs, Propositions and
+    Definite Descriptions, Aug. 22, 2019"
   type: talk
   show: false
-
-- text: "Talk: [Working Group in History and Philosophy of Logic, Mathematics and Science](http://hplms.berkeley.edu/), Strategic reasoning: From beliefs about mistakes to mistaken beliefs, October 17, 2018"
+- text: "Talk: [Working Group in History and Philosophy of Logic, Mathematics and
+    Science](http://hplms.berkeley.edu/), Strategic reasoning: From beliefs
+    about mistakes to mistaken beliefs, October 17, 2018"
   type: talk
   show: false
-
-- text: "Talk: [Logic, Information, and Topology Workshop](https://www.cmu.edu/dietrich/philosophy/events/workshops-conferences/index.html), Beliefs, Propositions and Definite Descriptions, Center for Formal Epistemology, Carnegie Mellon University, October 20th, 2018"
+- text: "Talk: [Logic, Information, and Topology
+    Workshop](https://www.cmu.edu/dietrich/philosophy/events/workshops-conferen\
+    ces/index.html), Beliefs, Propositions and Definite Descriptions, Center for
+    Formal Epistemology, Carnegie Mellon University, October 20th, 2018"
   type: talk
   show: false
-
-- text: "Short Course: [Neighborhood semantics for modal logic](http://app.pacuit.io/teaching/nbhd2018_tsinghua), Tsinghua University, Beijing, November, 2018."
+- text: "Short Course: [Neighborhood semantics for modal
+    logic](http://app.pacuit.io/teaching/nbhd2018_tsinghua), Tsinghua
+    University, Beijing, November, 2018."
   type: course
   show: false
